@@ -9,6 +9,7 @@
     "modbus-serial": "^8.0.22"
   },
   "devDependencies": {
+    "@tsconfig/node12": "^12.1.7",
     "@tsconfig/node16": "^16.1.8",
     "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.12",
     "@types/node": "^25.3.3",
