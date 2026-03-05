@@ -1,0 +1,18 @@
+{
+    "id":  "flow-alarm-on",
+    "title":  {
+                  "en":  "Flow alarm turned ON",
+                  "nl":  "Debietalarm AAN"
+              },
+    "hint":  {
+                 "en":  "Triggers when insufficient flow is detected on the heating circuit.",
+                 "nl":  "Wordt geactiveerd wanneer het debietalarm afgaat."
+             },
+    "args":  [
+                 {
+                     "filter":  "driver_id=qube",
+                     "name":  "device",
+                     "type":  "device"
+                 }
+             ]
+}

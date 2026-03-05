@@ -1,0 +1,12 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Heating Curve",
+    "nl": "Stooklijn"
+  },
+  "icon": "/assets/icons/curve.svg",
+  "getable": true,
+  "setable": true,
+  "uiComponent": "toggle",
+  "insights": true
+}

@@ -1,0 +1,19 @@
+{
+    "type":  "number",
+    "title":  {
+                  "en":  "DHW Setpoint",
+                  "nl":  "Warmwatersetpoint"
+              },
+    "units":  {
+                  "en":  "°C"
+              },
+    "decimals":  1,
+    "min":  30,
+    "max":  65,
+    "step":  0.5,
+    "icon":  "/assets/icons/target-temp.svg",
+    "getable":  true,
+    "setable":  true,
+    "uiComponent":  "slider",
+    "insights":  true
+}

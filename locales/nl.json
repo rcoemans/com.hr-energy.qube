@@ -1,0 +1,33 @@
+{
+  "errors": {
+    "ip_required": "IP-adres is vereist",
+    "modbus_not_connected": "Modbus-client is niet verbonden",
+    "modbus_connect_failed": "Kan geen verbinding maken met Qube",
+    "modbus_poll_failed": "Modbus-polling mislukt",
+    "missing_ip": "IP-adres ontbreekt"
+  },
+  "status": {
+    "standby": "Stand-by",
+    "heating": "Verwarmen",
+    "cooling": "Koelen",
+    "heating_dhw": "Warmwater verwarmen",
+    "compressor_startup": "Compressor start",
+    "compressor_shutdown": "Compressor stopt",
+    "start_fail": "Compressor start mislukt",
+    "alarm": "Alarm",
+    "unknown": "Onbekend"
+  },
+  "alarms": {
+    "flow": "Debiet",
+    "heating": "Verwarming",
+    "cooling": "Koeling",
+    "source": "Bron",
+    "user": "Gebruiker",
+    "legionella_timeout": "Legionella time-out",
+    "dhw_timeout": "Warmwater time-out",
+    "working_hours": "Bedrijfsuren"
+  },
+  "device": {
+    "pair_name": "Qube"
+  }
+}

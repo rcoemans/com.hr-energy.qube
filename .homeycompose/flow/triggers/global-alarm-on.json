@@ -1,0 +1,18 @@
+{
+    "id":  "global-alarm-on",
+    "title":  {
+                  "en":  "Global alarm turned ON",
+                  "nl":  "Globaal alarm AAN"
+              },
+    "hint":  {
+                 "en":  "Triggers when the global alarm activates.",
+                 "nl":  "Wordt geactiveerd wanneer het globale alarm afgaat."
+             },
+    "args":  [
+                 {
+                     "filter":  "driver_id=qube",
+                     "name":  "device",
+                     "type":  "device"
+                 }
+             ]
+}

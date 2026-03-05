@@ -1,0 +1,18 @@
+{
+    "id":  "cooling-alarm-on",
+    "title":  {
+                  "en":  "Cooling alarm turned ON",
+                  "nl":  "Koelingsalarm AAN"
+              },
+    "hint":  {
+                 "en":  "Triggers when a cooling alarm activates.",
+                 "nl":  "Wordt geactiveerd wanneer het koelingsalarm afgaat."
+             },
+    "args":  [
+                 {
+                     "filter":  "driver_id=qube",
+                     "name":  "device",
+                     "type":  "device"
+                 }
+             ]
+}

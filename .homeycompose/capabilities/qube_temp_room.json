@@ -1,0 +1,16 @@
+{
+    "type":  "number",
+    "title":  {
+                  "en":  "Room Temperature",
+                  "nl":  "Kamertemperatuur"
+              },
+    "units":  {
+                  "en":  "°C"
+              },
+    "decimals":  2,
+    "icon":  "/assets/icons/thermometer.svg",
+    "getable":  true,
+    "setable":  false,
+    "insights":  true,
+    "uiComponent":  "sensor"
+}

@@ -1,0 +1,43 @@
+{
+    "id":  "set-season-mode",
+    "title":  {
+                  "en":  "Set season mode",
+                  "nl":  "Seizoensmodus instellen"
+              },
+    "hint":  {
+                 "en":  "Switch between heating (winter) and cooling (summer) season.",
+                 "nl":  "Schakelen tussen verwarmen (winter) en koelen (zomer)."
+             },
+    "args":  [
+                 {
+                     "filter":  "driver_id=qube",
+                     "name":  "device",
+                     "type":  "device"
+                 },
+                 {
+                     "type":  "dropdown",
+                     "name":  "value",
+                     "title":  {
+                                   "en":  "Season"
+                               },
+                     "values":  [
+                                    {
+                                        "id":  "0",
+                                        "label":  {
+                                                      "en":  "Winter (Heating)"
+                                                  }
+                                    },
+                                    {
+                                        "id":  "1",
+                                        "label":  {
+                                                      "en":  "Summer (Cooling)"
+                                                  }
+                                    }
+                                ]
+                 }
+             ],
+    "titleFormatted":  {
+                           "en":  "Set season mode to [[value]]",
+                           "nl":  "Stel seizoensmodus in op [[value]]"
+                       }
+}

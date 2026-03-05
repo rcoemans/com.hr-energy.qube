@@ -1,0 +1,34 @@
+{
+  "id": "set-heating-curve",
+  "title": {
+    "en": "Set heating curve",
+    "nl": "Stooklijn instellen"
+  },
+  "titleFormatted": {
+    "en": "Set heating curve to [[value]]",
+    "nl": "Stel stooklijn in op [[value]]"
+  },
+  "hint": {
+    "en": "Enable or disable the heating curve (weather-dependent setpoint).",
+    "nl": "Schakel de stooklijn (weersafhankelijk setpoint) in of uit."
+  },
+  "args": [
+    {
+      "name": "value",
+      "type": "dropdown",
+      "title": {
+        "en": "State",
+        "nl": "Status"
+      },
+      "values": [
+        { "id": "1", "title": { "en": "Enabled", "nl": "Ingeschakeld" } },
+        { "id": "0", "title": { "en": "Disabled", "nl": "Uitgeschakeld" } }
+      ]
+    },
+    {
+      "filter": "driver_id=qube",
+      "name": "device",
+      "type": "device"
+    }
+  ]
+}

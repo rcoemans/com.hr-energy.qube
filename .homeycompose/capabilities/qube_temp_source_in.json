@@ -1,0 +1,15 @@
+{
+    "type":  "number",
+    "title":  {
+                  "en":  "Source In Temperature",
+                  "nl":  "Bron inlaattemperatuur"
+              },
+    "units":  {
+                  "en":  "°C"
+              },
+    "decimals":  2,
+    "icon":  "/assets/icons/thermometer.svg",
+    "getable":  true,
+    "setable":  false,
+    "insights":  true
+}

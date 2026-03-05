@@ -1,0 +1,18 @@
+{
+    "id":  "entered-cooling",
+    "title":  {
+                  "en":  "Entered cooling",
+                  "nl":  "Koelen gestart"
+              },
+    "hint":  {
+                 "en":  "Triggers when the heat pump enters cooling mode.",
+                 "nl":  "Wordt geactiveerd wanneer de warmtepomp gaat koelen."
+             },
+    "args":  [
+                 {
+                     "filter":  "driver_id=qube",
+                     "name":  "device",
+                     "type":  "device"
+                 }
+             ]
+}

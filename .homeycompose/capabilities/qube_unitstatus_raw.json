@@ -1,0 +1,12 @@
+{
+    "type":  "number",
+    "title":  {
+                  "en":  "Unit status (raw)",
+                  "nl":  "Ruwe unitstatus"
+              },
+    "decimals":  0,
+    "icon":  "/assets/icons/info.svg",
+    "getable":  true,
+    "setable":  false,
+    "uiComponent":  "sensor"
+}

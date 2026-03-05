@@ -1,0 +1,43 @@
+{
+    "id":  "force-dhw-program",
+    "title":  {
+                  "en":  "Force DHW program (ON/OFF)",
+                  "nl":  "Warmwaterprogramma forceren (AAN/UIT)"
+              },
+    "hint":  {
+                 "en":  "Force the domestic hot water time program via BMS.",
+                 "nl":  "Forceer het warmwater tijdprogramma via BMS."
+             },
+    "args":  [
+                 {
+                     "filter":  "driver_id=qube",
+                     "name":  "device",
+                     "type":  "device"
+                 },
+                 {
+                     "type":  "dropdown",
+                     "name":  "value",
+                     "title":  {
+                                   "en":  "Force DHW"
+                               },
+                     "values":  [
+                                    {
+                                        "id":  "1",
+                                        "label":  {
+                                                      "en":  "ON"
+                                                  }
+                                    },
+                                    {
+                                        "id":  "0",
+                                        "label":  {
+                                                      "en":  "OFF"
+                                                  }
+                                    }
+                                ]
+                 }
+             ],
+    "titleFormatted":  {
+                           "en":  "Force DHW program [[value]]",
+                           "nl":  "Forceer warmwaterprogramma [[value]]"
+                       }
+}

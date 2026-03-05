@@ -1,0 +1,18 @@
+{
+    "id":  "user-alarm-on",
+    "title":  {
+                  "en":  "User-side alarm turned ON",
+                  "nl":  "Gebruikersalarm AAN"
+              },
+    "hint":  {
+                 "en":  "Triggers when a user-side (load) alarm activates.",
+                 "nl":  "Wordt geactiveerd wanneer het gebruikersalarm afgaat."
+             },
+    "args":  [
+                 {
+                     "filter":  "driver_id=qube",
+                     "name":  "device",
+                     "type":  "device"
+                 }
+             ]
+}

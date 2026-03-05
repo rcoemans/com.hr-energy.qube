@@ -1,3 +1,1639 @@
 {
-  "_comment": "This file is generated. Please edit .homeycompose/app.json instead."
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.hr-energy.qube",
+  "version": "1.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "HR-energy",
+    "nl": "HR-energy"
+  },
+  "description": {
+    "en": "Control your Qube heatpump from Homey",
+    "nl": "Bedien je Qube warmtepomp vanuit Homey"
+  },
+  "tags": {
+    "en": [
+      "heatpump",
+      "heat pump",
+      "qube",
+      "hr-energy",
+      "modbus",
+      "climate",
+      "heating",
+      "cooling"
+    ],
+    "nl": [
+      "warmtepomp",
+      "qube",
+      "hr-energy",
+      "modbus",
+      "klimaat",
+      "verwarming",
+      "koeling"
+    ]
+  },
+  "brandColor": "#e74c3c",
+  "category": [
+    "climate"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Robert Coemans",
+    "email": "r.coemans@hotmail.com"
+  },
+  "flow": {
+    "triggers": [
+      {
+        "id": "any-alarm-on",
+        "title": {
+          "en": "Any alarm turned ON",
+          "nl": "Willekeurig alarm ingeschakeld"
+        },
+        "hint": {
+          "en": "Triggers when any alarm activates. The alarm name is provided as a tag.",
+          "nl": "Wordt geactiveerd wanneer een alarm afgaat. De alarmnaam wordt als tag meegegeven."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=qube"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "alarm_name",
+            "type": "string",
+            "title": {
+              "en": "Alarm name",
+              "nl": "Alarmnaam"
+            },
+            "example": {
+              "en": "Flow"
+            }
+          }
+        ]
+      },
+      {
+        "id": "compressor-shutting-down",
+        "title": {
+          "en": "Compressor shutting down",
+          "nl": "Compressor stopt"
+        },
+        "hint": {
+          "en": "Triggers when the compressor begins its shutdown sequence.",
+          "nl": "Wordt geactiveerd wanneer de compressor uitschakelt."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          }
+        ]
+      },
+      {
+        "id": "compressor-start-failed",
+        "title": {
+          "en": "Compressor start failed",
+          "nl": "Compressor start mislukt"
+        },
+        "hint": {
+          "en": "Triggers when a compressor start attempt has failed.",
+          "nl": "Wordt geactiveerd wanneer de compressor niet kan starten."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          }
+        ]
+      },
+      {
+        "id": "compressor-starting",
+        "title": {
+          "en": "Compressor starting",
+          "nl": "Compressor start"
+        },
+        "hint": {
+          "en": "Triggers when the compressor begins its startup sequence.",
+          "nl": "Wordt geactiveerd wanneer de compressor opstart."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          }
+        ]
+      },
+      {
+        "id": "cooling-alarm-on",
+        "title": {
+          "en": "Cooling alarm turned ON",
+          "nl": "Koelingsalarm AAN"
+        },
+        "hint": {
+          "en": "Triggers when a cooling alarm activates.",
+          "nl": "Wordt geactiveerd wanneer het koelingsalarm afgaat."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          }
+        ]
+      },
+      {
+        "id": "dhw-timeout-alarm-on",
+        "title": {
+          "en": "DHW timeout alarm turned ON",
+          "nl": "Warmwater time-out alarm AAN"
+        },
+        "hint": {
+          "en": "Triggers when domestic hot water heating exceeds the maximum allowed time.",
+          "nl": "Wordt geactiveerd wanneer het warmwater time-out alarm afgaat."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          }
+        ]
+      },
+      {
+        "id": "entered-alarm",
+        "title": {
+          "en": "Entered alarm/fault",
+          "nl": "Alarm gestart"
+        },
+        "hint": {
+          "en": "Triggers when the heat pump enters an alarm or fault state.",
+          "nl": "Wordt geactiveerd wanneer de warmtepomp in alarmstatus gaat."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          }
+        ]
+      },
+      {
+        "id": "entered-cooling",
+        "title": {
+          "en": "Entered cooling",
+          "nl": "Koelen gestart"
+        },
+        "hint": {
+          "en": "Triggers when the heat pump enters cooling mode.",
+          "nl": "Wordt geactiveerd wanneer de warmtepomp gaat koelen."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          }
+        ]
+      },
+      {
+        "id": "entered-dhw-heating",
+        "title": {
+          "en": "Entered DHW heating",
+          "nl": "Warmwater verwarmen gestart"
+        },
+        "hint": {
+          "en": "Triggers when the heat pump starts domestic hot water production.",
+          "nl": "Wordt geactiveerd wanneer de warmtepomp warmwater gaat verwarmen."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          }
+        ]
+      },
+      {
+        "id": "entered-heating",
+        "title": {
+          "en": "Entered heating",
+          "nl": "Verwarmen gestart"
+        },
+        "hint": {
+          "en": "Triggers when the heat pump enters heating mode.",
+          "nl": "Wordt geactiveerd wanneer de warmtepomp gaat verwarmen."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          }
+        ]
+      },
+      {
+        "id": "entered-standby",
+        "title": {
+          "en": "Entered standby",
+          "nl": "Stand-by gestart"
+        },
+        "hint": {
+          "en": "Triggers when the heat pump enters standby mode.",
+          "nl": "Wordt geactiveerd wanneer de warmtepomp naar stand-by gaat."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          }
+        ]
+      },
+      {
+        "id": "flow-alarm-on",
+        "title": {
+          "en": "Flow alarm turned ON",
+          "nl": "Debietalarm AAN"
+        },
+        "hint": {
+          "en": "Triggers when insufficient flow is detected on the heating circuit.",
+          "nl": "Wordt geactiveerd wanneer het debietalarm afgaat."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          }
+        ]
+      },
+      {
+        "id": "global-alarm-off",
+        "title": {
+          "en": "Global alarm turned OFF",
+          "nl": "Globaal alarm UIT"
+        },
+        "hint": {
+          "en": "Triggers when the global alarm clears.",
+          "nl": "Wordt geactiveerd wanneer het globale alarm wordt opgeheven."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          }
+        ]
+      },
+      {
+        "id": "global-alarm-on",
+        "title": {
+          "en": "Global alarm turned ON",
+          "nl": "Globaal alarm AAN"
+        },
+        "hint": {
+          "en": "Triggers when the global alarm activates.",
+          "nl": "Wordt geactiveerd wanneer het globale alarm afgaat."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          }
+        ]
+      },
+      {
+        "id": "heating-alarm-on",
+        "title": {
+          "en": "Heating alarm turned ON",
+          "nl": "Verwarmingsalarm AAN"
+        },
+        "hint": {
+          "en": "Triggers when a heating circuit alarm activates.",
+          "nl": "Wordt geactiveerd wanneer het verwarmingsalarm afgaat."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          }
+        ]
+      },
+      {
+        "id": "legionella-timeout-alarm-on",
+        "title": {
+          "en": "Legionella timeout alarm turned ON",
+          "nl": "Legionella time-out alarm AAN"
+        },
+        "hint": {
+          "en": "Triggers when the anti-legionella cycle fails to reach target temperature in time.",
+          "nl": "Wordt geactiveerd wanneer het legionella time-out alarm afgaat."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          }
+        ]
+      },
+      {
+        "id": "source-alarm-on",
+        "title": {
+          "en": "Source-side alarm turned ON",
+          "nl": "Bronalarm AAN"
+        },
+        "hint": {
+          "en": "Triggers when a source/brine circuit alarm activates.",
+          "nl": "Wordt geactiveerd wanneer het bronalarm afgaat."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          }
+        ]
+      },
+      {
+        "id": "unit-status-changed",
+        "title": {
+          "en": "Unit status changed",
+          "nl": "Unitstatus gewijzigd"
+        },
+        "hint": {
+          "en": "Triggers when the heat pump unit status changes (e.g. standby â†’ heating).",
+          "nl": "Wordt geactiveerd wanneer de status van de warmtepomp wijzigt (bijv. stand-by naar verwarmen)."
+        },
+        "tokens": [
+          {
+            "name": "old_status",
+            "type": "string",
+            "title": {
+              "en": "Old status",
+              "nl": "Oude status"
+            },
+            "example": {
+              "en": "standby"
+            }
+          },
+          {
+            "name": "new_status",
+            "type": "string",
+            "title": {
+              "en": "New status",
+              "nl": "Nieuwe status"
+            },
+            "example": {
+              "en": "heating"
+            }
+          },
+          {
+            "name": "raw_unitstatus",
+            "type": "number",
+            "title": {
+              "en": "Raw unit status",
+              "nl": "Ruwe unitstatus"
+            },
+            "example": {
+              "en": "1"
+            }
+          }
+        ],
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          }
+        ]
+      },
+      {
+        "id": "user-alarm-on",
+        "title": {
+          "en": "User-side alarm turned ON",
+          "nl": "Gebruikersalarm AAN"
+        },
+        "hint": {
+          "en": "Triggers when a user-side (load) alarm activates.",
+          "nl": "Wordt geactiveerd wanneer het gebruikersalarm afgaat."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          }
+        ]
+      },
+      {
+        "id": "working-hours-alarm-on",
+        "title": {
+          "en": "Working hours alarm turned ON",
+          "nl": "Bedrijfsuren alarm AAN"
+        },
+        "hint": {
+          "en": "Triggers when a maintenance threshold (operating hours limit) has been reached.",
+          "nl": "Wordt geactiveerd wanneer het bedrijfsuren alarm afgaat."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "force-dhw-program",
+        "title": {
+          "en": "Force DHW program (ON/OFF)",
+          "nl": "Warmwaterprogramma forceren (AAN/UIT)"
+        },
+        "hint": {
+          "en": "Force the domestic hot water time program via BMS.",
+          "nl": "Forceer het warmwater tijdprogramma via BMS."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          },
+          {
+            "type": "dropdown",
+            "name": "value",
+            "title": {
+              "en": "Force DHW"
+            },
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "ON"
+                }
+              },
+              {
+                "id": "0",
+                "label": {
+                  "en": "OFF"
+                }
+              }
+            ]
+          }
+        ],
+        "titleFormatted": {
+          "en": "Force DHW program [[value]]",
+          "nl": "Forceer warmwaterprogramma [[value]]"
+        }
+      },
+      {
+        "id": "set-cooling-setpoint",
+        "title": {
+          "en": "Set cooling setpoint (Ã‚Â°C)",
+          "nl": "Koelingssetpoint instellen (°C)"
+        },
+        "hint": {
+          "en": "Write the cooling supply temperature setpoint.",
+          "nl": "Stel de aanvoertemperatuur voor koeling in."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature"
+            },
+            "min": 5,
+            "max": 25,
+            "step": 0.5,
+            "placeholder": {
+              "en": "18"
+            }
+          }
+        ],
+        "titleFormatted": {
+          "en": "Set cooling setpoint to [[temperature]] °C",
+          "nl": "Stel koelingssetpoint in op [[temperature]] °C"
+        }
+      },
+      {
+        "id": "set-demand",
+        "title": {
+          "en": "Set demand (ON/OFF)",
+          "nl": "Vraag instellen (AAN/UIT)"
+        },
+        "hint": {
+          "en": "Enable or disable heat pump demand via Modbus.",
+          "nl": "Warmtepompvraag in- of uitschakelen via Modbus."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          },
+          {
+            "type": "dropdown",
+            "name": "value",
+            "title": {
+              "en": "Demand"
+            },
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "ON"
+                }
+              },
+              {
+                "id": "0",
+                "label": {
+                  "en": "OFF"
+                }
+              }
+            ]
+          }
+        ],
+        "titleFormatted": {
+          "en": "Set demand to [[value]]",
+          "nl": "Stel vraag in op [[value]]"
+        }
+      },
+      {
+        "id": "set-dhw-setpoint",
+        "title": {
+          "en": "Set DHW setpoint (Ã‚Â°C)",
+          "nl": "Warmwatersetpoint instellen (°C)"
+        },
+        "hint": {
+          "en": "Write the domestic hot water temperature setpoint.",
+          "nl": "Stel de warmwatertemperatuur in."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature"
+            },
+            "min": 30,
+            "max": 65,
+            "step": 0.5,
+            "placeholder": {
+              "en": "50"
+            }
+          }
+        ],
+        "titleFormatted": {
+          "en": "Set DHW setpoint to [[temperature]] °C",
+          "nl": "Stel warmwatersetpoint in op [[temperature]] °C"
+        }
+      },
+      {
+        "id": "set-heating-curve",
+        "title": {
+          "en": "Set heating curve",
+          "nl": "Stooklijn instellen"
+        },
+        "titleFormatted": {
+          "en": "Set heating curve to [[value]]",
+          "nl": "Stel stooklijn in op [[value]]"
+        },
+        "hint": {
+          "en": "Enable or disable the heating curve (weather-dependent setpoint).",
+          "nl": "Schakel de stooklijn (weersafhankelijk setpoint) in of uit."
+        },
+        "args": [
+          {
+            "name": "value",
+            "type": "dropdown",
+            "title": {
+              "en": "State",
+              "nl": "Status"
+            },
+            "values": [
+              {
+                "id": "1",
+                "title": {
+                  "en": "Enabled",
+                  "nl": "Ingeschakeld"
+                }
+              },
+              {
+                "id": "0",
+                "title": {
+                  "en": "Disabled",
+                  "nl": "Uitgeschakeld"
+                }
+              }
+            ]
+          },
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          }
+        ]
+      },
+      {
+        "id": "set-heating-setpoint",
+        "title": {
+          "en": "Set heating setpoint (Ã‚Â°C)",
+          "nl": "Verwarmingssetpoint instellen (°C)"
+        },
+        "hint": {
+          "en": "Write the heating supply temperature setpoint.",
+          "nl": "Stel de aanvoertemperatuur voor verwarming in."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature"
+            },
+            "min": 15,
+            "max": 65,
+            "step": 0.5,
+            "placeholder": {
+              "en": "35"
+            }
+          }
+        ],
+        "titleFormatted": {
+          "en": "Set heating setpoint to [[temperature]] °C",
+          "nl": "Stel verwarmingssetpoint in op [[temperature]] °C"
+        }
+      },
+      {
+        "id": "set-season-mode",
+        "title": {
+          "en": "Set season mode",
+          "nl": "Seizoensmodus instellen"
+        },
+        "hint": {
+          "en": "Switch between heating (winter) and cooling (summer) season.",
+          "nl": "Schakelen tussen verwarmen (winter) en koelen (zomer)."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          },
+          {
+            "type": "dropdown",
+            "name": "value",
+            "title": {
+              "en": "Season"
+            },
+            "values": [
+              {
+                "id": "0",
+                "label": {
+                  "en": "Winter (Heating)"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Summer (Cooling)"
+                }
+              }
+            ]
+          }
+        ],
+        "titleFormatted": {
+          "en": "Set season mode to [[value]]",
+          "nl": "Stel seizoensmodus in op [[value]]"
+        }
+      },
+      {
+        "id": "set-sg-ready-mode",
+        "title": {
+          "en": "Set SG Ready mode",
+          "nl": "SG Ready modus instellen"
+        },
+        "hint": {
+          "en": "Set the SG Ready mode. Controls two internal boolean switches (sgready_a / sgready_b).",
+          "nl": "Stel de SG Ready modus in."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          },
+          {
+            "type": "dropdown",
+            "name": "value",
+            "title": {
+              "en": "SG Ready mode"
+            },
+            "values": [
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off"
+                }
+              },
+              {
+                "id": "block",
+                "label": {
+                  "en": "Block"
+                }
+              },
+              {
+                "id": "plus",
+                "label": {
+                  "en": "Plus"
+                }
+              },
+              {
+                "id": "max",
+                "label": {
+                  "en": "Max"
+                }
+              }
+            ]
+          }
+        ],
+        "titleFormatted": {
+          "en": "Set SG Ready mode to [[value]]",
+          "nl": "Stel SG Ready modus in op [[value]]"
+        }
+      },
+      {
+        "id": "start-antilegionella",
+        "title": {
+          "en": "Start anti-legionella cycle",
+          "nl": "Start anti-legionellacyclus"
+        },
+        "hint": {
+          "en": "Manually triggers an anti-legionella disinfection cycle.",
+          "nl": "Start handmatig een anti-legionella desinfectiecyclus."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          }
+        ],
+        "titleFormatted": {
+          "en": "Start anti-legionella cycle",
+          "nl": "Start anti-legionellacyclus"
+        }
+      },
+      {
+        "id": "write-modbus-register",
+        "title": {
+          "en": "Write Modbus register (Advanced)",
+          "nl": "Modbus register schrijven (Geavanceerd)"
+        },
+        "hint": {
+          "en": "Write a raw value to a Modbus holding register. For advanced / debugging use.",
+          "nl": "Schrijf een waarde naar een Modbus holding register."
+        },
+        "args": [
+          {
+            "filter": "driver_id=qube",
+            "name": "device",
+            "type": "device"
+          },
+          {
+            "type": "number",
+            "name": "address",
+            "title": {
+              "en": "Register address"
+            },
+            "min": 0,
+            "max": 65535,
+            "step": 1,
+            "placeholder": {
+              "en": "0"
+            }
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value"
+            },
+            "placeholder": {
+              "en": "0"
+            }
+          },
+          {
+            "type": "dropdown",
+            "name": "datatype",
+            "title": {
+              "en": "Data type"
+            },
+            "values": [
+              {
+                "id": "uint16",
+                "label": {
+                  "en": "uint16"
+                }
+              },
+              {
+                "id": "int16",
+                "label": {
+                  "en": "int16"
+                }
+              },
+              {
+                "id": "float32",
+                "label": {
+                  "en": "float32 (2 regs)"
+                }
+              }
+            ]
+          }
+        ],
+        "titleFormatted": {
+          "en": "Write [[value]] to Modbus register [[address]] as [[datatype]]",
+          "nl": "Schrijf [[value]] naar Modbus register [[address]] als [[datatype]]"
+        }
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Qube",
+        "nl": "Qube"
+      },
+      "class": "other",
+      "images": {
+        "small": "/drivers/qube/assets/images/small.png",
+        "large": "/drivers/qube/assets/images/large.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "capabilities": [
+        "measure_temperature.supply",
+        "measure_temperature.return",
+        "measure_temperature.source_in",
+        "measure_temperature.source_out",
+        "measure_temperature.room",
+        "measure_temperature.dhw",
+        "measure_temperature.outdoor",
+        "qube_flow",
+        "measure_cop",
+        "measure_power",
+        "qube_meter_electric",
+        "qube_energy_thermal",
+        "qube_power_thermal",
+        "qube_compressor_speed",
+        "qube_unitstatus_raw",
+        "qube_status",
+        "alarm_generic",
+        "qube_alarm_flow",
+        "qube_alarm_heating",
+        "qube_alarm_cooling",
+        "qube_alarm_source",
+        "qube_alarm_user",
+        "qube_alarm_legionella_timeout",
+        "qube_alarm_dhw_timeout",
+        "qube_alarm_working_hours",
+        "qube_source_pump",
+        "qube_user_pump",
+        "qube_fourway_valve",
+        "qube_threeway_valve",
+        "qube_heater1",
+        "qube_heater2",
+        "qube_hours_dhw",
+        "qube_hours_heating",
+        "qube_hours_cooling",
+        "qube_season_mode",
+        "qube_heating_setpoint",
+        "qube_cooling_setpoint",
+        "qube_dhw_setpoint",
+        "qube_heating_curve"
+      ],
+      "capabilitiesOptions": {
+        "alarm_generic": {
+          "title": {
+            "en": "Error",
+            "nl": "Storing"
+          },
+          "insightsTitleTrue": {
+            "en": "Alarm active",
+            "nl": "Alarm actief"
+          },
+          "insightsTitleFalse": {
+            "en": "No alarm",
+            "nl": "Geen alarm"
+          }
+        },
+        "measure_temperature.supply": {
+          "title": {
+            "en": "Supply Temperature",
+            "nl": "Aanvoertemperatuur"
+          }
+        },
+        "measure_temperature.return": {
+          "title": {
+            "en": "Return Temperature",
+            "nl": "Retourtemperatuur"
+          }
+        },
+        "measure_temperature.source_in": {
+          "title": {
+            "en": "Source In Temperature",
+            "nl": "Bron inlaattemperatuur"
+          }
+        },
+        "measure_temperature.source_out": {
+          "title": {
+            "en": "Source Out Temperature",
+            "nl": "Bron uitlaattemperatuur"
+          }
+        },
+        "measure_temperature.dhw": {
+          "title": {
+            "en": "DHW Temperature",
+            "nl": "Warmwatertemperatuur"
+          }
+        },
+        "measure_temperature.outdoor": {
+          "title": {
+            "en": "Outdoor Temperature",
+            "nl": "Buitentemperatuur"
+          }
+        },
+        "measure_temperature.room": {
+          "title": {
+            "en": "Room Temperature",
+            "nl": "Kamertemperatuur"
+          }
+        },
+        "measure_power": {
+          "title": {
+            "en": "Electric Power",
+            "nl": "Elektrisch vermogen"
+          }
+        }
+      },
+      "id": "qube",
+      "settings": [
+        {
+          "id": "ip",
+          "type": "text",
+          "label": {
+            "en": "IP address"
+          },
+          "hint": {
+            "en": "Example: 192.168.1.131"
+          },
+          "value": "",
+          "highlight": true
+        },
+        {
+          "id": "port",
+          "type": "number",
+          "label": {
+            "en": "Port"
+          },
+          "value": 502,
+          "highlight": true
+        },
+        {
+          "id": "unitId",
+          "type": "number",
+          "label": {
+            "en": "Modbus Unit ID"
+          },
+          "value": 1,
+          "highlight": true
+        },
+        {
+          "id": "pollIntervalMs",
+          "type": "number",
+          "label": {
+            "en": "Poll interval (ms)"
+          },
+          "value": 5000
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "measure_cop": {
+      "type": "number",
+      "title": {
+        "en": "COP",
+        "nl": "COP"
+      },
+      "decimals": 2,
+      "icon": "/assets/icons/lightning.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_alarm_cooling": {
+      "type": "boolean",
+      "title": {
+        "en": "Cooling Alarm",
+        "nl": "Koelingsalarm"
+      },
+      "icon": "/assets/icons/alarm.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_alarm_dhw_timeout": {
+      "type": "boolean",
+      "title": {
+        "en": "DHW Timeout Alarm",
+        "nl": "Warmwater time-out alarm"
+      },
+      "icon": "/assets/icons/alarm.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_alarm_flow": {
+      "type": "boolean",
+      "title": {
+        "en": "Flow Alarm",
+        "nl": "Debietalarm"
+      },
+      "icon": "/assets/icons/alarm.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_alarm_global": {
+      "type": "boolean",
+      "title": {
+        "en": "Global Alarm",
+        "nl": "Globaal alarm"
+      },
+      "icon": "/assets/icons/alarm.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "qube_alarm_heating": {
+      "type": "boolean",
+      "title": {
+        "en": "Heating Alarm",
+        "nl": "Verwarmingsalarm"
+      },
+      "icon": "/assets/icons/alarm.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_alarm_legionella_timeout": {
+      "type": "boolean",
+      "title": {
+        "en": "Legionella Timeout Alarm",
+        "nl": "Legionella time-out alarm"
+      },
+      "icon": "/assets/icons/alarm.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_alarm_source": {
+      "type": "boolean",
+      "title": {
+        "en": "Source Alarm",
+        "nl": "Bronalarm"
+      },
+      "icon": "/assets/icons/alarm.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_alarm_user": {
+      "type": "boolean",
+      "title": {
+        "en": "User Alarm",
+        "nl": "Gebruikersalarm"
+      },
+      "icon": "/assets/icons/alarm.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_alarm_working_hours": {
+      "type": "boolean",
+      "title": {
+        "en": "Working Hours Alarm",
+        "nl": "Bedrijfsuren alarm"
+      },
+      "icon": "/assets/icons/alarm.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_compressor_speed": {
+      "type": "number",
+      "title": {
+        "en": "Compressor Speed",
+        "nl": "Compressorsnelheid"
+      },
+      "units": {
+        "en": "rpm"
+      },
+      "decimals": 0,
+      "icon": "/assets/icons/fan.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_cooling_setpoint": {
+      "type": "number",
+      "title": {
+        "en": "Cooling Setpoint",
+        "nl": "Koelingssetpoint"
+      },
+      "units": {
+        "en": "°C"
+      },
+      "decimals": 1,
+      "min": 10,
+      "max": 65,
+      "step": 0.5,
+      "icon": "/assets/icons/target-temp.svg",
+      "getable": true,
+      "setable": true,
+      "uiComponent": "slider",
+      "insights": true
+    },
+    "qube_cop": {
+      "type": "number",
+      "title": {
+        "en": "COP",
+        "nl": "COP"
+      },
+      "decimals": 2,
+      "icon": "/assets/icons/cop.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "qube_demand": {
+      "type": "boolean",
+      "title": {
+        "en": "Heat/Cool Request",
+        "nl": "Warmte-/koelvraag"
+      },
+      "desc": {
+        "en": "Enable or disable the heatpump. When ON the unit will actively heat or cool depending on the season mode. When OFF the unit goes to standby."
+      },
+      "icon": "/assets/icons/power-toggle.svg",
+      "getable": true,
+      "setable": true,
+      "uiComponent": "toggle",
+      "insights": true
+    },
+    "qube_dhw_setpoint": {
+      "type": "number",
+      "title": {
+        "en": "DHW Setpoint",
+        "nl": "Warmwatersetpoint"
+      },
+      "units": {
+        "en": "°C"
+      },
+      "decimals": 1,
+      "min": 30,
+      "max": 65,
+      "step": 0.5,
+      "icon": "/assets/icons/target-temp.svg",
+      "getable": true,
+      "setable": true,
+      "uiComponent": "slider",
+      "insights": true
+    },
+    "qube_energy_thermal": {
+      "type": "number",
+      "title": {
+        "en": "Thermal Energy",
+        "nl": "Thermische energie"
+      },
+      "units": {
+        "en": "kWh"
+      },
+      "decimals": 2,
+      "icon": "/assets/icons/energy.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_flow": {
+      "type": "number",
+      "title": {
+        "en": "Flow",
+        "nl": "Debiet"
+      },
+      "units": {
+        "en": "l/min"
+      },
+      "decimals": 2,
+      "icon": "/assets/icons/water-flow.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_fourway_valve": {
+      "type": "boolean",
+      "title": {
+        "en": "Four-way Valve",
+        "nl": "Vierweg klep"
+      },
+      "icon": "/assets/icons/valve.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_heater1": {
+      "type": "boolean",
+      "title": {
+        "en": "Heater 1",
+        "nl": "Bijverwarming 1"
+      },
+      "icon": "/assets/icons/heater.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_heater2": {
+      "type": "boolean",
+      "title": {
+        "en": "Heater 2",
+        "nl": "Bijverwarming 2"
+      },
+      "icon": "/assets/icons/heater.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_heating_curve": {
+      "type": "boolean",
+      "title": {
+        "en": "Heating Curve",
+        "nl": "Stooklijn"
+      },
+      "icon": "/assets/icons/curve.svg",
+      "getable": true,
+      "setable": true,
+      "uiComponent": "toggle",
+      "insights": true
+    },
+    "qube_heating_setpoint": {
+      "type": "number",
+      "title": {
+        "en": "Heating Setpoint",
+        "nl": "Verwarmingssetpoint"
+      },
+      "units": {
+        "en": "°C"
+      },
+      "decimals": 1,
+      "min": 10,
+      "max": 65,
+      "step": 0.5,
+      "icon": "/assets/icons/target-temp.svg",
+      "getable": true,
+      "setable": true,
+      "uiComponent": "slider",
+      "insights": true
+    },
+    "qube_hours_cooling": {
+      "type": "number",
+      "title": {
+        "en": "Working Hours Cooling",
+        "nl": "Bedrijfsuren koeling"
+      },
+      "units": {
+        "en": "h"
+      },
+      "decimals": 0,
+      "icon": "/assets/icons/clock.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_hours_dhw": {
+      "type": "number",
+      "title": {
+        "en": "Working Hours DHW",
+        "nl": "Bedrijfsuren warmwater"
+      },
+      "units": {
+        "en": "h"
+      },
+      "decimals": 0,
+      "icon": "/assets/icons/clock.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_hours_heating": {
+      "type": "number",
+      "title": {
+        "en": "Working Hours Heating",
+        "nl": "Bedrijfsuren verwarming"
+      },
+      "units": {
+        "en": "h"
+      },
+      "decimals": 0,
+      "icon": "/assets/icons/clock.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_meter_electric": {
+      "type": "number",
+      "title": {
+        "en": "Electric Energy",
+        "nl": "Elektrische energie"
+      },
+      "units": {
+        "en": "kWh"
+      },
+      "decimals": 2,
+      "icon": "/assets/icons/energy.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_power": {
+      "type": "number",
+      "title": {
+        "en": "Electric Power",
+        "nl": "Elektrisch vermogen"
+      },
+      "units": {
+        "en": "W"
+      },
+      "decimals": 2,
+      "icon": "/assets/icons/lightning.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "qube_power_thermal": {
+      "type": "number",
+      "title": {
+        "en": "Thermal Power",
+        "nl": "Thermisch vermogen"
+      },
+      "units": {
+        "en": "W"
+      },
+      "decimals": 0,
+      "icon": "/assets/icons/lightning.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_season_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Season Mode",
+        "nl": "Seizoensmodus"
+      },
+      "icon": "/assets/icons/season.svg",
+      "values": [
+        {
+          "id": "winter",
+          "title": {
+            "en": "Winter (Heating)",
+            "nl": "Winter (Verwarmen)"
+          }
+        },
+        {
+          "id": "summer",
+          "title": {
+            "en": "Summer (Cooling)",
+            "nl": "Zomer (Koelen)"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker",
+      "insights": true
+    },
+    "qube_source_pump": {
+      "type": "boolean",
+      "title": {
+        "en": "Source Pump",
+        "nl": "Bronpomp"
+      },
+      "icon": "/assets/icons/pump.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_status": {
+      "type": "string",
+      "title": {
+        "en": "Unit status",
+        "nl": "Unitstatus"
+      },
+      "icon": "/assets/icons/info.svg",
+      "getable": true,
+      "setable": false
+    },
+    "qube_temp_dhw": {
+      "type": "number",
+      "title": {
+        "en": "DHW Temperature",
+        "nl": "Warmwatertemperatuur"
+      },
+      "units": {
+        "en": "°C"
+      },
+      "decimals": 2,
+      "icon": "/assets/icons/thermometer.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "qube_temp_outdoor": {
+      "type": "number",
+      "title": {
+        "en": "Outdoor Temperature",
+        "nl": "Buitentemperatuur"
+      },
+      "units": {
+        "en": "°C"
+      },
+      "decimals": 2,
+      "icon": "/assets/icons/thermometer.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "qube_temp_return": {
+      "type": "number",
+      "title": {
+        "en": "Return Temperature",
+        "nl": "Retourtemperatuur"
+      },
+      "units": {
+        "en": "°C"
+      },
+      "decimals": 2,
+      "icon": "/assets/icons/thermometer.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_temp_room": {
+      "type": "number",
+      "title": {
+        "en": "Room Temperature",
+        "nl": "Kamertemperatuur"
+      },
+      "units": {
+        "en": "°C"
+      },
+      "decimals": 2,
+      "icon": "/assets/icons/thermometer.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "qube_temp_source_in": {
+      "type": "number",
+      "title": {
+        "en": "Source In Temperature",
+        "nl": "Bron inlaattemperatuur"
+      },
+      "units": {
+        "en": "°C"
+      },
+      "decimals": 2,
+      "icon": "/assets/icons/thermometer.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_temp_source_out": {
+      "type": "number",
+      "title": {
+        "en": "Source Out Temperature",
+        "nl": "Bron uitlaattemperatuur"
+      },
+      "units": {
+        "en": "°C"
+      },
+      "decimals": 2,
+      "icon": "/assets/icons/thermometer.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_temp_supply": {
+      "type": "number",
+      "title": {
+        "en": "Supply Temperature",
+        "nl": "Aanvoertemperatuur"
+      },
+      "units": {
+        "en": "°C"
+      },
+      "decimals": 2,
+      "icon": "/assets/icons/thermometer.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_threeway_valve": {
+      "type": "boolean",
+      "title": {
+        "en": "Three-way Valve (CV/DHW)",
+        "nl": "Drieweg klep (CV/warmwater)"
+      },
+      "icon": "/assets/icons/valve.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    },
+    "qube_unitstatus_raw": {
+      "type": "number",
+      "title": {
+        "en": "Unit status (raw)",
+        "nl": "Ruwe unitstatus"
+      },
+      "decimals": 0,
+      "icon": "/assets/icons/info.svg",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "qube_user_pump": {
+      "type": "boolean",
+      "title": {
+        "en": "CV Pump",
+        "nl": "CV-pomp"
+      },
+      "icon": "/assets/icons/pump.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true
+    }
+  }
 }

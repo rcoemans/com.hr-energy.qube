@@ -1,0 +1,18 @@
+{
+    "id":  "working-hours-alarm-on",
+    "title":  {
+                  "en":  "Working hours alarm turned ON",
+                  "nl":  "Bedrijfsuren alarm AAN"
+              },
+    "hint":  {
+                 "en":  "Triggers when a maintenance threshold (operating hours limit) has been reached.",
+                 "nl":  "Wordt geactiveerd wanneer het bedrijfsuren alarm afgaat."
+             },
+    "args":  [
+                 {
+                     "filter":  "driver_id=qube",
+                     "name":  "device",
+                     "type":  "device"
+                 }
+             ]
+}

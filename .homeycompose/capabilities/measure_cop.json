@@ -1,0 +1,12 @@
+{
+  "type": "number",
+  "title": {
+    "en": "COP",
+    "nl": "COP"
+  },
+  "decimals": 2,
+  "icon": "/assets/icons/lightning.svg",
+  "getable": true,
+  "setable": false,
+  "insights": true
+}

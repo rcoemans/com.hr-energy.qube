@@ -1,0 +1,53 @@
+{
+    "id":  "unit-status-changed",
+    "title":  {
+                  "en":  "Unit status changed",
+                  "nl":  "Unitstatus gewijzigd"
+              },
+    "hint":  {
+                 "en":  "Triggers when the heat pump unit status changes (e.g. standby â†’ heating).",
+                 "nl":  "Wordt geactiveerd wanneer de status van de warmtepomp wijzigt (bijv. stand-by naar verwarmen)."
+             },
+    "tokens":  [
+                   {
+                       "name":  "old_status",
+                       "type":  "string",
+                       "title":  {
+                                     "en":  "Old status",
+                                     "nl":  "Oude status"
+                                 },
+                       "example":  {
+                                       "en":  "standby"
+                                   }
+                   },
+                   {
+                       "name":  "new_status",
+                       "type":  "string",
+                       "title":  {
+                                     "en":  "New status",
+                                     "nl":  "Nieuwe status"
+                                 },
+                       "example":  {
+                                       "en":  "heating"
+                                   }
+                   },
+                   {
+                       "name":  "raw_unitstatus",
+                       "type":  "number",
+                       "title":  {
+                                     "en":  "Raw unit status",
+                                     "nl":  "Ruwe unitstatus"
+                                 },
+                       "example":  {
+                                       "en":  "1"
+                                   }
+                   }
+               ],
+    "args":  [
+                 {
+                     "filter":  "driver_id=qube",
+                     "name":  "device",
+                     "type":  "device"
+                 }
+             ]
+}

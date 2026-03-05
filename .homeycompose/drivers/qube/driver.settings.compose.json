@@ -1,0 +1,45 @@
+[
+  {
+    "id": "ip",
+    "type": "text",
+    "label": {
+      "en": "IP address",
+      "nl": "IP-adres"
+    },
+    "hint": {
+      "en": "Example: 192.168.1.131",
+      "nl": "Voorbeeld: 192.168.1.131"
+    },
+    "value": "",
+    "highlight": true
+  },
+  {
+    "id": "port",
+    "type": "number",
+    "label": {
+      "en": "Port",
+      "nl": "Poort"
+    },
+    "value": 502,
+    "highlight": true
+  },
+  {
+    "id": "unitId",
+    "type": "number",
+    "label": {
+      "en": "Modbus Unit ID",
+      "nl": "Modbus Unit-ID"
+    },
+    "value": 1,
+    "highlight": true
+  },
+  {
+    "id": "pollIntervalMs",
+    "type": "number",
+    "label": {
+      "en": "Poll interval (ms)",
+      "nl": "Poll-interval (ms)"
+    },
+    "value": 5000
+  }
+]

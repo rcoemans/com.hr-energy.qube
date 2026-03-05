@@ -1,0 +1,18 @@
+{
+    "id":  "dhw-timeout-alarm-on",
+    "title":  {
+                  "en":  "DHW timeout alarm turned ON",
+                  "nl":  "Warmwater time-out alarm AAN"
+              },
+    "hint":  {
+                 "en":  "Triggers when domestic hot water heating exceeds the maximum allowed time.",
+                 "nl":  "Wordt geactiveerd wanneer het warmwater time-out alarm afgaat."
+             },
+    "args":  [
+                 {
+                     "filter":  "driver_id=qube",
+                     "name":  "device",
+                     "type":  "device"
+                 }
+             ]
+}

@@ -1,0 +1,35 @@
+{
+    "id":  "set-heating-setpoint",
+    "title":  {
+                  "en":  "Set heating setpoint (Ã‚Â°C)",
+                  "nl":  "Verwarmingssetpoint instellen (°C)"
+              },
+    "hint":  {
+                 "en":  "Write the heating supply temperature setpoint.",
+                 "nl":  "Stel de aanvoertemperatuur voor verwarming in."
+             },
+    "args":  [
+                 {
+                     "filter":  "driver_id=qube",
+                     "name":  "device",
+                     "type":  "device"
+                 },
+                 {
+                     "type":  "number",
+                     "name":  "temperature",
+                     "title":  {
+                                   "en":  "Temperature"
+                               },
+                     "min":  15,
+                     "max":  65,
+                     "step":  0.5,
+                     "placeholder":  {
+                                         "en":  "35"
+                                     }
+                 }
+             ],
+    "titleFormatted":  {
+                           "en":  "Set heating setpoint to [[temperature]] °C",
+                           "nl":  "Stel verwarmingssetpoint in op [[temperature]] °C"
+                       }
+}

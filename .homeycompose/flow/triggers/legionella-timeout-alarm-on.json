@@ -1,0 +1,18 @@
+{
+    "id":  "legionella-timeout-alarm-on",
+    "title":  {
+                  "en":  "Legionella timeout alarm turned ON",
+                  "nl":  "Legionella time-out alarm AAN"
+              },
+    "hint":  {
+                 "en":  "Triggers when the anti-legionella cycle fails to reach target temperature in time.",
+                 "nl":  "Wordt geactiveerd wanneer het legionella time-out alarm afgaat."
+             },
+    "args":  [
+                 {
+                     "filter":  "driver_id=qube",
+                     "name":  "device",
+                     "type":  "device"
+                 }
+             ]
+}

@@ -1,0 +1,28 @@
+{
+    "type":  "enum",
+    "title":  {
+                  "en":  "Season Mode",
+                  "nl":  "Seizoensmodus"
+              },
+    "icon":  "/assets/icons/season.svg",
+    "values":  [
+                   {
+                       "id":  "winter",
+                       "title":  {
+                                     "en":  "Winter (Heating)",
+                                     "nl":  "Winter (Verwarmen)"
+                                 }
+                   },
+                   {
+                       "id":  "summer",
+                       "title":  {
+                                     "en":  "Summer (Cooling)",
+                                     "nl":  "Zomer (Koelen)"
+                                 }
+                   }
+               ],
+    "getable":  true,
+    "setable":  true,
+    "uiComponent":  "picker",
+    "insights":  true
+}

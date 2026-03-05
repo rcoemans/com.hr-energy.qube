@@ -1,0 +1,16 @@
+{
+    "type":  "number",
+    "title":  {
+                  "en":  "DHW Temperature",
+                  "nl":  "Warmwatertemperatuur"
+              },
+    "units":  {
+                  "en":  "°C"
+              },
+    "decimals":  2,
+    "icon":  "/assets/icons/thermometer.svg",
+    "getable":  true,
+    "setable":  false,
+    "insights":  true,
+    "uiComponent":  "sensor"
+}

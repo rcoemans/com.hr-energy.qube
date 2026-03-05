@@ -1,0 +1,10 @@
+{
+    "type":  "string",
+    "title":  {
+                  "en":  "Unit status",
+                  "nl":  "Unitstatus"
+              },
+    "icon":  "/assets/icons/info.svg",
+    "getable":  true,
+    "setable":  false
+}

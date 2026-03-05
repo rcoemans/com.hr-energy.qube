@@ -1,0 +1,10 @@
+node_modules/
+docs/
+.homeycompose/
+*.ts
+!*.d.ts
+tsconfig.json
+.eslintrc.json
+.gitignore
+README.txt
+package-lock.json

@@ -1,0 +1,16 @@
+{
+    "type":  "number",
+    "title":  {
+                  "en":  "Electric Power",
+                  "nl":  "Elektrisch vermogen"
+              },
+    "units":  {
+                  "en":  "W"
+              },
+    "decimals":  2,
+    "icon":  "/assets/icons/lightning.svg",
+    "getable":  true,
+    "setable":  false,
+    "insights":  true,
+    "uiComponent":  "sensor"
+}

@@ -1,0 +1,40 @@
+[
+  {
+    "id": "ip",
+    "type": "text",
+    "label": {
+      "en": "IP address"
+    },
+    "hint": {
+      "en": "Example: 192.168.1.131"
+    },
+    "value": "",
+    "highlight": true
+  },
+  {
+    "id": "port",
+    "type": "number",
+    "label": {
+      "en": "Port"
+    },
+    "value": 502,
+    "highlight": true
+  },
+  {
+    "id": "unitId",
+    "type": "number",
+    "label": {
+      "en": "Modbus Unit ID"
+    },
+    "value": 1,
+    "highlight": true
+  },
+  {
+    "id": "pollIntervalMs",
+    "type": "number",
+    "label": {
+      "en": "Poll interval (ms)"
+    },
+    "value": 5000
+  }
+]

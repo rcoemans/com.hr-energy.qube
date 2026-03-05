@@ -1,0 +1,18 @@
+{
+    "id":  "source-alarm-on",
+    "title":  {
+                  "en":  "Source-side alarm turned ON",
+                  "nl":  "Bronalarm AAN"
+              },
+    "hint":  {
+                 "en":  "Triggers when a source/brine circuit alarm activates.",
+                 "nl":  "Wordt geactiveerd wanneer het bronalarm afgaat."
+             },
+    "args":  [
+                 {
+                     "filter":  "driver_id=qube",
+                     "name":  "device",
+                     "type":  "device"
+                 }
+             ]
+}

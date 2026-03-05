@@ -1,0 +1,11 @@
+{
+    "type":  "boolean",
+    "title":  {
+                  "en":  "Heating Alarm",
+                  "nl":  "Verwarmingsalarm"
+              },
+    "icon":  "/assets/icons/alarm.svg",
+    "getable":  true,
+    "setable":  false,
+    "insights":  true
+}

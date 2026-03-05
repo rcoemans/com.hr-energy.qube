@@ -1,0 +1,15 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Working Hours Heating",
+    "nl": "Bedrijfsuren verwarming"
+  },
+  "units": {
+    "en": "h"
+  },
+  "decimals": 0,
+  "icon": "/assets/icons/clock.svg",
+  "getable": true,
+  "setable": false,
+  "insights": true
+}

@@ -1,0 +1,55 @@
+{
+    "id":  "set-sg-ready-mode",
+    "title":  {
+                  "en":  "Set SG Ready mode",
+                  "nl":  "SG Ready modus instellen"
+              },
+    "hint":  {
+                 "en":  "Set the SG Ready mode. Controls two internal boolean switches (sgready_a / sgready_b).",
+                 "nl":  "Stel de SG Ready modus in."
+             },
+    "args":  [
+                 {
+                     "filter":  "driver_id=qube",
+                     "name":  "device",
+                     "type":  "device"
+                 },
+                 {
+                     "type":  "dropdown",
+                     "name":  "value",
+                     "title":  {
+                                   "en":  "SG Ready mode"
+                               },
+                     "values":  [
+                                    {
+                                        "id":  "off",
+                                        "label":  {
+                                                      "en":  "Off"
+                                                  }
+                                    },
+                                    {
+                                        "id":  "block",
+                                        "label":  {
+                                                      "en":  "Block"
+                                                  }
+                                    },
+                                    {
+                                        "id":  "plus",
+                                        "label":  {
+                                                      "en":  "Plus"
+                                                  }
+                                    },
+                                    {
+                                        "id":  "max",
+                                        "label":  {
+                                                      "en":  "Max"
+                                                  }
+                                    }
+                                ]
+                 }
+             ],
+    "titleFormatted":  {
+                           "en":  "Set SG Ready mode to [[value]]",
+                           "nl":  "Stel SG Ready modus in op [[value]]"
+                       }
+}

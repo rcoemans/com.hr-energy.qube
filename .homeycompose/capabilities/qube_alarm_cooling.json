@@ -1,0 +1,11 @@
+{
+    "type":  "boolean",
+    "title":  {
+                  "en":  "Cooling Alarm",
+                  "nl":  "Koelingsalarm"
+              },
+    "icon":  "/assets/icons/alarm.svg",
+    "getable":  true,
+    "setable":  false,
+    "insights":  true
+}

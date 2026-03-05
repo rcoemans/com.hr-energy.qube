@@ -1,0 +1,12 @@
+{
+    "type":  "boolean",
+    "title":  {
+                  "en":  "Global Alarm",
+                  "nl":  "Globaal alarm"
+              },
+    "icon":  "/assets/icons/alarm.svg",
+    "getable":  true,
+    "setable":  false,
+    "insights":  true,
+    "uiComponent":  "sensor"
+}

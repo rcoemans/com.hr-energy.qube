@@ -1,0 +1,18 @@
+{
+    "id":  "entered-alarm",
+    "title":  {
+                  "en":  "Entered alarm/fault",
+                  "nl":  "Alarm gestart"
+              },
+    "hint":  {
+                 "en":  "Triggers when the heat pump enters an alarm or fault state.",
+                 "nl":  "Wordt geactiveerd wanneer de warmtepomp in alarmstatus gaat."
+             },
+    "args":  [
+                 {
+                     "filter":  "driver_id=qube",
+                     "name":  "device",
+                     "type":  "device"
+                 }
+             ]
+}

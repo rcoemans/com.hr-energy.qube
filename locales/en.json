@@ -1,1 +1,33 @@
-{}
+{
+  "errors": {
+    "ip_required": "IP address is required",
+    "modbus_not_connected": "Modbus client is not connected",
+    "modbus_connect_failed": "Cannot connect to Qube",
+    "modbus_poll_failed": "Modbus polling failed",
+    "missing_ip": "Missing IP address"
+  },
+  "status": {
+    "standby": "Standby",
+    "heating": "Heating",
+    "cooling": "Cooling",
+    "heating_dhw": "DHW Heating",
+    "compressor_startup": "Compressor Starting",
+    "compressor_shutdown": "Compressor Shutting Down",
+    "start_fail": "Compressor Start Failed",
+    "alarm": "Alarm",
+    "unknown": "Unknown"
+  },
+  "alarms": {
+    "flow": "Flow",
+    "heating": "Heating",
+    "cooling": "Cooling",
+    "source": "Source",
+    "user": "User",
+    "legionella_timeout": "Legionella Timeout",
+    "dhw_timeout": "DHW Timeout",
+    "working_hours": "Working Hours"
+  },
+  "device": {
+    "pair_name": "Qube"
+  }
+}

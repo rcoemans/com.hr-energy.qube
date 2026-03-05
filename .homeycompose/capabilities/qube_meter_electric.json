@@ -1,0 +1,15 @@
+{
+    "type":  "number",
+    "title":  {
+                  "en":  "Electric Energy",
+                  "nl":  "Elektrische energie"
+              },
+    "units":  {
+                  "en":  "kWh"
+              },
+    "decimals":  2,
+    "icon":  "/assets/icons/energy.svg",
+    "getable":  true,
+    "setable":  false,
+    "insights":  true
+}
