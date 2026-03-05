@@ -241,7 +241,7 @@ On the heat pump controller, disable:
 - Room temperature control via Linq
 - DHW control via Linq
 
-![Qube Linq thermostat configuration](../assets/qube_heatpump_settings.png)
+![Qube Linq thermostat configuration](assets/qube_heatpump_settings.png)
 
 ## Use Case Examples
 
