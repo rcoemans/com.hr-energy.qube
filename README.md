@@ -280,3 +280,5 @@ If you want Homey to control the Qube instead of the built-in Linq thermostat:
 This Homey app was inspired by the excellent work of **[Mattie](https://github.com/MattieGit)**, who created the [Qube Heat Pump integration for Home Assistant](https://github.com/MattieGit/qube_heatpump). His project provided valuable insights into the Qube's Modbus register map and control capabilities.
 
 This app is a co-creation between **Robert Coemans** and **Claude Opus** (Anthropic), built using **[Windsurf](https://windsurf.com)** — an AI-powered IDE for collaborative software development.
+
+If you like this, consider [buying me a coffee](https://buymeacoffee.com/kabxpqqg7z). 

@@ -383,7 +383,7 @@
           "nl": "Unitstatus gewijzigd"
         },
         "hint": {
-          "en": "Triggers when the heat pump unit status changes (e.g. standby â†’ heating).",
+          "en": "Triggers when the heat pump unit status changes (e.g. standby to heating).",
           "nl": "Wordt geactiveerd wanneer de status van de warmtepomp wijzigt (bijv. stand-by naar verwarmen)."
         },
         "tokens": [
@@ -754,7 +754,7 @@
           "nl": "SG Ready modus instellen"
         },
         "hint": {
-          "en": "Set the SG Ready mode. Controls two internal boolean switches (sgready_a / sgready_b).",
+          "en": "Set the SG Ready mode.",
           "nl": "Stel de SG Ready modus in."
         },
         "args": [
