@@ -1,6 +1,6 @@
 {
   "id": "com.hr-energy.qube",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "platforms": [
@@ -15,8 +15,25 @@
     "nl": "Bedien je Qube warmtepomp vanuit Homey"
   },
   "tags": {
-    "en": ["heatpump", "heat pump", "qube", "hr-energy", "modbus", "climate", "heating", "cooling"],
-    "nl": ["warmtepomp", "qube", "hr-energy", "modbus", "klimaat", "verwarming", "koeling"]
+    "en": [
+      "heatpump",
+      "heat pump",
+      "qube",
+      "hr-energy",
+      "modbus",
+      "climate",
+      "heating",
+      "cooling"
+    ],
+    "nl": [
+      "warmtepomp",
+      "qube",
+      "hr-energy",
+      "modbus",
+      "klimaat",
+      "verwarming",
+      "koeling"
+    ]
   },
   "brandColor": "#e74c3c",
   "category": [
