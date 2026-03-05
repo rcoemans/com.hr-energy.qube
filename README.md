@@ -1,4 +1,4 @@
-# HR-energy Qube App
+# HR-energy Qube Homey app
 
 Homey app for the **HR-energy Qube** heatpump. Communicates with the unit over **Modbus TCP** to read real-time sensor data, monitor alarms, control setpoints, and automate your heatpump directly from Homey.
 
