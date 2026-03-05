@@ -30,3 +30,6 @@ Bekende beperkingen:
 - De Qube moet bereikbaar zijn op je lokale netwerk via Modbus TCP
 - SG Ready modus vereist Qube firmware >= 4.0.08
 - Na app-updates kan het nodig zijn om het apparaat te verwijderen en opnieuw toe te voegen voor nieuwe mogelijkheden
+
+Meer informatie:
+- https://github.com/rcoemans/com.hr-energy.qube
