@@ -11,6 +11,11 @@
     "en": "HR-energy",
     "nl": "HR-energy"
   },
+  {
+  "support": "https://github.com/rcoemans/com.hr-energy.qube",
+  "homepage": "https://github.com/rcoemans/com.hr-energy.qube",
+  "source": "https://github.com/rcoemans/com.hr-energy.qube"
+  }
   "description": {
     "en": "Control your Qube heatpump from Homey",
     "nl": "Bedien je Qube warmtepomp vanuit Homey"
