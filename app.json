@@ -11,12 +11,6 @@
     "en": "HR-energy",
     "nl": "HR-energy"
   },
-  "support": "https://github.com/rcoemans/com.hr-energy.qube/issues",
-    "bugs": {
-    "url": "https://github.com/rcoemans/com.hr-energy.qube/issues"
-  },
-  "homepage": "https://github.com/rcoemans/com.hr-energy.qube",
-  "source": "https://github.com/rcoemans/com.hr-energy.qube",
   "description": {
     "en": "Control your Qube heatpump from Homey",
     "nl": "Bedien je Qube warmtepomp vanuit Homey"
@@ -384,7 +378,7 @@
           "nl": "Unitstatus gewijzigd"
         },
         "hint": {
-          "en": "Triggers when the heat pump unit status changes (e.g. standby to heating).",
+          "en": "Triggers when the heat pump unit status changes (e.g. standby â†’ heating).",
           "nl": "Wordt geactiveerd wanneer de status van de warmtepomp wijzigt (bijv. stand-by naar verwarmen)."
         },
         "tokens": [
@@ -755,7 +749,7 @@
           "nl": "SG Ready modus instellen"
         },
         "hint": {
-          "en": "Set the SG Ready mode.",
+          "en": "Set the SG Ready mode. Controls two internal boolean switches (sgready_a / sgready_b).",
           "nl": "Stel de SG Ready modus in."
         },
         "args": [
