@@ -50,6 +50,12 @@
     "name": "Robert Coemans",
     "email": "r.coemans@hotmail.com"
   },
+  "homepage": "https://github.com/rcoemans/com.hr-energy.qube",
+  "support": "https://github.com/rcoemans/com.hr-energy.qube/issues",
+  "source": "https://github.com/rcoemans/com.hr-energy.qube",
+  "bugs": {
+    "url": "https://github.com/rcoemans/com.hr-energy.qube/issues"
+  },
   "flow": {
     "triggers": [
       {
