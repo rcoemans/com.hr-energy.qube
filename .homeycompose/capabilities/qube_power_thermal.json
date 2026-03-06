@@ -1,15 +1,16 @@
 {
-  "type": "number",
-  "title": {
-    "en": "Thermal Power",
-    "nl": "Thermisch vermogen"
-  },
-  "units": {
-    "en": "W"
-  },
-  "decimals": 0,
-  "icon": "/assets/icons/lightning.svg",
-  "getable": true,
-  "setable": false,
-  "insights": true
+    "type":  "number",
+    "title":  {
+                  "en":  "Thermal Power",
+                  "nl":  "Thermisch vermogen"
+              },
+    "units":  {
+                  "en":  "W"
+              },
+    "decimals":  0,
+    "icon":  "/assets/icons/lightning.svg",
+    "getable":  true,
+    "setable":  false,
+    "insights":  true,
+    "$flow":  false
 }

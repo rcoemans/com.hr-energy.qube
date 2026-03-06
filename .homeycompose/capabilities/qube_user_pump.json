@@ -1,11 +1,12 @@
 {
-  "type": "boolean",
-  "title": {
-    "en": "CV Pump",
-    "nl": "CV-pomp"
-  },
-  "icon": "/assets/icons/pump.svg",
-  "getable": true,
-  "setable": false,
-  "insights": true
+    "type":  "boolean",
+    "title":  {
+                  "en":  "CV Pump",
+                  "nl":  "CV-pomp"
+              },
+    "icon":  "/assets/icons/pump.svg",
+    "getable":  true,
+    "setable":  false,
+    "insights":  true,
+    "$flow":  false
 }

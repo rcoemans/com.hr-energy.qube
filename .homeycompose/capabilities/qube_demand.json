@@ -11,5 +11,6 @@
     "getable":  true,
     "setable":  true,
     "uiComponent":  "toggle",
-    "insights":  true
+    "insights":  true,
+    "$flow":  false
 }

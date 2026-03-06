@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      padding: 1em;
+      color: #333;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    .form-group {
+      margin-bottom: 1em;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.3em;
+    }
+    .hint {
+      font-size: 0.85em;
+      color: #888;
+      margin-bottom: 0.3em;
+    }
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 0.5em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 1em;
+    }
+    input:focus {
+      outline: none;
+      border-color: #e74c3c;
+    }
+    .error {
+      color: #e74c3c;
+      font-size: 0.9em;
+      margin-top: 0.3em;
+      display: none;
+    }
+    button {
+      background: #e74c3c;
+      color: #fff;
+      border: none;
+      padding: 0.7em 2em;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 0.5em;
+    }
+    button:hover {
+      background: #c0392b;
+    }
+    button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <h2 data-i18n="pair.configure_ip.title">Connection Settings</h2>
+  <p data-i18n="pair.configure_ip.description">Enter the IP address and communication settings of your Qube heat pump.</p>
+
+  <div class="form-group">
+    <label for="ip" data-i18n="pair.configure_ip.ip_label">IP Address</label>
+    <div class="hint" data-i18n="pair.configure_ip.ip_hint">Example: 192.168.1.131</div>
+    <input type="text" id="ip" placeholder="192.168.1.131" required>
+    <div class="error" id="ip-error" data-i18n="pair.configure_ip.ip_error">Please enter a valid IP address.</div>
+  </div>
+
+  <div class="form-group">
+    <label for="port" data-i18n="pair.configure_ip.port_label">Port</label>
+    <div class="hint" data-i18n="pair.configure_ip.port_hint">Default: 502</div>
+    <input type="number" id="port" value="502" min="1" max="65535">
+  </div>
+
+  <div class="form-group">
+    <label for="unitId" data-i18n="pair.configure_ip.unitid_label">Modbus Unit ID</label>
+    <div class="hint" data-i18n="pair.configure_ip.unitid_hint">Default: 1</div>
+    <input type="number" id="unitId" value="1" min="1" max="247">
+  </div>
+
+  <div class="form-group">
+    <label for="pollIntervalMs" data-i18n="pair.configure_ip.poll_label">Poll Interval (ms)</label>
+    <div class="hint" data-i18n="pair.configure_ip.poll_hint">Default: 5000 (5 seconds)</div>
+    <input type="number" id="pollIntervalMs" value="5000" min="1000" max="60000" step="1000">
+  </div>
+
+  <button id="btn-next" data-i18n="pair.configure_ip.next">Next</button>
+
+  <script>
+    function isValidIp(ip) {
+      var parts = ip.split('.');
+      if (parts.length !== 4) return false;
+      for (var i = 0; i < 4; i++) {
+        var n = parseInt(parts[i], 10);
+        if (isNaN(n) || n < 0 || n > 255 || parts[i] !== String(n)) return false;
+      }
+      return true;
+    }
+
+    var ipInput = document.getElementById('ip');
+    var ipError = document.getElementById('ip-error');
+    var btnNext = document.getElementById('btn-next');
+
+    btnNext.addEventListener('click', function () {
+      var ip = ipInput.value.trim();
+      if (!isValidIp(ip)) {
+        ipError.style.display = 'block';
+        ipInput.focus();
+        return;
+      }
+      ipError.style.display = 'none';
+      btnNext.disabled = true;
+
+      var data = {
+        ip: ip,
+        port: parseInt(document.getElementById('port').value, 10) || 502,
+        unitId: parseInt(document.getElementById('unitId').value, 10) || 1,
+        pollIntervalMs: parseInt(document.getElementById('pollIntervalMs').value, 10) || 5000
+      };
+
+      Homey.emit('configure_ip', data, function (err) {
+        if (err) {
+          ipError.textContent = err.message || 'Error';
+          ipError.style.display = 'block';
+          btnNext.disabled = false;
+          return;
+        }
+        Homey.nextView();
+      });
+    });
+
+    ipInput.addEventListener('input', function () {
+      ipError.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

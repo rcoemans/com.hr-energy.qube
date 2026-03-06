@@ -8,5 +8,6 @@
     "getable":  true,
     "setable":  false,
     "insights":  true,
-    "uiComponent":  "sensor"
+    "uiComponent":  "sensor",
+    "$flow":  false
 }

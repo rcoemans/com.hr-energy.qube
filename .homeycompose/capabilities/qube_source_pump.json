@@ -1,11 +1,12 @@
 {
-  "type": "boolean",
-  "title": {
-    "en": "Source Pump",
-    "nl": "Bronpomp"
-  },
-  "icon": "/assets/icons/pump.svg",
-  "getable": true,
-  "setable": false,
-  "insights": true
+    "type":  "boolean",
+    "title":  {
+                  "en":  "Source Pump",
+                  "nl":  "Bronpomp"
+              },
+    "icon":  "/assets/icons/pump.svg",
+    "getable":  true,
+    "setable":  false,
+    "insights":  true,
+    "$flow":  false
 }

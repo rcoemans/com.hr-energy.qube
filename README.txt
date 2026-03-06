@@ -25,9 +25,10 @@ Supported devices:
 Setup:
 1. Install the app on your Homey
 2. Add a new device: HR-energy > Qube
-3. Go to device Settings and enter the IP address of your Qube
-4. Optionally adjust port (default 502), Modbus unit ID (default 1), and poll interval (default 5 seconds)
+3. The pairing wizard asks for IP address, port (default 502), Modbus unit ID (default 1), and poll interval (default 5000 ms)
+4. Confirm the device to complete pairing
 5. The device will connect automatically and start reading data
+6. Connection settings can be changed later in device Settings
 
 Known limitations:
 - The Qube must be reachable on your local network via Modbus TCP

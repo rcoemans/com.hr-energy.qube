@@ -1,11 +1,12 @@
 {
-  "type": "boolean",
-  "title": {
-    "en": "Heater 1",
-    "nl": "Bijverwarming 1"
-  },
-  "icon": "/assets/icons/heater.svg",
-  "getable": true,
-  "setable": false,
-  "insights": true
+    "type":  "boolean",
+    "title":  {
+                  "en":  "Heater 1",
+                  "nl":  "Bijverwarming 1"
+              },
+    "icon":  "/assets/icons/heater.svg",
+    "getable":  true,
+    "setable":  false,
+    "insights":  true,
+    "$flow":  false
 }

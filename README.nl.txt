@@ -25,9 +25,10 @@ Ondersteunde apparaten:
 Installatie:
 1. Installeer de app op je Homey
 2. Voeg een nieuw apparaat toe: HR-energy > Qube
-3. Ga naar de apparaatinstellingen en voer het IP-adres van je Qube in
-4. Pas optioneel de poort (standaard 502), Modbus unit-ID (standaard 1) en poll-interval (standaard 5 seconden) aan
+3. De installatiewizard vraagt om IP-adres, poort (standaard 502), Modbus unit-ID (standaard 1) en poll-interval (standaard 5000 ms)
+4. Bevestig het apparaat om de koppeling te voltooien
 5. Het apparaat maakt automatisch verbinding en begint met het uitlezen van data
+6. Verbindingsinstellingen kunnen later worden gewijzigd in de apparaatinstellingen
 
 Bekende beperkingen:
 - De Qube moet bereikbaar zijn op je lokale netwerk via Modbus TCP

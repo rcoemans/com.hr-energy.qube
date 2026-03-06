@@ -2161,6 +2161,12 @@
       },
       "pair": [
         {
+          "id": "configure_ip",
+          "navigation": {
+            "next": "list_devices"
+          }
+        },
+        {
           "id": "list_devices",
           "template": "list_devices",
           "navigation": {
@@ -2173,23 +2179,23 @@
         }
       ],
       "capabilities": [
-        "measure_temperature.supply",
-        "measure_temperature.return",
-        "measure_temperature.source_in",
-        "measure_temperature.source_out",
-        "measure_temperature.room",
-        "measure_temperature.dhw",
-        "measure_temperature.outdoor",
+        "qube_temp_supply",
+        "qube_temp_return",
+        "qube_temp_source_in",
+        "qube_temp_source_out",
+        "qube_temp_room",
+        "qube_temp_dhw",
+        "qube_temp_outdoor",
         "qube_flow",
         "measure_cop",
-        "measure_power",
+        "qube_power",
         "qube_meter_electric",
         "qube_energy_thermal",
         "qube_power_thermal",
         "qube_compressor_speed",
         "qube_unitstatus_raw",
         "qube_status",
-        "alarm_generic",
+        "qube_alarm_global",
         "qube_alarm_flow",
         "qube_alarm_heating",
         "qube_alarm_cooling",
@@ -2217,70 +2223,7 @@
         "qube_cooling_setpoint_night",
         "qube_dhw_setpoint"
       ],
-      "capabilitiesOptions": {
-        "alarm_generic": {
-          "title": {
-            "en": "Error",
-            "nl": "Storing"
-          },
-          "insightsTitleTrue": {
-            "en": "Alarm active",
-            "nl": "Alarm actief"
-          },
-          "insightsTitleFalse": {
-            "en": "No alarm",
-            "nl": "Geen alarm"
-          }
-        },
-        "measure_temperature.supply": {
-          "title": {
-            "en": "Supply Temperature",
-            "nl": "Aanvoertemperatuur"
-          }
-        },
-        "measure_temperature.return": {
-          "title": {
-            "en": "Return Temperature",
-            "nl": "Retourtemperatuur"
-          }
-        },
-        "measure_temperature.source_in": {
-          "title": {
-            "en": "Source In Temperature",
-            "nl": "Bron inlaattemperatuur"
-          }
-        },
-        "measure_temperature.source_out": {
-          "title": {
-            "en": "Source Out Temperature",
-            "nl": "Bron uitlaattemperatuur"
-          }
-        },
-        "measure_temperature.dhw": {
-          "title": {
-            "en": "DHW Temperature",
-            "nl": "Warmwatertemperatuur"
-          }
-        },
-        "measure_temperature.outdoor": {
-          "title": {
-            "en": "Outdoor Temperature",
-            "nl": "Buitentemperatuur"
-          }
-        },
-        "measure_temperature.room": {
-          "title": {
-            "en": "Room Temperature",
-            "nl": "Kamertemperatuur"
-          }
-        },
-        "measure_power": {
-          "title": {
-            "en": "Electric Power",
-            "nl": "Elektrisch vermogen"
-          }
-        }
-      },
+      "capabilitiesOptions": {},
       "id": "qube",
       "settings": [
         {

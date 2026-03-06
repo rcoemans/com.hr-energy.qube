@@ -41,7 +41,7 @@ module.exports = class QubeDevice extends Homey.Device {
 
   // ── Alarm key → capability + alarm id mapping ─────────────────
   private static readonly ALARM_MAP: { key: keyof QubePollResult; capabilityId: string; alarmId: string }[] = [
-    { key: 'globalAlarm',            capabilityId: 'alarm_generic',                  alarmId: 'global' },
+    { key: 'globalAlarm',            capabilityId: 'qube_alarm_global',              alarmId: 'global' },
     { key: 'alarmFlow',              capabilityId: 'qube_alarm_flow',                alarmId: 'flow' },
     { key: 'alarmHeating',           capabilityId: 'qube_alarm_heating',             alarmId: 'heating' },
     { key: 'alarmCooling',           capabilityId: 'qube_alarm_cooling',             alarmId: 'cooling' },
@@ -268,20 +268,20 @@ module.exports = class QubeDevice extends Homey.Device {
     this._dhwTemp = round2(res.dhwTemp);
     this._outdoorTemp = round2(res.outdoorTemp);
 
-    await this.setCapabilityValue('measure_temperature.supply', this._supplyTemp).catch(() => undefined);
-    await this.setCapabilityValue('measure_temperature.return', this._returnTemp).catch(() => undefined);
-    await this.setCapabilityValue('measure_temperature.source_in', this._sourceInTemp).catch(() => undefined);
-    await this.setCapabilityValue('measure_temperature.source_out', this._sourceOutTemp).catch(() => undefined);
-    await this.setCapabilityValue('measure_temperature.room', this._roomTemp).catch(() => undefined);
-    await this.setCapabilityValue('measure_temperature.dhw', this._dhwTemp).catch(() => undefined);
-    await this.setCapabilityValue('measure_temperature.outdoor', this._outdoorTemp).catch(() => undefined);
+    await this.setCapabilityValue('qube_temp_supply', this._supplyTemp).catch(() => undefined);
+    await this.setCapabilityValue('qube_temp_return', this._returnTemp).catch(() => undefined);
+    await this.setCapabilityValue('qube_temp_source_in', this._sourceInTemp).catch(() => undefined);
+    await this.setCapabilityValue('qube_temp_source_out', this._sourceOutTemp).catch(() => undefined);
+    await this.setCapabilityValue('qube_temp_room', this._roomTemp).catch(() => undefined);
+    await this.setCapabilityValue('qube_temp_dhw', this._dhwTemp).catch(() => undefined);
+    await this.setCapabilityValue('qube_temp_outdoor', this._outdoorTemp).catch(() => undefined);
 
     // ── Flow / COP / Energy ───────────────────────────────────────
     await this.setCapabilityValue('qube_flow', round2(res.flow)).catch(() => undefined);
     this._cop = round2(res.cop);
     this._electricPower = round2(res.electricPower);
     await this.setCapabilityValue('measure_cop', this._cop).catch(() => undefined);
-    await this.setCapabilityValue('measure_power', this._electricPower).catch(() => undefined);
+    await this.setCapabilityValue('qube_power', this._electricPower).catch(() => undefined);
     await this.setCapabilityValue('qube_meter_electric', round2(res.energyElectric)).catch(() => undefined);
     await this.setCapabilityValue('qube_energy_thermal', round2(res.energyThermal)).catch(() => undefined);
 

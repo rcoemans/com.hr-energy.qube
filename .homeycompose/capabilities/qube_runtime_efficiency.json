@@ -1,20 +1,21 @@
 {
-  "type": "number",
-  "title": {
-    "en": "Runtime Efficiency",
-    "nl": "Runtime-effici\u00ebntie"
-  },
-  "desc": {
-    "en": "Thermal energy produced per heating hour (thermal kWh / heating hours). Helps assess long-term system behavior.",
-    "nl": "Thermische energie per verwarmingsuur (thermische kWh / verwarmingsuren). Helpt het langetermijngedrag van het systeem te beoordelen."
-  },
-  "units": {
-    "en": "kWh/h"
-  },
-  "decimals": 2,
-  "icon": "/assets/icons/lightning.svg",
-  "getable": true,
-  "setable": false,
-  "insights": true,
-  "uiComponent": "sensor"
+    "type":  "number",
+    "title":  {
+                  "en":  "Runtime Efficiency",
+                  "nl":  "Runtime-efficiëntie"
+              },
+    "desc":  {
+                 "en":  "Thermal energy produced per heating hour (thermal kWh / heating hours). Helps assess long-term system behavior.",
+                 "nl":  "Thermische energie per verwarmingsuur (thermische kWh / verwarmingsuren). Helpt het langetermijngedrag van het systeem te beoordelen."
+             },
+    "units":  {
+                  "en":  "kWh/h"
+              },
+    "decimals":  2,
+    "icon":  "/assets/icons/lightning.svg",
+    "getable":  true,
+    "setable":  false,
+    "insights":  true,
+    "uiComponent":  "sensor",
+    "$flow":  false
 }

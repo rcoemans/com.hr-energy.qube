@@ -1,15 +1,16 @@
 {
-  "type": "number",
-  "title": {
-    "en": "Working Hours DHW",
-    "nl": "Bedrijfsuren warmwater"
-  },
-  "units": {
-    "en": "h"
-  },
-  "decimals": 0,
-  "icon": "/assets/icons/clock.svg",
-  "getable": true,
-  "setable": false,
-  "insights": true
+    "type":  "number",
+    "title":  {
+                  "en":  "Working Hours DHW",
+                  "nl":  "Bedrijfsuren warmwater"
+              },
+    "units":  {
+                  "en":  "h"
+              },
+    "decimals":  0,
+    "icon":  "/assets/icons/clock.svg",
+    "getable":  true,
+    "setable":  false,
+    "insights":  true,
+    "$flow":  false
 }

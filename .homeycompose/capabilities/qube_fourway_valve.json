@@ -1,11 +1,12 @@
 {
-  "type": "boolean",
-  "title": {
-    "en": "Four-way Valve",
-    "nl": "Vierweg klep"
-  },
-  "icon": "/assets/icons/valve.svg",
-  "getable": true,
-  "setable": false,
-  "insights": true
+    "type":  "boolean",
+    "title":  {
+                  "en":  "Four-way Valve",
+                  "nl":  "Vierweg klep"
+              },
+    "icon":  "/assets/icons/valve.svg",
+    "getable":  true,
+    "setable":  false,
+    "insights":  true,
+    "$flow":  false
 }

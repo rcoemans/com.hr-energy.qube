@@ -1,23 +1,24 @@
 {
-  "type": "number",
-  "title": {
-    "en": "Heating Setpoint (Day)",
-    "nl": "Verwarmingssetpoint (Dag)"
-  },
-  "desc": {
-    "en": "Room heating setpoint for the day period.",
-    "nl": "Kamerverwarming setpoint voor de dagperiode."
-  },
-  "units": {
-    "en": "\u00b0C"
-  },
-  "decimals": 1,
-  "min": 10,
-  "max": 65,
-  "step": 0.5,
-  "icon": "/assets/icons/target-temp.svg",
-  "getable": true,
-  "setable": true,
-  "uiComponent": "slider",
-  "insights": true
+    "type":  "number",
+    "title":  {
+                  "en":  "Heating Setpoint (Day)",
+                  "nl":  "Verwarmingssetpoint (Dag)"
+              },
+    "desc":  {
+                 "en":  "Room heating setpoint for the day period.",
+                 "nl":  "Kamerverwarming setpoint voor de dagperiode."
+             },
+    "units":  {
+                  "en":  "°C"
+              },
+    "decimals":  1,
+    "min":  10,
+    "max":  65,
+    "step":  0.5,
+    "icon":  "/assets/icons/target-temp.svg",
+    "getable":  true,
+    "setable":  true,
+    "uiComponent":  "slider",
+    "insights":  true,
+    "$flow":  false
 }

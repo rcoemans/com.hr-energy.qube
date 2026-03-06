@@ -32,5 +32,21 @@
   },
   "device": {
     "pair_name": "Qube"
+  },
+  "pair": {
+    "configure_ip": {
+      "title": "Verbindingsinstellingen",
+      "description": "Voer het IP-adres en de communicatie-instellingen van je Qube warmtepomp in.",
+      "ip_label": "IP-adres",
+      "ip_hint": "Voorbeeld: 192.168.1.131",
+      "ip_error": "Voer een geldig IP-adres in.",
+      "port_label": "Poort",
+      "port_hint": "Standaard: 502",
+      "unitid_label": "Modbus Unit-ID",
+      "unitid_hint": "Standaard: 1",
+      "poll_label": "Poll-interval (ms)",
+      "poll_hint": "Standaard: 5000 (5 seconden)",
+      "next": "Volgende"
+    }
   }
 }

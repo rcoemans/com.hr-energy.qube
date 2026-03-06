@@ -50,9 +50,10 @@ homey app install
 
 1. Install the app on your Homey.
 2. Add a new device: **HR-energy → Qube**.
-3. Go to the device **Settings** and enter the IP address of your Qube.
-4. Optionally adjust port (default 502), Modbus unit ID (default 1), and poll interval (default 5 seconds).
+3. The pairing wizard will ask for the **IP address**, **port** (default 502), **Modbus unit ID** (default 1), and **poll interval** (default 5000 ms). Enter the IP address of your Qube and adjust the other settings if needed.
+4. Confirm the device to complete pairing.
 5. The device will connect automatically and start reading data.
+6. You can change connection settings later in the device **Settings** page.
 
 ## Device Variables
 
@@ -60,19 +61,19 @@ All capabilities exposed by the Qube device, with their variable name (as used i
 
 | Variable                         | Type          |
 |----------------------------------|---------------|
-| `alarm_generic`                  | boolean       |
+| `qube_alarm_global`              | boolean       |
 | `qube_unitstatus_raw`            | number        |
 | `qube_status`                    | string        |
-| `measure_temperature.supply`     | number        |
-| `measure_temperature.return`     | number        |
-| `measure_temperature.source_in`  | number        |
-| `measure_temperature.source_out` | number        |
-| `measure_temperature.room`       | number        |
-| `measure_temperature.dhw`        | number        |
-| `measure_temperature.outdoor`    | number        |
+| `qube_temp_supply`               | number        |
+| `qube_temp_return`               | number        |
+| `qube_temp_source_in`            | number        |
+| `qube_temp_source_out`           | number        |
+| `qube_temp_room`                 | number        |
+| `qube_temp_dhw`                  | number        |
+| `qube_temp_outdoor`              | number        |
 | `qube_flow`                      | number        |
 | `measure_cop`                    | number        |
-| `measure_power`                  | number        |
+| `qube_power`                     | number        |
 | `qube_meter_electric`            | number        |
 | `qube_energy_thermal`            | number        |
 | `qube_power_thermal`             | number        |

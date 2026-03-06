@@ -32,5 +32,21 @@
   },
   "device": {
     "pair_name": "Qube"
+  },
+  "pair": {
+    "configure_ip": {
+      "title": "Connection Settings",
+      "description": "Enter the IP address and communication settings of your Qube heat pump.",
+      "ip_label": "IP Address",
+      "ip_hint": "Example: 192.168.1.131",
+      "ip_error": "Please enter a valid IP address.",
+      "port_label": "Port",
+      "port_hint": "Default: 502",
+      "unitid_label": "Modbus Unit ID",
+      "unitid_hint": "Default: 1",
+      "poll_label": "Poll Interval (ms)",
+      "poll_hint": "Default: 5000 (5 seconds)",
+      "next": "Next"
+    }
   }
 }

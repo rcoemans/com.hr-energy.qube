@@ -7,5 +7,6 @@
     "icon":  "/assets/icons/alarm.svg",
     "getable":  true,
     "setable":  false,
-    "insights":  true
+    "insights":  true,
+    "$flow":  false
 }

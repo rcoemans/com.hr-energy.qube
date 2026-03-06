@@ -15,5 +15,6 @@
     "getable":  true,
     "setable":  true,
     "uiComponent":  "slider",
-    "insights":  true
+    "insights":  true,
+    "$flow":  false
 }
