@@ -81,13 +81,10 @@
           },
           {
             "name": "state",
-            "type": "string",
+            "type": "boolean",
             "title": {
               "en": "State",
               "nl": "Status"
-            },
-            "example": {
-              "en": "on"
             }
           },
           {
@@ -497,8 +494,8 @@
             "name": "old_status",
             "type": "string",
             "title": {
-              "en": "Old status",
-              "nl": "Oude status"
+              "en": "Old unit status",
+              "nl": "Oude unitstatus"
             },
             "example": {
               "en": "standby"
@@ -508,33 +505,55 @@
             "name": "new_status",
             "type": "string",
             "title": {
-              "en": "New status",
-              "nl": "Nieuwe status"
+              "en": "New unit status",
+              "nl": "Nieuwe unitstatus"
             },
             "example": {
               "en": "heating"
             }
           },
           {
-            "name": "raw_unitstatus",
-            "type": "number",
+            "name": "old_status_text",
+            "type": "string",
             "title": {
-              "en": "Raw unit status",
-              "nl": "Ruwe unitstatus"
+              "en": "Old unit status text",
+              "nl": "Oude unitstatustekst"
             },
             "example": {
-              "en": "16"
+              "en": "Standby"
             }
           },
           {
-            "name": "status_text",
+            "name": "new_status_text",
             "type": "string",
             "title": {
-              "en": "Status text",
-              "nl": "Statustekst"
+              "en": "New unit status text",
+              "nl": "Nieuwe unitstatustekst"
             },
             "example": {
               "en": "Heating"
+            }
+          },
+          {
+            "name": "old_raw_unitstatus",
+            "type": "number",
+            "title": {
+              "en": "Old unit status (raw)",
+              "nl": "Oude unitstatus (raw)"
+            },
+            "example": {
+              "en": "1"
+            }
+          },
+          {
+            "name": "new_raw_unitstatus",
+            "type": "number",
+            "title": {
+              "en": "New unit status (raw)",
+              "nl": "Nieuwe unitstatus (raw)"
+            },
+            "example": {
+              "en": "16"
             }
           }
         ],
@@ -2218,9 +2237,21 @@
         "qube_heating_setpoint_night",
         "qube_cooling_setpoint_day",
         "qube_cooling_setpoint_night",
-        "qube_dhw_setpoint"
+        "qube_dhw_setpoint",
+        "qube_bms_demand",
+        "qube_heating_curve_status",
+        "qube_dhw_program_status",
+        "qube_sg_ready_status",
+        "measure_power"
       ],
-      "capabilitiesOptions": {},
+      "capabilitiesOptions": {
+        "measure_power": {
+          "title": {
+            "en": "Electric Power",
+            "nl": "Elektrisch vermogen"
+          }
+        }
+      },
       "id": "qube",
       "settings": [
         {
@@ -2373,6 +2404,18 @@
       "insights": true,
       "uiComponent": "sensor"
     },
+    "qube_bms_demand": {
+      "type": "boolean",
+      "title": {
+        "en": "BMS Demand",
+        "nl": "BMS-vraag"
+      },
+      "icon": "/assets/icons/power-toggle.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
     "qube_compressor_speed": {
       "type": "number",
       "title": {
@@ -2448,20 +2491,17 @@
       "insights": true,
       "uiComponent": "sensor"
     },
-    "qube_demand": {
+    "qube_dhw_program_status": {
       "type": "boolean",
       "title": {
-        "en": "Heat/Cool Request",
-        "nl": "Warmte-/koelvraag"
+        "en": "DHW Program",
+        "nl": "Warmwaterprogramma"
       },
-      "desc": {
-        "en": "Enable or disable the heatpump. When ON the unit will actively heat or cool depending on the season mode. When OFF the unit goes to standby."
-      },
-      "icon": "/assets/icons/power-toggle.svg",
+      "icon": "/assets/icons/thermometer.svg",
       "getable": true,
-      "setable": true,
-      "uiComponent": "toggle",
-      "insights": true
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_dhw_setpoint": {
       "type": "number",
@@ -2545,6 +2585,18 @@
         "nl": "Bijverwarming 2"
       },
       "icon": "/assets/icons/heater.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "qube_heating_curve_status": {
+      "type": "boolean",
+      "title": {
+        "en": "Heating Curve",
+        "nl": "Verwarmingscurve"
+      },
+      "icon": "/assets/icons/season.svg",
       "getable": true,
       "setable": false,
       "insights": true,
@@ -2741,14 +2793,14 @@
       "icon": "/assets/icons/season.svg",
       "values": [
         {
-          "id": "winter",
+          "id": "Winter (Heating)",
           "title": {
             "en": "Winter (Heating)",
             "nl": "Winter (Verwarmen)"
           }
         },
         {
-          "id": "summer",
+          "id": "Summer (Cooling)",
           "title": {
             "en": "Summer (Cooling)",
             "nl": "Zomer (Koelen)"
@@ -2759,6 +2811,18 @@
       "setable": true,
       "uiComponent": "picker",
       "insights": true
+    },
+    "qube_sg_ready_status": {
+      "type": "string",
+      "title": {
+        "en": "SG Ready Mode",
+        "nl": "SG Ready-modus"
+      },
+      "icon": "/assets/icons/lightning.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_source_dt": {
       "type": "number",

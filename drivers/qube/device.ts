@@ -35,6 +35,7 @@ module.exports = class QubeDevice extends Homey.Device {
   private _heatingDt = 0;
   private _sourceDt = 0;
   private _runtimeEfficiency = 0;
+  private _lastRawUnitStatus = 0;
 
   // ── Last metric values (for change detection) ──────────────────
   private _lastMetrics: Record<string, number> = {};
@@ -54,37 +55,6 @@ module.exports = class QubeDevice extends Homey.Device {
 
   // ── Lifecycle ───────────────────────────────────────────────────
 
-  // ── Expected capability list (must match driver.compose.json) ───
-  private static readonly EXPECTED_CAPABILITIES = [
-    'qube_temp_supply', 'qube_temp_return', 'qube_temp_source_in',
-    'qube_temp_source_out', 'qube_temp_room', 'qube_temp_dhw',
-    'qube_temp_outdoor', 'qube_flow', 'qube_cop', 'qube_power',
-    'qube_meter_electric', 'qube_energy_thermal', 'qube_power_thermal',
-    'qube_compressor_speed', 'qube_unitstatus_raw', 'qube_status',
-    'qube_alarm_global', 'qube_alarm_flow', 'qube_alarm_heating',
-    'qube_alarm_cooling', 'qube_alarm_source', 'qube_alarm_user',
-    'qube_alarm_legionella_timeout', 'qube_alarm_dhw_timeout',
-    'qube_alarm_working_hours', 'qube_source_pump', 'qube_user_pump',
-    'qube_fourway_valve', 'qube_threeway_valve', 'qube_heater1',
-    'qube_heater2', 'qube_hours_dhw', 'qube_hours_heating',
-    'qube_hours_cooling', 'qube_heating_dt', 'qube_source_dt',
-    'qube_runtime_efficiency', 'qube_season_mode',
-    'qube_heating_setpoint_day', 'qube_heating_setpoint_night',
-    'qube_cooling_setpoint_day', 'qube_cooling_setpoint_night',
-    'qube_dhw_setpoint', 'qube_demand',
-  ];
-
-  // ── Old capabilities that were renamed or removed ─────────────
-  private static readonly DEPRECATED_CAPABILITIES = [
-    'alarm_generic',
-    'measure_temperature.supply', 'measure_temperature.return',
-    'measure_temperature.source_in', 'measure_temperature.source_out',
-    'measure_temperature.room', 'measure_temperature.dhw',
-    'measure_temperature.outdoor',
-    'measure_power', 'measure_cop',
-    'qube_heating_setpoint', 'qube_cooling_setpoint', 'qube_heating_curve',
-  ];
-
   async onInit() {
     this.log('QubeDevice has been initialized');
     await this.migrateCapabilities();
@@ -94,8 +64,41 @@ module.exports = class QubeDevice extends Homey.Device {
   }
 
   private async migrateCapabilities() {
+    const deprecated = [
+      'alarm_generic',
+      'measure_temperature.supply', 'measure_temperature.return',
+      'measure_temperature.source_in', 'measure_temperature.source_out',
+      'measure_temperature.room', 'measure_temperature.dhw',
+      'measure_temperature.outdoor',
+      'measure_cop',
+      'qube_heating_setpoint', 'qube_cooling_setpoint', 'qube_heating_curve',
+      'qube_demand',
+    ];
+
+    const expected = [
+      'qube_temp_supply', 'qube_temp_return', 'qube_temp_source_in',
+      'qube_temp_source_out', 'qube_temp_room', 'qube_temp_dhw',
+      'qube_temp_outdoor', 'qube_flow', 'qube_cop', 'qube_power',
+      'qube_meter_electric', 'qube_energy_thermal', 'qube_power_thermal',
+      'qube_compressor_speed', 'qube_unitstatus_raw', 'qube_status',
+      'qube_alarm_global', 'qube_alarm_flow', 'qube_alarm_heating',
+      'qube_alarm_cooling', 'qube_alarm_source', 'qube_alarm_user',
+      'qube_alarm_legionella_timeout', 'qube_alarm_dhw_timeout',
+      'qube_alarm_working_hours', 'qube_source_pump', 'qube_user_pump',
+      'qube_fourway_valve', 'qube_threeway_valve', 'qube_heater1',
+      'qube_heater2', 'qube_hours_dhw', 'qube_hours_heating',
+      'qube_hours_cooling', 'qube_heating_dt', 'qube_source_dt',
+      'qube_runtime_efficiency', 'qube_season_mode',
+      'qube_heating_setpoint_day', 'qube_heating_setpoint_night',
+      'qube_cooling_setpoint_day', 'qube_cooling_setpoint_night',
+      'qube_dhw_setpoint',
+      'qube_bms_demand', 'qube_heating_curve_status',
+      'qube_dhw_program_status', 'qube_sg_ready_status',
+      'measure_power',
+    ];
+
     // Remove old/renamed capabilities
-    for (const cap of QubeDevice.DEPRECATED_CAPABILITIES) {
+    for (const cap of deprecated) {
       if (this.hasCapability(cap)) {
         this.log(`Removing deprecated capability: ${cap}`);
         await this.removeCapability(cap).catch(err =>
@@ -104,13 +107,15 @@ module.exports = class QubeDevice extends Homey.Device {
     }
 
     // Add missing capabilities
-    for (const cap of QubeDevice.EXPECTED_CAPABILITIES) {
+    for (const cap of expected) {
       if (!this.hasCapability(cap)) {
         this.log(`Adding missing capability: ${cap}`);
         await this.addCapability(cap).catch(err =>
           this.error(`Failed to add capability ${cap}:`, err));
       }
     }
+
+    this.log(`Migration complete. Capabilities: ${this.getCapabilities().join(', ')}`);
   }
 
   async onDeleted() {
@@ -179,7 +184,7 @@ module.exports = class QubeDevice extends Homey.Device {
 
   private registerCapabilityListeners() {
     this.registerCapabilityListener('qube_season_mode', async (value: string) => {
-      const summer = value === 'summer';
+      const summer = value === 'Summer (Cooling)';
       this.log('Setting season mode:', value, '(summer=' + summer + ')');
       await this.getClient().writeSeasonMode(summer);
     });
@@ -334,6 +339,7 @@ module.exports = class QubeDevice extends Homey.Device {
     this._electricPower = round2(res.electricPower);
     await this.setCapabilityValue('qube_cop', this._cop).catch(() => undefined);
     await this.setCapabilityValue('qube_power', this._electricPower).catch(() => undefined);
+    await this.setCapabilityValue('measure_power', this._electricPower).catch(() => undefined);
     await this.setCapabilityValue('qube_meter_electric', round2(res.energyElectric)).catch(() => undefined);
     await this.setCapabilityValue('qube_energy_thermal', round2(res.energyThermal)).catch(() => undefined);
 
@@ -365,7 +371,11 @@ module.exports = class QubeDevice extends Homey.Device {
     await this.setCapabilityValue('qube_heater2', res.heater2).catch(() => undefined);
 
     // ── Controls (read back current state) ───────────────────────
-    await this.setCapabilityValue('qube_season_mode', res.seasonSummer ? 'summer' : 'winter').catch(() => undefined);
+    await this.setCapabilityValue('qube_season_mode', res.seasonSummer ? 'Summer (Cooling)' : 'Winter (Heating)').catch(() => undefined);
+    await this.setCapabilityValue('qube_bms_demand', res.demand).catch(() => undefined);
+    await this.setCapabilityValue('qube_heating_curve_status', res.heatingCurveEnabled).catch(() => undefined);
+    await this.setCapabilityValue('qube_dhw_program_status', res.dhwProgramActive).catch(() => undefined);
+    await this.setCapabilityValue('qube_sg_ready_status', res.sgReadyMode).catch(() => undefined);
     await this.setCapabilityValue('qube_heating_setpoint_day', round2(res.heatingSetpointDay)).catch(() => undefined);
     await this.setCapabilityValue('qube_heating_setpoint_night', round2(res.heatingSetpointNight)).catch(() => undefined);
     await this.setCapabilityValue('qube_cooling_setpoint_day', round2(res.coolingSetpointDay)).catch(() => undefined);
@@ -393,11 +403,14 @@ module.exports = class QubeDevice extends Homey.Device {
         await app.triggerUnitStatusChanged(this, {
           old_status: this.lastStatusKey,
           new_status: statusKey,
-          raw_unitstatus: res.unitStatusRaw,
-          status_text: newText,
+          old_status_text: oldText,
+          new_status_text: newText,
+          old_raw_unitstatus: this._lastRawUnitStatus,
+          new_raw_unitstatus: res.unitStatusRaw,
         }).catch(() => undefined);
       }
     }
+    this._lastRawUnitStatus = res.unitStatusRaw;
     this.lastStatusKey = statusKey;
 
     // Alarm transitions (fires for both ON and OFF transitions)
@@ -406,12 +419,11 @@ module.exports = class QubeDevice extends Homey.Device {
       const previous = this.lastAlarms[alarm.alarmId];
 
       if (previous !== undefined && previous !== current) {
-        const state = current ? 'on' : 'off';
         const alarmText = this.homey.__(`alarms.${alarm.alarmId}`) || alarm.alarmId;
         if (typeof app?.triggerAlarmStateChanged === 'function') {
           await app.triggerAlarmStateChanged(this, {
             alarm: alarm.alarmId,
-            state,
+            state: current,
             alarm_text: alarmText,
           }).catch(() => undefined);
         }

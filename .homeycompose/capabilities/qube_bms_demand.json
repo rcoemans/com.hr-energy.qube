@@ -1,0 +1,13 @@
+{
+    "type": "boolean",
+    "title": {
+        "en": "BMS Demand",
+        "nl": "BMS-vraag"
+    },
+    "icon": "/assets/icons/power-toggle.svg",
+    "getable": true,
+    "setable": false,
+    "insights": true,
+    "uiComponent": "sensor",
+    "$flow": false
+}

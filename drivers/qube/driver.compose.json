@@ -67,7 +67,16 @@
     "qube_heating_setpoint_night",
     "qube_cooling_setpoint_day",
     "qube_cooling_setpoint_night",
-    "qube_dhw_setpoint"
+    "qube_dhw_setpoint",
+    "qube_bms_demand",
+    "qube_heating_curve_status",
+    "qube_dhw_program_status",
+    "qube_sg_ready_status",
+    "measure_power"
   ],
-  "capabilitiesOptions": {}
+  "capabilitiesOptions": {
+    "measure_power": {
+      "title": { "en": "Electric Power", "nl": "Elektrisch vermogen" }
+    }
+  }
 }

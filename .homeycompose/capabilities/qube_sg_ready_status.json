@@ -1,0 +1,13 @@
+{
+    "type": "string",
+    "title": {
+        "en": "SG Ready Mode",
+        "nl": "SG Ready-modus"
+    },
+    "icon": "/assets/icons/lightning.svg",
+    "getable": true,
+    "setable": false,
+    "insights": true,
+    "uiComponent": "sensor",
+    "$flow": false
+}

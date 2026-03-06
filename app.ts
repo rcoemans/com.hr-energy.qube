@@ -169,15 +169,17 @@ module.exports = class QubeApp extends Homey.App {
   async triggerUnitStatusChanged(device: Homey.Device, tokens: {
     old_status: string;
     new_status: string;
-    raw_unitstatus: number;
-    status_text: string;
+    old_status_text: string;
+    new_status_text: string;
+    old_raw_unitstatus: number;
+    new_raw_unitstatus: number;
   }) {
     await this.unitStatusChangedTrigger.trigger(device, tokens).catch(this.error);
   }
 
   async triggerAlarmStateChanged(device: Homey.Device, tokens: {
     alarm: string;
-    state: string;
+    state: boolean;
     alarm_text: string;
   }) {
     await this.alarmStateChangedTrigger.trigger(device, tokens).catch(this.error);

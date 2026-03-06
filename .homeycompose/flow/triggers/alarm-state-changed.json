@@ -21,13 +21,10 @@
     },
     {
       "name": "state",
-      "type": "string",
+      "type": "boolean",
       "title": {
         "en": "State",
         "nl": "Status"
-      },
-      "example": {
-        "en": "on"
       }
     },
     {

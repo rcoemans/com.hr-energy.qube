@@ -12,8 +12,8 @@
       "name": "old_status",
       "type": "string",
       "title": {
-        "en": "Old status",
-        "nl": "Oude status"
+        "en": "Old unit status",
+        "nl": "Oude unitstatus"
       },
       "example": {
         "en": "standby"
@@ -23,33 +23,55 @@
       "name": "new_status",
       "type": "string",
       "title": {
-        "en": "New status",
-        "nl": "Nieuwe status"
+        "en": "New unit status",
+        "nl": "Nieuwe unitstatus"
       },
       "example": {
         "en": "heating"
       }
     },
     {
-      "name": "raw_unitstatus",
-      "type": "number",
+      "name": "old_status_text",
+      "type": "string",
       "title": {
-        "en": "Raw unit status",
-        "nl": "Ruwe unitstatus"
+        "en": "Old unit status text",
+        "nl": "Oude unitstatustekst"
       },
       "example": {
-        "en": "16"
+        "en": "Standby"
       }
     },
     {
-      "name": "status_text",
+      "name": "new_status_text",
       "type": "string",
       "title": {
-        "en": "Status text",
-        "nl": "Statustekst"
+        "en": "New unit status text",
+        "nl": "Nieuwe unitstatustekst"
       },
       "example": {
         "en": "Heating"
+      }
+    },
+    {
+      "name": "old_raw_unitstatus",
+      "type": "number",
+      "title": {
+        "en": "Old unit status (raw)",
+        "nl": "Oude unitstatus (raw)"
+      },
+      "example": {
+        "en": "1"
+      }
+    },
+    {
+      "name": "new_raw_unitstatus",
+      "type": "number",
+      "title": {
+        "en": "New unit status (raw)",
+        "nl": "Nieuwe unitstatus (raw)"
+      },
+      "example": {
+        "en": "16"
       }
     }
   ],

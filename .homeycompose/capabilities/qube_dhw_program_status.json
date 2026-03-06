@@ -1,0 +1,13 @@
+{
+    "type": "boolean",
+    "title": {
+        "en": "DHW Program",
+        "nl": "Warmwaterprogramma"
+    },
+    "icon": "/assets/icons/thermometer.svg",
+    "getable": true,
+    "setable": false,
+    "insights": true,
+    "uiComponent": "sensor",
+    "$flow": false
+}

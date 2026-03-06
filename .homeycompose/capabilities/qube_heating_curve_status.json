@@ -1,0 +1,13 @@
+{
+    "type": "boolean",
+    "title": {
+        "en": "Heating Curve",
+        "nl": "Verwarmingscurve"
+    },
+    "icon": "/assets/icons/season.svg",
+    "getable": true,
+    "setable": false,
+    "insights": true,
+    "uiComponent": "sensor",
+    "$flow": false
+}

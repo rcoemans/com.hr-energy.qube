@@ -54,6 +54,8 @@ export type QubePollResult = {
   heater2: boolean;
 
   heatingCurveEnabled: boolean;
+  dhwProgramActive: boolean;
+  sgReadyMode: string;
 };
 
 type QubeModbusClientOptions = {
@@ -150,6 +152,17 @@ export class QubeModbusClient {
     // Heating curve enable – coil 62
     const heatingCurveEnabled = await this.readCoilBit(62);
 
+    // DHW program – coil 23
+    const dhwProgramActive = await this.readCoilBit(23);
+
+    // SG Ready – coils 65 (A) + 66 (B)
+    const sgReadyA = await this.readCoilBit(65);
+    const sgReadyB = await this.readCoilBit(66);
+    let sgReadyMode = 'Off';
+    if (sgReadyA && sgReadyB) sgReadyMode = 'Max';
+    else if (sgReadyB) sgReadyMode = 'Plus';
+    else if (sgReadyA) sgReadyMode = 'Block';
+
     // Discrete Inputs – confirmed addresses from Qube Modbus PDF (202506)
     const alarmLegionellaTimeout = await this.readDiscreteInputBit(10); // Al_MaxTime_ANTILEG.Active
     const alarmDhwTimeout = await this.readDiscreteInputBit(11);        // Al_MaxTime_DHW.Active
@@ -210,6 +223,8 @@ export class QubeModbusClient {
       heater2,
 
       heatingCurveEnabled,
+      dhwProgramActive,
+      sgReadyMode,
     };
   }
 
@@ -241,7 +256,12 @@ export class QubeModbusClient {
   // ── Write helpers ──────────────────────────────────────────────────
 
   async writeCoil(address: number, value: boolean) {
-    await this.client.writeCoil(address, value);
+    try {
+      await this.client.writeCoil(address, value);
+    } catch (err: any) {
+      const msg = `writeCoil(${address}, ${value}) failed: ${err?.message || err}`;
+      throw new Error(msg);
+    }
   }
 
   async writeHoldingUInt16(address: number, value: number) {
@@ -271,11 +291,6 @@ export class QubeModbusClient {
   /** Coil 23 – TapW_TimeProgram.BMS_ForceTimeProgram: force DHW program */
   async writeForceDhwProgram(on: boolean) {
     await this.writeCoil(23, on);
-    // For momentary trigger: pulse TRUE then reset after short delay
-    if (on) {
-      await new Promise(r => setTimeout(r, 500));
-      await this.writeCoil(23, false);
-    }
   }
 
   /** Coil 62 – En_PlantSetp_Compens: enable/disable heating curve */
@@ -286,9 +301,6 @@ export class QubeModbusClient {
   /** Coil 45 – Antilegionella.FrcStart_ANTILEG_1: momentary trigger (max 1x/day) */
   async writeStartAntiLegionella() {
     await this.writeCoil(45, true);
-    // Pulse: set TRUE then reset after short delay
-    await new Promise(r => setTimeout(r, 500));
-    await this.writeCoil(45, false);
   }
 
   /**
