@@ -36,7 +36,7 @@
     "qube_temp_dhw",
     "qube_temp_outdoor",
     "qube_flow",
-    "measure_cop",
+    "qube_cop",
     "qube_power",
     "qube_meter_electric",
     "qube_energy_thermal",

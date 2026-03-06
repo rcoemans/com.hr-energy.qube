@@ -72,7 +72,7 @@ All capabilities exposed by the Qube device, with their variable name (as used i
 | `qube_temp_dhw`                  | number        |
 | `qube_temp_outdoor`              | number        |
 | `qube_flow`                      | number        |
-| `measure_cop`                    | number        |
+| `qube_cop`                       | number        |
 | `qube_power`                     | number        |
 | `qube_meter_electric`            | number        |
 | `qube_energy_thermal`            | number        |
@@ -261,18 +261,44 @@ The Qube supports **SG Ready** signals for smart grid integration. This allows y
 
 > **Note**: SG Ready requires Qube firmware ≥ 4.0.08.
 
-## Virtual Thermostat Control
+## Using Homey as the Thermostat Controller
 
-To control the Qube from Home Assistant instead of the built-in Linq thermostat:
+The Qube heat pump can be controlled by different systems, such as the **HR Energy LinQ platform**, an external thermostat, or a **Modbus controller like Homey**. Only one controller should manage the heating and hot water demand to avoid conflicting commands.
 
-### Disable Linq Thermostat Options
+If you want **Homey to control the heat pump**, the LinQ thermostat functions must be disabled on the heat pump controller.
 
-On the heat pump controller, disable:
+### Disable LinQ control
 
-- Room temperature control via Linq
-- DHW control via Linq
+On the heat pump controller disable the following options:
+
+- **Room temperature control via LinQ**
+- **DHW control via LinQ**
 
 ![Qube Linq thermostat configuration](assets/qube_heatpump_settings.png)
+
+Disabling these options ensures that LinQ does not override the commands sent by Homey via Modbus.
+
+### Controlling heating demand from Homey
+
+Once LinQ control is disabled, Homey can act as a **virtual thermostat** for the heat pump.
+
+Typical control logic is:
+
+- Use the **Set BMS demand control** action in your Homey thermostat flows to start or stop heating demand via Modbus.
+- Use the **Set DHW setpoint** action to control the desired domestic hot water temperature.
+- Use heating and cooling setpoint actions to adjust room temperature targets if needed.
+
+In this configuration:
+
+- Homey decides **when heating should run**
+- the Qube controller still manages **compressor operation, protection logic, and system safety**
+
+This approach allows Homey to integrate the heat pump into automation flows (for example energy pricing, presence detection, or smart thermostats) while still relying on the Qube controller for safe operation.
+
+### Important
+
+- Only one system should control the heat pump demand at a time.
+- If LinQ control remains enabled, it may override commands sent by Homey.
 
 ## Use Case Examples
 
@@ -302,14 +328,6 @@ Automatically switch between heating and cooling based on outdoor temperature:
 
 - **WHEN** Outdoor temperature rises above 22 °C → **THEN** Set season mode to Summer
 - **WHEN** Outdoor temperature drops below 18 °C → **THEN** Set season mode to Winter
-
-### Virtual thermostat control
-
-If you want Homey to control the Qube instead of the built-in Linq thermostat:
-
-1. On the heatpump controller, disable room temperature control and DHW control via Linq.
-2. Use the **Set BMS demand control** action in your thermostat flows to trigger heat demand via Modbus.
-3. Use the **Set DHW setpoint** action to control hot water temperature.
 
 ## Device Settings
 

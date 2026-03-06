@@ -271,6 +271,11 @@ export class QubeModbusClient {
   /** Coil 23 – TapW_TimeProgram.BMS_ForceTimeProgram: force DHW program */
   async writeForceDhwProgram(on: boolean) {
     await this.writeCoil(23, on);
+    // For momentary trigger: pulse TRUE then reset after short delay
+    if (on) {
+      await new Promise(r => setTimeout(r, 500));
+      await this.writeCoil(23, false);
+    }
   }
 
   /** Coil 62 – En_PlantSetp_Compens: enable/disable heating curve */
@@ -281,6 +286,9 @@ export class QubeModbusClient {
   /** Coil 45 – Antilegionella.FrcStart_ANTILEG_1: momentary trigger (max 1x/day) */
   async writeStartAntiLegionella() {
     await this.writeCoil(45, true);
+    // Pulse: set TRUE then reset after short delay
+    await new Promise(r => setTimeout(r, 500));
+    await this.writeCoil(45, false);
   }
 
   /**

@@ -108,7 +108,9 @@ module.exports = class QubeApp extends Homey.App {
     this.homey.flow.getActionCard('force-dhw-program')
       .registerRunListener(async (args: any) => {
         const device = args.device as any;
+        this.log('Force DHW program: writing coil 23 = TRUE');
         await device.getClient().writeForceDhwProgram(true);
+        this.log('Force DHW program: coil 23 write completed');
       });
 
     this.homey.flow.getActionCard('set-dhw-program')
@@ -120,7 +122,9 @@ module.exports = class QubeApp extends Homey.App {
     this.homey.flow.getActionCard('force-antilegionella')
       .registerRunListener(async (args: any) => {
         const device = args.device as any;
+        this.log('Force anti-legionella: writing coil 45 = TRUE');
         await device.getClient().writeStartAntiLegionella();
+        this.log('Force anti-legionella: coil 45 write completed');
       });
 
     this.homey.flow.getActionCard('set-sg-ready-mode')

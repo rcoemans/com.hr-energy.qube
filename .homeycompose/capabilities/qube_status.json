@@ -7,5 +7,6 @@
     "icon":  "/assets/icons/info.svg",
     "getable":  true,
     "setable":  false,
-    "$flow":  false
+    "$flow":  false,
+    "uiComponent":  "sensor"
 }

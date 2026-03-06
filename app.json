@@ -2187,7 +2187,7 @@
         "qube_temp_dhw",
         "qube_temp_outdoor",
         "qube_flow",
-        "measure_cop",
+        "qube_cop",
         "qube_power",
         "qube_meter_electric",
         "qube_energy_thermal",
@@ -2268,18 +2268,6 @@
     }
   ],
   "capabilities": {
-    "measure_cop": {
-      "type": "number",
-      "title": {
-        "en": "COP",
-        "nl": "COP"
-      },
-      "decimals": 2,
-      "icon": "/assets/icons/lightning.svg",
-      "getable": true,
-      "setable": false,
-      "insights": true
-    },
     "qube_alarm_cooling": {
       "type": "boolean",
       "title": {
@@ -2289,7 +2277,8 @@
       "icon": "/assets/icons/alarm.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_alarm_dhw_timeout": {
       "type": "boolean",
@@ -2300,7 +2289,8 @@
       "icon": "/assets/icons/alarm.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_alarm_flow": {
       "type": "boolean",
@@ -2311,7 +2301,8 @@
       "icon": "/assets/icons/alarm.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_alarm_global": {
       "type": "boolean",
@@ -2334,7 +2325,8 @@
       "icon": "/assets/icons/alarm.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_alarm_legionella_timeout": {
       "type": "boolean",
@@ -2345,7 +2337,8 @@
       "icon": "/assets/icons/alarm.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_alarm_source": {
       "type": "boolean",
@@ -2356,7 +2349,8 @@
       "icon": "/assets/icons/alarm.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_alarm_user": {
       "type": "boolean",
@@ -2367,7 +2361,8 @@
       "icon": "/assets/icons/alarm.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_alarm_working_hours": {
       "type": "boolean",
@@ -2378,7 +2373,8 @@
       "icon": "/assets/icons/alarm.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_compressor_speed": {
       "type": "number",
@@ -2393,7 +2389,8 @@
       "icon": "/assets/icons/fan.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_cooling_setpoint_day": {
       "type": "number",
@@ -2501,7 +2498,8 @@
       "icon": "/assets/icons/energy.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_flow": {
       "type": "number",
@@ -2516,7 +2514,8 @@
       "icon": "/assets/icons/water-flow.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_fourway_valve": {
       "type": "boolean",
@@ -2527,7 +2526,8 @@
       "icon": "/assets/icons/valve.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_heater1": {
       "type": "boolean",
@@ -2538,7 +2538,8 @@
       "icon": "/assets/icons/heater.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_heater2": {
       "type": "boolean",
@@ -2549,7 +2550,8 @@
       "icon": "/assets/icons/heater.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_heating_dt": {
       "type": "number",
@@ -2630,7 +2632,8 @@
       "icon": "/assets/icons/clock.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_hours_dhw": {
       "type": "number",
@@ -2645,7 +2648,8 @@
       "icon": "/assets/icons/clock.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_hours_heating": {
       "type": "number",
@@ -2660,7 +2664,8 @@
       "icon": "/assets/icons/clock.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_meter_electric": {
       "type": "number",
@@ -2675,7 +2680,8 @@
       "icon": "/assets/icons/energy.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_power": {
       "type": "number",
@@ -2706,7 +2712,8 @@
       "icon": "/assets/icons/lightning.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_runtime_efficiency": {
       "type": "number",
@@ -2785,7 +2792,8 @@
       "icon": "/assets/icons/pump.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_status": {
       "type": "string",
@@ -2795,7 +2803,8 @@
       },
       "icon": "/assets/icons/info.svg",
       "getable": true,
-      "setable": false
+      "setable": false,
+      "uiComponent": "sensor"
     },
     "qube_temp_dhw": {
       "type": "number",
@@ -2842,7 +2851,8 @@
       "icon": "/assets/icons/thermometer.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_temp_room": {
       "type": "number",
@@ -2873,7 +2883,8 @@
       "icon": "/assets/icons/thermometer.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_temp_source_out": {
       "type": "number",
@@ -2888,7 +2899,8 @@
       "icon": "/assets/icons/thermometer.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_temp_supply": {
       "type": "number",
@@ -2903,7 +2915,8 @@
       "icon": "/assets/icons/thermometer.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_threeway_valve": {
       "type": "boolean",
@@ -2914,7 +2927,8 @@
       "icon": "/assets/icons/valve.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_unitstatus_raw": {
       "type": "number",
@@ -2937,7 +2951,8 @@
       "icon": "/assets/icons/pump.svg",
       "getable": true,
       "setable": false,
-      "insights": true
+      "insights": true,
+      "uiComponent": "sensor"
     }
   }
 }
