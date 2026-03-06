@@ -236,7 +236,7 @@ Boolean indicators read from the Qube's discrete inputs. The **Alarm state chang
 Some flow cards provide variables (tokens) that can be used in subsequent flow cards:
 
 | Flow Card           | Token            | Type   | Description                        | Example   |
-|---------------------|------------------|--------|------------------------------------|-----------||
+|---------------------|------------------|--------|------------------------------------|-----------|
 | Unit status changed | `old_status`     | string | Previous status key                | standby   |
 | Unit status changed | `new_status`     | string | New status key                     | heating   |
 | Unit status changed | `raw_unitstatus` | number | Raw numeric status code            | 16        |
