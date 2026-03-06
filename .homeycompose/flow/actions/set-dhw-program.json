@@ -1,0 +1,25 @@
+{
+  "title": {
+    "en": "Set DHW program",
+    "nl": "Warmwaterprogramma instellen"
+  },
+  "titleFormatted": {
+    "en": "Set DHW program to [[status]]",
+    "nl": "Stel warmwaterprogramma in op [[status]]"
+  },
+  "hint": {
+    "en": "Enables or disables the DHW time program via BMS (TapW_TimeProgram.BMS_ForceTimeProgram).",
+    "nl": "Schakelt het warmwater tijdprogramma in of uit via BMS (TapW_TimeProgram.BMS_ForceTimeProgram)."
+  },
+  "args": [
+    { "type": "device", "name": "device", "filter": "driver_id=qube" },
+    {
+      "type": "dropdown", "name": "status",
+      "title": { "en": "Status", "nl": "Status" },
+      "values": [
+        { "id": "on", "label": { "en": "ON", "nl": "AAN" } },
+        { "id": "off", "label": { "en": "OFF", "nl": "UIT" } }
+      ]
+    }
+  ]
+}

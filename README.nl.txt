@@ -3,17 +3,20 @@ HR-energy integratie voor Homey.
 Bedien en monitor je HR-energy Qube warmtepomp rechtstreeks vanuit Homey via Modbus TCP.
 
 Functies:
-- Realtime sensordata: aanvoer-, retour-, bron-, kamer-, warmwater- en buitentemperatuur
+- Realtime sensordata: aanvoer-, retour-, bron in/uit-, kamer-, warmwater- en buitentemperatuur
+- Afgeleide metrieken: Verwarming ΔT (aanvoer − retour), Bron ΔT (bron in − bron uit), Runtime-efficiëntie (thermische kWh / verwarmingsuren)
 - Waterdebiet, COP (efficiëntie), elektrisch en thermisch vermogen, energieverbruik
 - Monitoring van thermische energieproductie
 - Compressorsnelheid en bedrijfsuren (warmwater, verwarming, koeling)
 - Digitale uitgangen: bronpomp, CV-pomp, kleppen, bijverwarming
-- Seizoensmodus regeling (Winter/Zomer) en stooklijn schakelaar
-- Instelling van verwarmings-, koelings- en warmwatersetpoints
+- Seizoensmodus regeling (Winter/Zomer)
+- Dag/nacht verwarmings- en koelingssetpoints
+- Warmwatersetpoint instelling
 - 9 alarmindicatoren (globaal, debiet, verwarming, koeling, bron, gebruiker, legionella time-out, warmwater time-out, bedrijfsuren)
-- 20 flow-triggerkaarten voor automatiseringen (statuswijzigingen, alarmen, compressorgebeurtenissen)
-- 10 flow-actiekaarten (setpoints, seizoensmodus, stooklijn, warmwaterprogramma, SG Ready, anti-legionella, geavanceerd Modbus schrijven)
-- "Willekeurig alarm AAN" trigger met alarmnaam-tag voor flexibele meldingen
+- Nauwkeurige unitstatus-decodering via ruwe Modbus-waarden 1–22 (stand-by, verwarmen, koelen, warmwater verwarmen, alarm, toetsenbord uit, compressor start/stop, start mislukt)
+- 14 flow-triggerkaarten: unitstatus gewijzigd, alarmstatus gewijzigd (met AAN/UIT-tags), plus per-metriek wijzigingstriggers voor alle temperaturen, COP, vermogen en afgeleide metrieken
+- 14 flow-conditiekaarten: unitstatus is, alarm is AAN/UIT, plus operator-gebaseerde condities (>, <, ≥, ≤) voor alle temperaturen, COP, vermogen en afgeleide metrieken
+- 11 flow-actiekaarten: BMS-vraagsturing, seizoensmodus, verwarmings-/koelingssetpoints (dag/nacht), warmwatersetpoint, warmwaterprogramma forceren, warmwaterprogramma AAN/UIT, anti-legionellacyclus forceren, stooklijn, SG Ready modus, geavanceerd Modbus schrijven
 - Volledig gelokaliseerd in het Engels en Nederlands
 
 Ondersteunde apparaten:
@@ -29,7 +32,5 @@ Installatie:
 Bekende beperkingen:
 - De Qube moet bereikbaar zijn op je lokale netwerk via Modbus TCP
 - SG Ready modus vereist Qube firmware >= 4.0.08
+- Verwarmings-/koelingssetpoints (dag/nacht) zijn alleen actief wanneer de interne thermostaat actief is; externe thermostaten of stooklijncompensatie kunnen deze overschrijven
 - Na app-updates kan het nodig zijn om het apparaat te verwijderen en opnieuw toe te voegen voor nieuwe mogelijkheden
-
-Meer informatie:
-- https://github.com/rcoemans/com.hr-energy.qube

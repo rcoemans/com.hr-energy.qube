@@ -1,0 +1,21 @@
+{
+  "title": {
+    "en": "Supply Temperature changed",
+    "nl": "Aanvoertemperatuur gewijzigd"
+  },
+  "hint": {
+    "en": "Triggers when the supply temperature changes.",
+    "nl": "Wordt geactiveerd wanneer de aanvoertemperatuur wijzigt."
+  },
+  "tokens": [
+    {
+      "name": "value",
+      "type": "number",
+      "title": { "en": "Temperature", "nl": "Temperatuur" },
+      "example": { "en": "35.5" }
+    }
+  ],
+  "args": [
+    { "type": "device", "name": "device", "filter": "driver_id=qube" }
+  ]
+}

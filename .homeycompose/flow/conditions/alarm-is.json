@@ -1,0 +1,47 @@
+{
+  "title": {
+    "en": "Alarm is ...",
+    "nl": "Alarm is ..."
+  },
+  "titleFormatted": {
+    "en": "Alarm [[alarm]] is [[status]]",
+    "nl": "Alarm [[alarm]] is [[status]]"
+  },
+  "hint": {
+    "en": "Checks whether the selected alarm is currently ON or OFF.",
+    "nl": "Controleert of het geselecteerde alarm momenteel AAN of UIT staat."
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=qube"
+    },
+    {
+      "type": "dropdown",
+      "name": "alarm",
+      "title": { "en": "Alarm", "nl": "Alarm" },
+      "values": [
+        { "id": "global", "label": { "en": "Global", "nl": "Globaal" } },
+        { "id": "flow", "label": { "en": "Flow", "nl": "Debiet" } },
+        { "id": "cooling", "label": { "en": "Cooling", "nl": "Koeling" } },
+        { "id": "heating", "label": { "en": "Heating", "nl": "Verwarming" } },
+        { "id": "source", "label": { "en": "Source-side", "nl": "Bronzijde" } },
+        { "id": "user", "label": { "en": "User-side", "nl": "Gebruikerszijde" } },
+        { "id": "legionella_timeout", "label": { "en": "Legionella Timeout", "nl": "Legionella time-out" } },
+        { "id": "dhw_timeout", "label": { "en": "DHW Timeout", "nl": "Warmwater time-out" } },
+        { "id": "working_hours", "label": { "en": "Working Hours", "nl": "Bedrijfsuren" } },
+        { "id": "inverter_compressor", "label": { "en": "Inverter/Compressor", "nl": "Inverter/Compressor" } }
+      ]
+    },
+    {
+      "type": "dropdown",
+      "name": "status",
+      "title": { "en": "State", "nl": "Status" },
+      "values": [
+        { "id": "on", "label": { "en": "ON", "nl": "AAN" } },
+        { "id": "off", "label": { "en": "OFF", "nl": "UIT" } }
+      ]
+    }
+  ]
+}

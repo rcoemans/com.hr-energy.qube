@@ -1,0 +1,21 @@
+{
+  "title": {
+    "en": "Return Temperature changed",
+    "nl": "Retourtemperatuur gewijzigd"
+  },
+  "hint": {
+    "en": "Triggers when the return temperature changes.",
+    "nl": "Wordt geactiveerd wanneer de retourtemperatuur wijzigt."
+  },
+  "tokens": [
+    {
+      "name": "value",
+      "type": "number",
+      "title": { "en": "Temperature", "nl": "Temperatuur" },
+      "example": { "en": "30.2" }
+    }
+  ],
+  "args": [
+    { "type": "device", "name": "device", "filter": "driver_id=qube" }
+  ]
+}

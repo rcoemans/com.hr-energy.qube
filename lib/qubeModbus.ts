@@ -34,8 +34,10 @@ export type QubePollResult = {
 
   demand: boolean;
   seasonSummer: boolean;
-  heatingSetpoint: number;
-  coolingSetpoint: number;
+  heatingSetpointDay: number;
+  heatingSetpointNight: number;
+  coolingSetpointDay: number;
+  coolingSetpointNight: number;
   dhwSetpoint: number;
 
   thermalPower: number;
@@ -123,9 +125,11 @@ export class QubeModbusClient {
     const demand = await this.readCoilBit(19);
     const seasonSummer = await this.readCoilBit(22);
 
-    // Holding registers – read back setpoints
-    const heatingSetpoint = await this.readHoldingFloat32(101);
-    const coolingSetpoint = await this.readHoldingFloat32(103);
+    // Holding registers – read back setpoints (day/night)
+    const heatingSetpointDay = await this.readHoldingFloat32(27);
+    const heatingSetpointNight = await this.readHoldingFloat32(29);
+    const coolingSetpointDay = await this.readHoldingFloat32(31);
+    const coolingSetpointNight = await this.readHoldingFloat32(33);
     const dhwSetpoint = await this.readHoldingFloat32(44);
 
     // Additional sensors – input registers
@@ -186,8 +190,10 @@ export class QubeModbusClient {
 
       demand,
       seasonSummer,
-      heatingSetpoint: clampNumber(heatingSetpoint),
-      coolingSetpoint: clampNumber(coolingSetpoint),
+      heatingSetpointDay: clampNumber(heatingSetpointDay),
+      heatingSetpointNight: clampNumber(heatingSetpointNight),
+      coolingSetpointDay: clampNumber(coolingSetpointDay),
+      coolingSetpointNight: clampNumber(coolingSetpointNight),
       dhwSetpoint: clampNumber(dhwSetpoint),
 
       thermalPower: clampNumber(thermalPower),
@@ -297,14 +303,28 @@ export class QubeModbusClient {
     await this.writeCoil(66, b);
   }
 
-  /** HoldingRegister 101 (2 regs, float32) – Usr_PID_HeatSetp */
-  async writeHeatingSetpoint(temp: number) {
+  /** HoldingRegister 27 (2 regs, float32) – Heating day setpoint */
+  async writeHeatingDaySetpoint(temp: number) {
+    await this.writeHoldingFloat32(27, temp);
+    // Also write active PID setpoint
     await this.writeHoldingFloat32(101, temp);
   }
 
-  /** HoldingRegister 103 (2 regs, float32) – Usr_PID_CoolSetp */
-  async writeCoolingSetpoint(temp: number) {
+  /** HoldingRegister 29 (2 regs, float32) – Heating night setpoint */
+  async writeHeatingNightSetpoint(temp: number) {
+    await this.writeHoldingFloat32(29, temp);
+  }
+
+  /** HoldingRegister 31 (2 regs, float32) – Cooling day setpoint */
+  async writeCoolingDaySetpoint(temp: number) {
+    await this.writeHoldingFloat32(31, temp);
+    // Also write active PID setpoint
     await this.writeHoldingFloat32(103, temp);
+  }
+
+  /** HoldingRegister 33 (2 regs, float32) – Cooling night setpoint */
+  async writeCoolingNightSetpoint(temp: number) {
+    await this.writeHoldingFloat32(33, temp);
   }
 
   /** HoldingRegister 44 (2 regs, float32) – TapW_TimeProgram.DHWS (min DHW temp) */

@@ -56,11 +56,15 @@
     "qube_hours_dhw",
     "qube_hours_heating",
     "qube_hours_cooling",
+    "qube_heating_dt",
+    "qube_source_dt",
+    "qube_runtime_efficiency",
     "qube_season_mode",
-    "qube_heating_setpoint",
-    "qube_cooling_setpoint",
-    "qube_dhw_setpoint",
-    "qube_heating_curve"
+    "qube_heating_setpoint_day",
+    "qube_heating_setpoint_night",
+    "qube_cooling_setpoint_day",
+    "qube_cooling_setpoint_night",
+    "qube_dhw_setpoint"
   ],
   "capabilitiesOptions": {
     "alarm_generic": {

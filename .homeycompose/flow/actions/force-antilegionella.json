@@ -1,0 +1,17 @@
+{
+  "title": {
+    "en": "Force anti-legionella cycle",
+    "nl": "Anti-legionellacyclus forceren"
+  },
+  "titleFormatted": {
+    "en": "Force anti-legionella cycle",
+    "nl": "Forceer anti-legionellacyclus"
+  },
+  "hint": {
+    "en": "The heat pump will heat the DHW tank to high temperature (often ~60\u00b0C). This is limited to once per day.",
+    "nl": "De warmtepomp zal het warmwatervat verwarmen tot hoge temperatuur (vaak ~60\u00b0C). Dit is beperkt tot eenmaal per dag."
+  },
+  "args": [
+    { "type": "device", "name": "device", "filter": "driver_id=qube" }
+  ]
+}

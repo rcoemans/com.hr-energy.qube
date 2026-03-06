@@ -15,17 +15,20 @@
     "compressor_shutdown": "Compressor Shutting Down",
     "start_fail": "Compressor Start Failed",
     "alarm": "Alarm",
+    "keyboard_off": "Keyboard Off",
     "unknown": "Unknown"
   },
   "alarms": {
+    "global": "Global",
     "flow": "Flow",
     "heating": "Heating",
     "cooling": "Cooling",
-    "source": "Source",
-    "user": "User",
+    "source": "Source-side",
+    "user": "User-side",
     "legionella_timeout": "Legionella Timeout",
     "dhw_timeout": "DHW Timeout",
-    "working_hours": "Working Hours"
+    "working_hours": "Working Hours",
+    "inverter_compressor": "Inverter/Compressor"
   },
   "device": {
     "pair_name": "Qube"

@@ -1,55 +1,27 @@
 {
-    "id":  "set-sg-ready-mode",
-    "title":  {
-                  "en":  "Set SG Ready mode",
-                  "nl":  "SG Ready modus instellen"
-              },
-    "hint":  {
-                 "en":  "Set the SG Ready mode. Controls two internal boolean switches (sgready_a / sgready_b).",
-                 "nl":  "Stel de SG Ready modus in."
-             },
-    "args":  [
-                 {
-                     "filter":  "driver_id=qube",
-                     "name":  "device",
-                     "type":  "device"
-                 },
-                 {
-                     "type":  "dropdown",
-                     "name":  "value",
-                     "title":  {
-                                   "en":  "SG Ready mode"
-                               },
-                     "values":  [
-                                    {
-                                        "id":  "off",
-                                        "label":  {
-                                                      "en":  "Off"
-                                                  }
-                                    },
-                                    {
-                                        "id":  "block",
-                                        "label":  {
-                                                      "en":  "Block"
-                                                  }
-                                    },
-                                    {
-                                        "id":  "plus",
-                                        "label":  {
-                                                      "en":  "Plus"
-                                                  }
-                                    },
-                                    {
-                                        "id":  "max",
-                                        "label":  {
-                                                      "en":  "Max"
-                                                  }
-                                    }
-                                ]
-                 }
-             ],
-    "titleFormatted":  {
-                           "en":  "Set SG Ready mode to [[value]]",
-                           "nl":  "Stel SG Ready modus in op [[value]]"
-                       }
+  "title": {
+    "en": "Set SG Ready mode",
+    "nl": "SG Ready modus instellen"
+  },
+  "titleFormatted": {
+    "en": "Set SG Ready mode to [[value]]",
+    "nl": "Stel SG Ready modus in op [[value]]"
+  },
+  "hint": {
+    "en": "SG Ready is a smart-grid interface used by many heat pumps. It allows the electricity grid or a controller to influence operation. Off: Normal operation. Block: Do not run compressor. Plus: Preheat slightly. Max: Run aggressively to store energy.",
+    "nl": "SG Ready is een smart-grid interface die door veel warmtepompen wordt gebruikt. Het stelt het elektriciteitsnet of een controller in staat om de werking te be\u00efnvloeden. Uit: Normaal bedrijf. Blokkeren: Compressor niet starten. Plus: Licht voorverwarmen. Max: Agressief draaien om energie op te slaan."
+  },
+  "args": [
+    { "type": "device", "name": "device", "filter": "driver_id=qube" },
+    {
+      "type": "dropdown", "name": "value",
+      "title": { "en": "SG Ready mode", "nl": "SG Ready modus" },
+      "values": [
+        { "id": "off", "label": { "en": "Off (Normal operation)", "nl": "Uit (Normaal bedrijf)" } },
+        { "id": "block", "label": { "en": "Block (Do not run compressor)", "nl": "Blokkeren (Compressor niet starten)" } },
+        { "id": "plus", "label": { "en": "Plus (Preheat slightly)", "nl": "Plus (Licht voorverwarmen)" } },
+        { "id": "max", "label": { "en": "Max (Run aggressively to store energy)", "nl": "Max (Agressief draaien om energie op te slaan)" } }
+      ]
+    }
+  ]
 }

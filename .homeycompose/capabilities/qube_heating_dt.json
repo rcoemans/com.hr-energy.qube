@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Heating \u0394T",
+    "nl": "Verwarming \u0394T"
+  },
+  "desc": {
+    "en": "Temperature difference between supply and return (SupplyTemp - ReturnTemp). Helps spot hydraulic issues.",
+    "nl": "Temperatuurverschil tussen aanvoer en retour (Aanvoer - Retour). Helpt hydraulische problemen te signaleren."
+  },
+  "units": {
+    "en": "\u00b0C"
+  },
+  "decimals": 2,
+  "icon": "/assets/icons/thermometer.svg",
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "uiComponent": "sensor"
+}

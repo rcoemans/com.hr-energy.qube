@@ -1,0 +1,21 @@
+{
+  "title": {
+    "en": "Source Out Temperature changed",
+    "nl": "Bron uitlaattemperatuur gewijzigd"
+  },
+  "hint": {
+    "en": "Triggers when the source outlet temperature changes.",
+    "nl": "Wordt geactiveerd wanneer de bron uitlaattemperatuur wijzigt."
+  },
+  "tokens": [
+    {
+      "name": "value",
+      "type": "number",
+      "title": { "en": "Temperature", "nl": "Temperatuur" },
+      "example": { "en": "7.5" }
+    }
+  ],
+  "args": [
+    { "type": "device", "name": "device", "filter": "driver_id=qube" }
+  ]
+}

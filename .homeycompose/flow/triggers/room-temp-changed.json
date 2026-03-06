@@ -1,0 +1,21 @@
+{
+  "title": {
+    "en": "Room Temperature changed",
+    "nl": "Kamertemperatuur gewijzigd"
+  },
+  "hint": {
+    "en": "Triggers when the room temperature changes.",
+    "nl": "Wordt geactiveerd wanneer de kamertemperatuur wijzigt."
+  },
+  "tokens": [
+    {
+      "name": "value",
+      "type": "number",
+      "title": { "en": "Temperature", "nl": "Temperatuur" },
+      "example": { "en": "21.0" }
+    }
+  ],
+  "args": [
+    { "type": "device", "name": "device", "filter": "driver_id=qube" }
+  ]
+}

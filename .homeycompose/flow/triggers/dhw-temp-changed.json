@@ -1,0 +1,21 @@
+{
+  "title": {
+    "en": "DHW Temperature changed",
+    "nl": "Warmwatertemperatuur gewijzigd"
+  },
+  "hint": {
+    "en": "Triggers when the domestic hot water temperature changes.",
+    "nl": "Wordt geactiveerd wanneer de warmwatertemperatuur wijzigt."
+  },
+  "tokens": [
+    {
+      "name": "value",
+      "type": "number",
+      "title": { "en": "Temperature", "nl": "Temperatuur" },
+      "example": { "en": "50.0" }
+    }
+  ],
+  "args": [
+    { "type": "device", "name": "device", "filter": "driver_id=qube" }
+  ]
+}

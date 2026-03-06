@@ -1,0 +1,37 @@
+{
+  "title": {
+    "en": "Unit status is ...",
+    "nl": "Unitstatus is ..."
+  },
+  "titleFormatted": {
+    "en": "Unit status is [[status]]",
+    "nl": "Unitstatus is [[status]]"
+  },
+  "hint": {
+    "en": "Checks whether the current heat pump unit status matches the selected status.",
+    "nl": "Controleert of de huidige status van de warmtepomp overeenkomt met de geselecteerde status."
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=qube"
+    },
+    {
+      "type": "dropdown",
+      "name": "status",
+      "title": { "en": "Status", "nl": "Status" },
+      "values": [
+        { "id": "standby", "label": { "en": "Standby", "nl": "Stand-by" } },
+        { "id": "heating", "label": { "en": "Heating", "nl": "Verwarmen" } },
+        { "id": "cooling", "label": { "en": "Cooling", "nl": "Koelen" } },
+        { "id": "heating_dhw", "label": { "en": "DHW Heating", "nl": "Warmwater verwarmen" } },
+        { "id": "alarm", "label": { "en": "Alarm", "nl": "Alarm" } },
+        { "id": "compressor_startup", "label": { "en": "Compressor Starting", "nl": "Compressor start" } },
+        { "id": "compressor_shutdown", "label": { "en": "Compressor Shutting Down", "nl": "Compressor stopt" } },
+        { "id": "start_fail", "label": { "en": "Compressor Start Failed", "nl": "Compressor start mislukt" } },
+        { "id": "keyboard_off", "label": { "en": "Keyboard Off", "nl": "Toetsenbord uit" } }
+      ]
+    }
+  ]
+}

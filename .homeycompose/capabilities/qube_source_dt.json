@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Source \u0394T",
+    "nl": "Bron \u0394T"
+  },
+  "desc": {
+    "en": "Temperature difference between source in and source out (SrcInTemp - SrcOutTemp). Shows how much heat is extracted from the source side.",
+    "nl": "Temperatuurverschil tussen bron in en bron uit (BronIn - BronUit). Toont hoeveel warmte aan de bronzijde wordt onttrokken."
+  },
+  "units": {
+    "en": "\u00b0C"
+  },
+  "decimals": 2,
+  "icon": "/assets/icons/thermometer.svg",
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "uiComponent": "sensor"
+}

@@ -1,0 +1,21 @@
+{
+  "title": {
+    "en": "Heating \u0394T changed",
+    "nl": "Verwarming \u0394T gewijzigd"
+  },
+  "hint": {
+    "en": "Triggers when the heating circuit temperature difference (supply - return) changes.",
+    "nl": "Wordt geactiveerd wanneer het temperatuurverschil van het verwarmingscircuit (aanvoer - retour) wijzigt."
+  },
+  "tokens": [
+    {
+      "name": "value",
+      "type": "number",
+      "title": { "en": "\u0394T (\u00b0C)", "nl": "\u0394T (\u00b0C)" },
+      "example": { "en": "5.3" }
+    }
+  ],
+  "args": [
+    { "type": "device", "name": "device", "filter": "driver_id=qube" }
+  ]
+}

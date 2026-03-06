@@ -1,0 +1,28 @@
+{
+  "title": {
+    "en": "Outdoor Temperature is ...",
+    "nl": "Buitentemperatuur is ..."
+  },
+  "titleFormatted": {
+    "en": "Outdoor Temperature is [[operator]] [[value]] °C",
+    "nl": "Buitentemperatuur is [[operator]] [[value]] °C"
+  },
+  "hint": {
+    "en": "Checks whether the current outdoor temperature matches the selected condition.",
+    "nl": "Controleert of de huidige buitentemperatuur voldoet aan de geselecteerde voorwaarde."
+  },
+  "args": [
+    { "type": "device", "name": "device", "filter": "driver_id=qube" },
+    {
+      "type": "dropdown", "name": "operator",
+      "title": { "en": "Operator", "nl": "Operator" },
+      "values": [
+        { "id": "gt", "label": { "en": "greater than", "nl": "groter dan" } },
+        { "id": "lt", "label": { "en": "less than", "nl": "kleiner dan" } },
+        { "id": "gte", "label": { "en": "greater than or equal to", "nl": "groter dan of gelijk aan" } },
+        { "id": "lte", "label": { "en": "less than or equal to", "nl": "kleiner dan of gelijk aan" } }
+      ]
+    },
+    { "type": "number", "name": "value", "title": { "en": "Value", "nl": "Waarde" }, "placeholder": { "en": "5" } }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Cooling Setpoint (Day)",
+    "nl": "Koelingssetpoint (Dag)"
+  },
+  "desc": {
+    "en": "Room cooling setpoint for the day period.",
+    "nl": "Kamerkoeling setpoint voor de dagperiode."
+  },
+  "units": {
+    "en": "\u00b0C"
+  },
+  "decimals": 1,
+  "min": 5,
+  "max": 25,
+  "step": 0.5,
+  "icon": "/assets/icons/target-temp.svg",
+  "getable": true,
+  "setable": true,
+  "uiComponent": "slider",
+  "insights": true
+}

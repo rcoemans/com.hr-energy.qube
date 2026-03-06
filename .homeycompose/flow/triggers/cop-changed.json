@@ -1,0 +1,21 @@
+{
+  "title": {
+    "en": "COP changed",
+    "nl": "COP gewijzigd"
+  },
+  "hint": {
+    "en": "Triggers when the Coefficient of Performance (COP) changes.",
+    "nl": "Wordt geactiveerd wanneer de COP (Coefficient of Performance) wijzigt."
+  },
+  "tokens": [
+    {
+      "name": "value",
+      "type": "number",
+      "title": { "en": "COP", "nl": "COP" },
+      "example": { "en": "4.2" }
+    }
+  ],
+  "args": [
+    { "type": "device", "name": "device", "filter": "driver_id=qube" }
+  ]
+}

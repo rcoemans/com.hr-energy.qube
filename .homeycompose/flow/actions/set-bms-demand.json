@@ -1,0 +1,25 @@
+{
+  "title": {
+    "en": "Set BMS demand control",
+    "nl": "BMS-vraagsturing instellen"
+  },
+  "titleFormatted": {
+    "en": "Set BMS demand control to [[status]]",
+    "nl": "Stel BMS-vraagsturing in op [[status]]"
+  },
+  "hint": {
+    "en": "ON means that heat pump is allowed to run and OFF means that heat pump demand is removed. This is used by building management systems. Do not toggle frequently and do not combine with LinQ control.",
+    "nl": "AAN betekent dat de warmtepomp mag draaien en UIT betekent dat de warmtepompvraag wordt verwijderd. Dit wordt gebruikt door gebouwbeheersystemen. Schakel niet frequent en combineer niet met LinQ-besturing."
+  },
+  "args": [
+    { "type": "device", "name": "device", "filter": "driver_id=qube" },
+    {
+      "type": "dropdown", "name": "status",
+      "title": { "en": "Status", "nl": "Status" },
+      "values": [
+        { "id": "on", "label": { "en": "ON", "nl": "AAN" } },
+        { "id": "off", "label": { "en": "OFF", "nl": "UIT" } }
+      ]
+    }
+  ]
+}

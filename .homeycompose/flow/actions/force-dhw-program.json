@@ -1,43 +1,17 @@
 {
-    "id":  "force-dhw-program",
-    "title":  {
-                  "en":  "Force DHW program (ON/OFF)",
-                  "nl":  "Warmwaterprogramma forceren (AAN/UIT)"
-              },
-    "hint":  {
-                 "en":  "Force the domestic hot water time program via BMS.",
-                 "nl":  "Forceer het warmwater tijdprogramma via BMS."
-             },
-    "args":  [
-                 {
-                     "filter":  "driver_id=qube",
-                     "name":  "device",
-                     "type":  "device"
-                 },
-                 {
-                     "type":  "dropdown",
-                     "name":  "value",
-                     "title":  {
-                                   "en":  "Force DHW"
-                               },
-                     "values":  [
-                                    {
-                                        "id":  "1",
-                                        "label":  {
-                                                      "en":  "ON"
-                                                  }
-                                    },
-                                    {
-                                        "id":  "0",
-                                        "label":  {
-                                                      "en":  "OFF"
-                                                  }
-                                    }
-                                ]
-                 }
-             ],
-    "titleFormatted":  {
-                           "en":  "Force DHW program [[value]]",
-                           "nl":  "Forceer warmwaterprogramma [[value]]"
-                       }
+  "title": {
+    "en": "Force DHW program",
+    "nl": "Warmwaterprogramma forceren"
+  },
+  "titleFormatted": {
+    "en": "Force DHW program",
+    "nl": "Forceer warmwaterprogramma"
+  },
+  "hint": {
+    "en": "Forces the DHW time program to run once, this overrides normal schedule.",
+    "nl": "Forceert het warmwater tijdprogramma om eenmalig te draaien, dit overschrijft het normale schema."
+  },
+  "args": [
+    { "type": "device", "name": "device", "filter": "driver_id=qube" }
+  ]
 }

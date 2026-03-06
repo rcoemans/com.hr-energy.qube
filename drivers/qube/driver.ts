@@ -13,7 +13,7 @@ module.exports = class QubeDriver extends Homey.Driver {
         {
           name: this.homey.__('device.pair_name'),
           data: {
-            id: 'qube',
+            id: `qube-${Date.now()}`,
           },
         },
       ];

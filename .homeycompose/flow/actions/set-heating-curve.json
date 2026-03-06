@@ -1,34 +1,25 @@
 {
-  "id": "set-heating-curve",
   "title": {
     "en": "Set heating curve",
     "nl": "Stooklijn instellen"
   },
   "titleFormatted": {
-    "en": "Set heating curve to [[value]]",
-    "nl": "Stel stooklijn in op [[value]]"
+    "en": "Set heating curve to [[status]]",
+    "nl": "Stel stooklijn in op [[status]]"
   },
   "hint": {
-    "en": "Enable or disable the heating curve (weather-dependent setpoint).",
-    "nl": "Schakel de stooklijn (weersafhankelijk setpoint) in of uit."
+    "en": "Enable or disable the weather-dependent heating curve. When enabled, the supply temperature setpoint is automatically adjusted based on outdoor temperature.",
+    "nl": "Schakel de weersafhankelijke stooklijn in of uit. Wanneer ingeschakeld wordt het aanvoertemperatuur setpoint automatisch aangepast op basis van de buitentemperatuur."
   },
   "args": [
+    { "type": "device", "name": "device", "filter": "driver_id=qube" },
     {
-      "name": "value",
-      "type": "dropdown",
-      "title": {
-        "en": "State",
-        "nl": "Status"
-      },
+      "type": "dropdown", "name": "status",
+      "title": { "en": "State", "nl": "Status" },
       "values": [
-        { "id": "1", "title": { "en": "Enabled", "nl": "Ingeschakeld" } },
-        { "id": "0", "title": { "en": "Disabled", "nl": "Uitgeschakeld" } }
+        { "id": "on", "label": { "en": "Enabled", "nl": "Ingeschakeld" } },
+        { "id": "off", "label": { "en": "Disabled", "nl": "Uitgeschakeld" } }
       ]
-    },
-    {
-      "filter": "driver_id=qube",
-      "name": "device",
-      "type": "device"
     }
   ]
 }

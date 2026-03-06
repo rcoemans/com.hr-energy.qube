@@ -1,0 +1,21 @@
+{
+  "title": {
+    "en": "Outdoor Temperature changed",
+    "nl": "Buitentemperatuur gewijzigd"
+  },
+  "hint": {
+    "en": "Triggers when the outdoor temperature changes.",
+    "nl": "Wordt geactiveerd wanneer de buitentemperatuur wijzigt."
+  },
+  "tokens": [
+    {
+      "name": "value",
+      "type": "number",
+      "title": { "en": "Temperature", "nl": "Temperatuur" },
+      "example": { "en": "5.0" }
+    }
+  ],
+  "args": [
+    { "type": "device", "name": "device", "filter": "driver_id=qube" }
+  ]
+}

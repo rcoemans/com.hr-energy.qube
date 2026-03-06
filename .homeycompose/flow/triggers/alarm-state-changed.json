@@ -1,0 +1,52 @@
+{
+  "title": {
+    "en": "Alarm state changed",
+    "nl": "Alarmstatus gewijzigd"
+  },
+  "hint": {
+    "en": "Triggers when any alarm turns ON or OFF. The alarm name and state are provided as tags.",
+    "nl": "Wordt geactiveerd wanneer een alarm AAN of UIT gaat. De alarmnaam en status worden als tags meegegeven."
+  },
+  "tokens": [
+    {
+      "name": "alarm",
+      "type": "string",
+      "title": {
+        "en": "Alarm",
+        "nl": "Alarm"
+      },
+      "example": {
+        "en": "flow"
+      }
+    },
+    {
+      "name": "state",
+      "type": "string",
+      "title": {
+        "en": "State",
+        "nl": "Status"
+      },
+      "example": {
+        "en": "on"
+      }
+    },
+    {
+      "name": "alarm_text",
+      "type": "string",
+      "title": {
+        "en": "Alarm description",
+        "nl": "Alarmbeschrijving"
+      },
+      "example": {
+        "en": "Flow"
+      }
+    }
+  ],
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=qube"
+    }
+  ]
+}

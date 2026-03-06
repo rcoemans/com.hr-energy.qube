@@ -1,0 +1,21 @@
+{
+  "title": {
+    "en": "Source \u0394T changed",
+    "nl": "Bron \u0394T gewijzigd"
+  },
+  "hint": {
+    "en": "Triggers when the source-side temperature difference (source in - source out) changes.",
+    "nl": "Wordt geactiveerd wanneer het temperatuurverschil aan de bronzijde (bron in - bron uit) wijzigt."
+  },
+  "tokens": [
+    {
+      "name": "value",
+      "type": "number",
+      "title": { "en": "\u0394T (\u00b0C)", "nl": "\u0394T (\u00b0C)" },
+      "example": { "en": "3.1" }
+    }
+  ],
+  "args": [
+    { "type": "device", "name": "device", "filter": "driver_id=qube" }
+  ]
+}

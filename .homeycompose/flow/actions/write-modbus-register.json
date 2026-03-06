@@ -1,72 +1,37 @@
 {
-    "id":  "write-modbus-register",
-    "title":  {
-                  "en":  "Write Modbus register (Advanced)",
-                  "nl":  "Modbus register schrijven (Geavanceerd)"
-              },
-    "hint":  {
-                 "en":  "Write a raw value to a Modbus holding register. For advanced / debugging use.",
-                 "nl":  "Schrijf een waarde naar een Modbus holding register."
-             },
-    "args":  [
-                 {
-                     "filter":  "driver_id=qube",
-                     "name":  "device",
-                     "type":  "device"
-                 },
-                 {
-                     "type":  "number",
-                     "name":  "address",
-                     "title":  {
-                                   "en":  "Register address"
-                               },
-                     "min":  0,
-                     "max":  65535,
-                     "step":  1,
-                     "placeholder":  {
-                                         "en":  "0"
-                                     }
-                 },
-                 {
-                     "type":  "number",
-                     "name":  "value",
-                     "title":  {
-                                   "en":  "Value"
-                               },
-                     "placeholder":  {
-                                         "en":  "0"
-                                     }
-                 },
-                 {
-                     "type":  "dropdown",
-                     "name":  "datatype",
-                     "title":  {
-                                   "en":  "Data type"
-                               },
-                     "values":  [
-                                    {
-                                        "id":  "uint16",
-                                        "label":  {
-                                                      "en":  "uint16"
-                                                  }
-                                    },
-                                    {
-                                        "id":  "int16",
-                                        "label":  {
-                                                      "en":  "int16"
-                                                  }
-                                    },
-                                    {
-                                        "id":  "float32",
-                                        "label":  {
-                                                      "en":  "float32 (2 regs)"
-                                                  }
-                                    }
-                                ]
-                 }
-             ],
-    "titleFormatted":  {
-                           "en":  "Write [[value]] to Modbus register [[address]] as [[datatype]]",
-                           "nl":  "Schrijf [[value]] naar Modbus register [[address]] als [[datatype]]"
-                       }
+  "title": {
+    "en": "Write Modbus register (Advanced)",
+    "nl": "Modbus register schrijven (Geavanceerd)"
+  },
+  "titleFormatted": {
+    "en": "Write [[value]] to Modbus register [[address]] as [[datatype]]",
+    "nl": "Schrijf [[value]] naar Modbus register [[address]] als [[datatype]]"
+  },
+  "hint": {
+    "en": "Write a raw value to a Modbus holding register. For advanced / debugging use only. Incorrect values may cause unexpected behavior.",
+    "nl": "Schrijf een waarde naar een Modbus holding register. Alleen voor geavanceerd / foutopsporingsgebruik. Onjuiste waarden kunnen onverwacht gedrag veroorzaken."
+  },
+  "args": [
+    { "type": "device", "name": "device", "filter": "driver_id=qube" },
+    {
+      "type": "number", "name": "address",
+      "title": { "en": "Register address", "nl": "Registeradres" },
+      "min": 0, "max": 65535, "step": 1,
+      "placeholder": { "en": "0" }
+    },
+    {
+      "type": "number", "name": "value",
+      "title": { "en": "Value", "nl": "Waarde" },
+      "placeholder": { "en": "0" }
+    },
+    {
+      "type": "dropdown", "name": "datatype",
+      "title": { "en": "Data type", "nl": "Datatype" },
+      "values": [
+        { "id": "uint16", "label": { "en": "uint16" } },
+        { "id": "int16", "label": { "en": "int16" } },
+        { "id": "float32", "label": { "en": "float32 (2 regs)" } }
+      ]
+    }
+  ]
 }

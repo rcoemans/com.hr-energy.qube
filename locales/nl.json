@@ -15,17 +15,20 @@
     "compressor_shutdown": "Compressor stopt",
     "start_fail": "Compressor start mislukt",
     "alarm": "Alarm",
+    "keyboard_off": "Toetsenbord uit",
     "unknown": "Onbekend"
   },
   "alarms": {
+    "global": "Globaal",
     "flow": "Debiet",
     "heating": "Verwarming",
     "cooling": "Koeling",
-    "source": "Bron",
-    "user": "Gebruiker",
+    "source": "Bronzijde",
+    "user": "Gebruikerszijde",
     "legionella_timeout": "Legionella time-out",
     "dhw_timeout": "Warmwater time-out",
-    "working_hours": "Bedrijfsuren"
+    "working_hours": "Bedrijfsuren",
+    "inverter_compressor": "Inverter/Compressor"
   },
   "device": {
     "pair_name": "Qube"

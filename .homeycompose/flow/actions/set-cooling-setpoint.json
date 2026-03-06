@@ -1,35 +1,31 @@
 {
-    "id":  "set-cooling-setpoint",
-    "title":  {
-                  "en":  "Set cooling setpoint (Ã‚Â°C)",
-                  "nl":  "Koelingssetpoint instellen (°C)"
-              },
-    "hint":  {
-                 "en":  "Write the cooling supply temperature setpoint.",
-                 "nl":  "Stel de aanvoertemperatuur voor koeling in."
-             },
-    "args":  [
-                 {
-                     "filter":  "driver_id=qube",
-                     "name":  "device",
-                     "type":  "device"
-                 },
-                 {
-                     "type":  "number",
-                     "name":  "temperature",
-                     "title":  {
-                                   "en":  "Temperature"
-                               },
-                     "min":  5,
-                     "max":  25,
-                     "step":  0.5,
-                     "placeholder":  {
-                                         "en":  "18"
-                                     }
-                 }
-             ],
-    "titleFormatted":  {
-                           "en":  "Set cooling setpoint to [[temperature]] °C",
-                           "nl":  "Stel koelingssetpoint in op [[temperature]] °C"
-                       }
+  "title": {
+    "en": "Set cooling setpoint",
+    "nl": "Koelingssetpoint instellen"
+  },
+  "titleFormatted": {
+    "en": "Set cooling [[period]] setpoint to [[temperature]] \u00b0C",
+    "nl": "Stel koeling [[period]] setpoint in op [[temperature]] \u00b0C"
+  },
+  "hint": {
+    "en": "Sets the room cooling setpoint for the selected period (day or night). These setpoints are used only when the internal thermostat control of the heat pump is active. If the system is controlled by an external thermostat, BMS/Modbus demand or heating curve compensation, these setpoints may not affect the heat pump operation.",
+    "nl": "Stelt het kamerkoeling setpoint in voor de geselecteerde periode (dag of nacht). Deze setpoints worden alleen gebruikt wanneer de interne thermostaatregeling van de warmtepomp actief is. Als het systeem wordt bestuurd door een externe thermostaat, BMS/Modbus-vraag of stooklijncompensatie, hebben deze setpoints mogelijk geen effect."
+  },
+  "args": [
+    { "type": "device", "name": "device", "filter": "driver_id=qube" },
+    {
+      "type": "dropdown", "name": "period",
+      "title": { "en": "Period", "nl": "Periode" },
+      "values": [
+        { "id": "day", "label": { "en": "Day", "nl": "Dag" } },
+        { "id": "night", "label": { "en": "Night", "nl": "Nacht" } }
+      ]
+    },
+    {
+      "type": "number", "name": "temperature",
+      "title": { "en": "Temperature", "nl": "Temperatuur" },
+      "min": 5, "max": 25, "step": 0.5,
+      "placeholder": { "en": "18" }
+    }
+  ]
 }

@@ -59,15 +59,49 @@
   "flow": {
     "triggers": [
       {
-        "id": "any-alarm-on",
         "title": {
-          "en": "Any alarm turned ON",
-          "nl": "Willekeurig alarm ingeschakeld"
+          "en": "Alarm state changed",
+          "nl": "Alarmstatus gewijzigd"
         },
         "hint": {
-          "en": "Triggers when any alarm activates. The alarm name is provided as a tag.",
-          "nl": "Wordt geactiveerd wanneer een alarm afgaat. De alarmnaam wordt als tag meegegeven."
+          "en": "Triggers when any alarm turns ON or OFF. The alarm name and state are provided as tags.",
+          "nl": "Wordt geactiveerd wanneer een alarm AAN of UIT gaat. De alarmnaam en status worden als tags meegegeven."
         },
+        "tokens": [
+          {
+            "name": "alarm",
+            "type": "string",
+            "title": {
+              "en": "Alarm",
+              "nl": "Alarm"
+            },
+            "example": {
+              "en": "flow"
+            }
+          },
+          {
+            "name": "state",
+            "type": "string",
+            "title": {
+              "en": "State",
+              "nl": "Status"
+            },
+            "example": {
+              "en": "on"
+            }
+          },
+          {
+            "name": "alarm_text",
+            "type": "string",
+            "title": {
+              "en": "Alarm description",
+              "nl": "Alarmbeschrijving"
+            },
+            "example": {
+              "en": "Flow"
+            }
+          }
+        ],
         "args": [
           {
             "type": "device",
@@ -75,317 +109,388 @@
             "filter": "driver_id=qube"
           }
         ],
+        "id": "alarm-state-changed"
+      },
+      {
+        "title": {
+          "en": "COP changed",
+          "nl": "COP gewijzigd"
+        },
+        "hint": {
+          "en": "Triggers when the Coefficient of Performance (COP) changes.",
+          "nl": "Wordt geactiveerd wanneer de COP (Coefficient of Performance) wijzigt."
+        },
         "tokens": [
           {
-            "name": "alarm_name",
-            "type": "string",
+            "name": "value",
+            "type": "number",
             "title": {
-              "en": "Alarm name",
-              "nl": "Alarmnaam"
+              "en": "COP",
+              "nl": "COP"
             },
             "example": {
-              "en": "Flow"
+              "en": "4.2"
             }
           }
-        ]
-      },
-      {
-        "id": "compressor-shutting-down",
-        "title": {
-          "en": "Compressor shutting down",
-          "nl": "Compressor stopt"
-        },
-        "hint": {
-          "en": "Triggers when the compressor begins its shutdown sequence.",
-          "nl": "Wordt geactiveerd wanneer de compressor uitschakelt."
-        },
+        ],
         "args": [
           {
-            "filter": "driver_id=qube",
+            "type": "device",
             "name": "device",
-            "type": "device"
+            "filter": "driver_id=qube"
           }
-        ]
+        ],
+        "id": "cop-changed"
       },
       {
-        "id": "compressor-start-failed",
         "title": {
-          "en": "Compressor start failed",
-          "nl": "Compressor start mislukt"
+          "en": "DHW Temperature changed",
+          "nl": "Warmwatertemperatuur gewijzigd"
         },
         "hint": {
-          "en": "Triggers when a compressor start attempt has failed.",
-          "nl": "Wordt geactiveerd wanneer de compressor niet kan starten."
+          "en": "Triggers when the domestic hot water temperature changes.",
+          "nl": "Wordt geactiveerd wanneer de warmwatertemperatuur wijzigt."
         },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur"
+            },
+            "example": {
+              "en": "50.0"
+            }
+          }
+        ],
         "args": [
           {
-            "filter": "driver_id=qube",
+            "type": "device",
             "name": "device",
-            "type": "device"
+            "filter": "driver_id=qube"
           }
-        ]
+        ],
+        "id": "dhw-temp-changed"
       },
       {
-        "id": "compressor-starting",
         "title": {
-          "en": "Compressor starting",
-          "nl": "Compressor start"
+          "en": "Electric Power changed",
+          "nl": "Elektrisch vermogen gewijzigd"
         },
         "hint": {
-          "en": "Triggers when the compressor begins its startup sequence.",
-          "nl": "Wordt geactiveerd wanneer de compressor opstart."
+          "en": "Triggers when the electric power consumption changes.",
+          "nl": "Wordt geactiveerd wanneer het elektrisch vermogen wijzigt."
         },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Power (W)",
+              "nl": "Vermogen (W)"
+            },
+            "example": {
+              "en": "1200"
+            }
+          }
+        ],
         "args": [
           {
-            "filter": "driver_id=qube",
+            "type": "device",
             "name": "device",
-            "type": "device"
+            "filter": "driver_id=qube"
           }
-        ]
+        ],
+        "id": "electric-power-changed"
       },
       {
-        "id": "cooling-alarm-on",
         "title": {
-          "en": "Cooling alarm turned ON",
-          "nl": "Koelingsalarm AAN"
+          "en": "Heating ΔT changed",
+          "nl": "Verwarming ΔT gewijzigd"
         },
         "hint": {
-          "en": "Triggers when a cooling alarm activates.",
-          "nl": "Wordt geactiveerd wanneer het koelingsalarm afgaat."
+          "en": "Triggers when the heating circuit temperature difference (supply - return) changes.",
+          "nl": "Wordt geactiveerd wanneer het temperatuurverschil van het verwarmingscircuit (aanvoer - retour) wijzigt."
         },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "ΔT (°C)",
+              "nl": "ΔT (°C)"
+            },
+            "example": {
+              "en": "5.3"
+            }
+          }
+        ],
         "args": [
           {
-            "filter": "driver_id=qube",
+            "type": "device",
             "name": "device",
-            "type": "device"
+            "filter": "driver_id=qube"
           }
-        ]
+        ],
+        "id": "heating-dt-changed"
       },
       {
-        "id": "dhw-timeout-alarm-on",
         "title": {
-          "en": "DHW timeout alarm turned ON",
-          "nl": "Warmwater time-out alarm AAN"
+          "en": "Outdoor Temperature changed",
+          "nl": "Buitentemperatuur gewijzigd"
         },
         "hint": {
-          "en": "Triggers when domestic hot water heating exceeds the maximum allowed time.",
-          "nl": "Wordt geactiveerd wanneer het warmwater time-out alarm afgaat."
+          "en": "Triggers when the outdoor temperature changes.",
+          "nl": "Wordt geactiveerd wanneer de buitentemperatuur wijzigt."
         },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur"
+            },
+            "example": {
+              "en": "5.0"
+            }
+          }
+        ],
         "args": [
           {
-            "filter": "driver_id=qube",
+            "type": "device",
             "name": "device",
-            "type": "device"
+            "filter": "driver_id=qube"
           }
-        ]
+        ],
+        "id": "outdoor-temp-changed"
       },
       {
-        "id": "entered-alarm",
         "title": {
-          "en": "Entered alarm/fault",
-          "nl": "Alarm gestart"
+          "en": "Power changed",
+          "nl": "Vermogen gewijzigd"
         },
         "hint": {
-          "en": "Triggers when the heat pump enters an alarm or fault state.",
-          "nl": "Wordt geactiveerd wanneer de warmtepomp in alarmstatus gaat."
+          "en": "Triggers when the thermal power output changes.",
+          "nl": "Wordt geactiveerd wanneer het thermisch vermogen wijzigt."
         },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Power (W)",
+              "nl": "Vermogen (W)"
+            },
+            "example": {
+              "en": "4500"
+            }
+          }
+        ],
         "args": [
           {
-            "filter": "driver_id=qube",
+            "type": "device",
             "name": "device",
-            "type": "device"
+            "filter": "driver_id=qube"
           }
-        ]
+        ],
+        "id": "power-changed"
       },
       {
-        "id": "entered-cooling",
         "title": {
-          "en": "Entered cooling",
-          "nl": "Koelen gestart"
+          "en": "Return Temperature changed",
+          "nl": "Retourtemperatuur gewijzigd"
         },
         "hint": {
-          "en": "Triggers when the heat pump enters cooling mode.",
-          "nl": "Wordt geactiveerd wanneer de warmtepomp gaat koelen."
+          "en": "Triggers when the return temperature changes.",
+          "nl": "Wordt geactiveerd wanneer de retourtemperatuur wijzigt."
         },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur"
+            },
+            "example": {
+              "en": "30.2"
+            }
+          }
+        ],
         "args": [
           {
-            "filter": "driver_id=qube",
+            "type": "device",
             "name": "device",
-            "type": "device"
+            "filter": "driver_id=qube"
           }
-        ]
+        ],
+        "id": "return-temp-changed"
       },
       {
-        "id": "entered-dhw-heating",
         "title": {
-          "en": "Entered DHW heating",
-          "nl": "Warmwater verwarmen gestart"
+          "en": "Room Temperature changed",
+          "nl": "Kamertemperatuur gewijzigd"
         },
         "hint": {
-          "en": "Triggers when the heat pump starts domestic hot water production.",
-          "nl": "Wordt geactiveerd wanneer de warmtepomp warmwater gaat verwarmen."
+          "en": "Triggers when the room temperature changes.",
+          "nl": "Wordt geactiveerd wanneer de kamertemperatuur wijzigt."
         },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur"
+            },
+            "example": {
+              "en": "21.0"
+            }
+          }
+        ],
         "args": [
           {
-            "filter": "driver_id=qube",
+            "type": "device",
             "name": "device",
-            "type": "device"
+            "filter": "driver_id=qube"
           }
-        ]
+        ],
+        "id": "room-temp-changed"
       },
       {
-        "id": "entered-heating",
         "title": {
-          "en": "Entered heating",
-          "nl": "Verwarmen gestart"
+          "en": "Source ΔT changed",
+          "nl": "Bron ΔT gewijzigd"
         },
         "hint": {
-          "en": "Triggers when the heat pump enters heating mode.",
-          "nl": "Wordt geactiveerd wanneer de warmtepomp gaat verwarmen."
+          "en": "Triggers when the source-side temperature difference (source in - source out) changes.",
+          "nl": "Wordt geactiveerd wanneer het temperatuurverschil aan de bronzijde (bron in - bron uit) wijzigt."
         },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "ΔT (°C)",
+              "nl": "ΔT (°C)"
+            },
+            "example": {
+              "en": "3.1"
+            }
+          }
+        ],
         "args": [
           {
-            "filter": "driver_id=qube",
+            "type": "device",
             "name": "device",
-            "type": "device"
+            "filter": "driver_id=qube"
           }
-        ]
+        ],
+        "id": "source-dt-changed"
       },
       {
-        "id": "entered-standby",
         "title": {
-          "en": "Entered standby",
-          "nl": "Stand-by gestart"
+          "en": "Source In Temperature changed",
+          "nl": "Bron inlaattemperatuur gewijzigd"
         },
         "hint": {
-          "en": "Triggers when the heat pump enters standby mode.",
-          "nl": "Wordt geactiveerd wanneer de warmtepomp naar stand-by gaat."
+          "en": "Triggers when the source inlet temperature changes.",
+          "nl": "Wordt geactiveerd wanneer de bron inlaattemperatuur wijzigt."
         },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur"
+            },
+            "example": {
+              "en": "10.0"
+            }
+          }
+        ],
         "args": [
           {
-            "filter": "driver_id=qube",
+            "type": "device",
             "name": "device",
-            "type": "device"
+            "filter": "driver_id=qube"
           }
-        ]
+        ],
+        "id": "source-in-temp-changed"
       },
       {
-        "id": "flow-alarm-on",
         "title": {
-          "en": "Flow alarm turned ON",
-          "nl": "Debietalarm AAN"
+          "en": "Source Out Temperature changed",
+          "nl": "Bron uitlaattemperatuur gewijzigd"
         },
         "hint": {
-          "en": "Triggers when insufficient flow is detected on the heating circuit.",
-          "nl": "Wordt geactiveerd wanneer het debietalarm afgaat."
+          "en": "Triggers when the source outlet temperature changes.",
+          "nl": "Wordt geactiveerd wanneer de bron uitlaattemperatuur wijzigt."
         },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur"
+            },
+            "example": {
+              "en": "7.5"
+            }
+          }
+        ],
         "args": [
           {
-            "filter": "driver_id=qube",
+            "type": "device",
             "name": "device",
-            "type": "device"
+            "filter": "driver_id=qube"
           }
-        ]
+        ],
+        "id": "source-out-temp-changed"
       },
       {
-        "id": "global-alarm-off",
         "title": {
-          "en": "Global alarm turned OFF",
-          "nl": "Globaal alarm UIT"
+          "en": "Supply Temperature changed",
+          "nl": "Aanvoertemperatuur gewijzigd"
         },
         "hint": {
-          "en": "Triggers when the global alarm clears.",
-          "nl": "Wordt geactiveerd wanneer het globale alarm wordt opgeheven."
+          "en": "Triggers when the supply temperature changes.",
+          "nl": "Wordt geactiveerd wanneer de aanvoertemperatuur wijzigt."
         },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur"
+            },
+            "example": {
+              "en": "35.5"
+            }
+          }
+        ],
         "args": [
           {
-            "filter": "driver_id=qube",
+            "type": "device",
             "name": "device",
-            "type": "device"
+            "filter": "driver_id=qube"
           }
-        ]
+        ],
+        "id": "supply-temp-changed"
       },
       {
-        "id": "global-alarm-on",
-        "title": {
-          "en": "Global alarm turned ON",
-          "nl": "Globaal alarm AAN"
-        },
-        "hint": {
-          "en": "Triggers when the global alarm activates.",
-          "nl": "Wordt geactiveerd wanneer het globale alarm afgaat."
-        },
-        "args": [
-          {
-            "filter": "driver_id=qube",
-            "name": "device",
-            "type": "device"
-          }
-        ]
-      },
-      {
-        "id": "heating-alarm-on",
-        "title": {
-          "en": "Heating alarm turned ON",
-          "nl": "Verwarmingsalarm AAN"
-        },
-        "hint": {
-          "en": "Triggers when a heating circuit alarm activates.",
-          "nl": "Wordt geactiveerd wanneer het verwarmingsalarm afgaat."
-        },
-        "args": [
-          {
-            "filter": "driver_id=qube",
-            "name": "device",
-            "type": "device"
-          }
-        ]
-      },
-      {
-        "id": "legionella-timeout-alarm-on",
-        "title": {
-          "en": "Legionella timeout alarm turned ON",
-          "nl": "Legionella time-out alarm AAN"
-        },
-        "hint": {
-          "en": "Triggers when the anti-legionella cycle fails to reach target temperature in time.",
-          "nl": "Wordt geactiveerd wanneer het legionella time-out alarm afgaat."
-        },
-        "args": [
-          {
-            "filter": "driver_id=qube",
-            "name": "device",
-            "type": "device"
-          }
-        ]
-      },
-      {
-        "id": "source-alarm-on",
-        "title": {
-          "en": "Source-side alarm turned ON",
-          "nl": "Bronalarm AAN"
-        },
-        "hint": {
-          "en": "Triggers when a source/brine circuit alarm activates.",
-          "nl": "Wordt geactiveerd wanneer het bronalarm afgaat."
-        },
-        "args": [
-          {
-            "filter": "driver_id=qube",
-            "name": "device",
-            "type": "device"
-          }
-        ]
-      },
-      {
-        "id": "unit-status-changed",
         "title": {
           "en": "Unit status changed",
           "nl": "Unitstatus gewijzigd"
         },
         "hint": {
-          "en": "Triggers when the heat pump unit status changes (e.g. standby â†’ heating).",
-          "nl": "Wordt geactiveerd wanneer de status van de warmtepomp wijzigt (bijv. stand-by naar verwarmen)."
+          "en": "Triggers when the heat pump unit status changes (e.g. standby → heating). Only fires when the decoded status text changes.",
+          "nl": "Wordt geactiveerd wanneer de status van de warmtepomp wijzigt (bijv. stand-by → verwarmen). Wordt alleen geactiveerd als de gedecodeerde statustekst wijzigt."
         },
         "tokens": [
           {
@@ -418,120 +523,1249 @@
               "nl": "Ruwe unitstatus"
             },
             "example": {
-              "en": "1"
+              "en": "16"
+            }
+          },
+          {
+            "name": "status_text",
+            "type": "string",
+            "title": {
+              "en": "Status text",
+              "nl": "Statustekst"
+            },
+            "example": {
+              "en": "Heating"
             }
           }
         ],
         "args": [
           {
-            "filter": "driver_id=qube",
+            "type": "device",
             "name": "device",
-            "type": "device"
+            "filter": "driver_id=qube"
           }
-        ]
-      },
-      {
-        "id": "user-alarm-on",
-        "title": {
-          "en": "User-side alarm turned ON",
-          "nl": "Gebruikersalarm AAN"
-        },
-        "hint": {
-          "en": "Triggers when a user-side (load) alarm activates.",
-          "nl": "Wordt geactiveerd wanneer het gebruikersalarm afgaat."
-        },
-        "args": [
-          {
-            "filter": "driver_id=qube",
-            "name": "device",
-            "type": "device"
-          }
-        ]
-      },
-      {
-        "id": "working-hours-alarm-on",
-        "title": {
-          "en": "Working hours alarm turned ON",
-          "nl": "Bedrijfsuren alarm AAN"
-        },
-        "hint": {
-          "en": "Triggers when a maintenance threshold (operating hours limit) has been reached.",
-          "nl": "Wordt geactiveerd wanneer het bedrijfsuren alarm afgaat."
-        },
-        "args": [
-          {
-            "filter": "driver_id=qube",
-            "name": "device",
-            "type": "device"
-          }
-        ]
+        ],
+        "id": "unit-status-changed"
       }
     ],
-    "actions": [
+    "conditions": [
       {
-        "id": "force-dhw-program",
         "title": {
-          "en": "Force DHW program (ON/OFF)",
-          "nl": "Warmwaterprogramma forceren (AAN/UIT)"
+          "en": "Alarm is ...",
+          "nl": "Alarm is ..."
+        },
+        "titleFormatted": {
+          "en": "Alarm [[alarm]] is [[status]]",
+          "nl": "Alarm [[alarm]] is [[status]]"
         },
         "hint": {
-          "en": "Force the domestic hot water time program via BMS.",
-          "nl": "Forceer het warmwater tijdprogramma via BMS."
+          "en": "Checks whether the selected alarm is currently ON or OFF.",
+          "nl": "Controleert of het geselecteerde alarm momenteel AAN of UIT staat."
         },
         "args": [
           {
-            "filter": "driver_id=qube",
+            "type": "device",
             "name": "device",
-            "type": "device"
+            "filter": "driver_id=qube"
           },
           {
             "type": "dropdown",
-            "name": "value",
+            "name": "alarm",
             "title": {
-              "en": "Force DHW"
+              "en": "Alarm",
+              "nl": "Alarm"
             },
             "values": [
               {
-                "id": "1",
+                "id": "global",
                 "label": {
-                  "en": "ON"
+                  "en": "Global",
+                  "nl": "Globaal"
                 }
               },
               {
-                "id": "0",
+                "id": "flow",
                 "label": {
-                  "en": "OFF"
+                  "en": "Flow",
+                  "nl": "Debiet"
+                }
+              },
+              {
+                "id": "cooling",
+                "label": {
+                  "en": "Cooling",
+                  "nl": "Koeling"
+                }
+              },
+              {
+                "id": "heating",
+                "label": {
+                  "en": "Heating",
+                  "nl": "Verwarming"
+                }
+              },
+              {
+                "id": "source",
+                "label": {
+                  "en": "Source-side",
+                  "nl": "Bronzijde"
+                }
+              },
+              {
+                "id": "user",
+                "label": {
+                  "en": "User-side",
+                  "nl": "Gebruikerszijde"
+                }
+              },
+              {
+                "id": "legionella_timeout",
+                "label": {
+                  "en": "Legionella Timeout",
+                  "nl": "Legionella time-out"
+                }
+              },
+              {
+                "id": "dhw_timeout",
+                "label": {
+                  "en": "DHW Timeout",
+                  "nl": "Warmwater time-out"
+                }
+              },
+              {
+                "id": "working_hours",
+                "label": {
+                  "en": "Working Hours",
+                  "nl": "Bedrijfsuren"
+                }
+              },
+              {
+                "id": "inverter_compressor",
+                "label": {
+                  "en": "Inverter/Compressor",
+                  "nl": "Inverter/Compressor"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "status",
+            "title": {
+              "en": "State",
+              "nl": "Status"
+            },
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "ON",
+                  "nl": "AAN"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "OFF",
+                  "nl": "UIT"
                 }
               }
             ]
           }
         ],
-        "titleFormatted": {
-          "en": "Force DHW program [[value]]",
-          "nl": "Forceer warmwaterprogramma [[value]]"
-        }
+        "id": "alarm-is"
       },
       {
-        "id": "set-cooling-setpoint",
         "title": {
-          "en": "Set cooling setpoint (Ã‚Â°C)",
-          "nl": "Koelingssetpoint instellen (°C)"
+          "en": "COP is ...",
+          "nl": "COP is ..."
+        },
+        "titleFormatted": {
+          "en": "COP is [[operator]] [[value]]",
+          "nl": "COP is [[operator]] [[value]]"
         },
         "hint": {
-          "en": "Write the cooling supply temperature setpoint.",
-          "nl": "Stel de aanvoertemperatuur voor koeling in."
+          "en": "Checks whether the current Coefficient of Performance (COP) matches the selected condition.",
+          "nl": "Controleert of de huidige COP voldoet aan de geselecteerde voorwaarde."
         },
         "args": [
           {
-            "filter": "driver_id=qube",
+            "type": "device",
             "name": "device",
-            "type": "device"
+            "filter": "driver_id=qube"
+          },
+          {
+            "type": "dropdown",
+            "name": "operator",
+            "title": {
+              "en": "Operator",
+              "nl": "Operator"
+            },
+            "values": [
+              {
+                "id": "gt",
+                "label": {
+                  "en": "greater than",
+                  "nl": "groter dan"
+                }
+              },
+              {
+                "id": "lt",
+                "label": {
+                  "en": "less than",
+                  "nl": "kleiner dan"
+                }
+              },
+              {
+                "id": "gte",
+                "label": {
+                  "en": "greater than or equal to",
+                  "nl": "groter dan of gelijk aan"
+                }
+              },
+              {
+                "id": "lte",
+                "label": {
+                  "en": "less than or equal to",
+                  "nl": "kleiner dan of gelijk aan"
+                }
+              }
+            ]
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "nl": "Waarde"
+            },
+            "placeholder": {
+              "en": "4.0"
+            },
+            "step": 0.1
+          }
+        ],
+        "id": "cop-is"
+      },
+      {
+        "title": {
+          "en": "DHW Temperature is ...",
+          "nl": "Warmwatertemperatuur is ..."
+        },
+        "titleFormatted": {
+          "en": "DHW Temperature is [[operator]] [[value]] °C",
+          "nl": "Warmwatertemperatuur is [[operator]] [[value]] °C"
+        },
+        "hint": {
+          "en": "Checks whether the current domestic hot water temperature matches the selected condition.",
+          "nl": "Controleert of de huidige warmwatertemperatuur voldoet aan de geselecteerde voorwaarde."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=qube"
+          },
+          {
+            "type": "dropdown",
+            "name": "operator",
+            "title": {
+              "en": "Operator",
+              "nl": "Operator"
+            },
+            "values": [
+              {
+                "id": "gt",
+                "label": {
+                  "en": "greater than",
+                  "nl": "groter dan"
+                }
+              },
+              {
+                "id": "lt",
+                "label": {
+                  "en": "less than",
+                  "nl": "kleiner dan"
+                }
+              },
+              {
+                "id": "gte",
+                "label": {
+                  "en": "greater than or equal to",
+                  "nl": "groter dan of gelijk aan"
+                }
+              },
+              {
+                "id": "lte",
+                "label": {
+                  "en": "less than or equal to",
+                  "nl": "kleiner dan of gelijk aan"
+                }
+              }
+            ]
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "nl": "Waarde"
+            },
+            "placeholder": {
+              "en": "50"
+            }
+          }
+        ],
+        "id": "dhw-temp-is"
+      },
+      {
+        "title": {
+          "en": "Electric Power is ...",
+          "nl": "Elektrisch vermogen is ..."
+        },
+        "titleFormatted": {
+          "en": "Electric Power is [[operator]] [[value]] W",
+          "nl": "Elektrisch vermogen is [[operator]] [[value]] W"
+        },
+        "hint": {
+          "en": "Checks whether the current electric power consumption matches the selected condition.",
+          "nl": "Controleert of het huidige elektrisch vermogen voldoet aan de geselecteerde voorwaarde."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=qube"
+          },
+          {
+            "type": "dropdown",
+            "name": "operator",
+            "title": {
+              "en": "Operator",
+              "nl": "Operator"
+            },
+            "values": [
+              {
+                "id": "gt",
+                "label": {
+                  "en": "greater than",
+                  "nl": "groter dan"
+                }
+              },
+              {
+                "id": "lt",
+                "label": {
+                  "en": "less than",
+                  "nl": "kleiner dan"
+                }
+              },
+              {
+                "id": "gte",
+                "label": {
+                  "en": "greater than or equal to",
+                  "nl": "groter dan of gelijk aan"
+                }
+              },
+              {
+                "id": "lte",
+                "label": {
+                  "en": "less than or equal to",
+                  "nl": "kleiner dan of gelijk aan"
+                }
+              }
+            ]
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value (W)",
+              "nl": "Waarde (W)"
+            },
+            "placeholder": {
+              "en": "1000"
+            }
+          }
+        ],
+        "id": "electric-power-is"
+      },
+      {
+        "title": {
+          "en": "Heating ΔT is ...",
+          "nl": "Verwarming ΔT is ..."
+        },
+        "titleFormatted": {
+          "en": "Heating ΔT is [[operator]] [[value]] °C",
+          "nl": "Verwarming ΔT is [[operator]] [[value]] °C"
+        },
+        "hint": {
+          "en": "Checks whether the heating circuit temperature difference (supply - return) matches the selected condition.",
+          "nl": "Controleert of het temperatuurverschil van het verwarmingscircuit (aanvoer - retour) voldoet aan de geselecteerde voorwaarde."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=qube"
+          },
+          {
+            "type": "dropdown",
+            "name": "operator",
+            "title": {
+              "en": "Operator",
+              "nl": "Operator"
+            },
+            "values": [
+              {
+                "id": "gt",
+                "label": {
+                  "en": "greater than",
+                  "nl": "groter dan"
+                }
+              },
+              {
+                "id": "lt",
+                "label": {
+                  "en": "less than",
+                  "nl": "kleiner dan"
+                }
+              },
+              {
+                "id": "gte",
+                "label": {
+                  "en": "greater than or equal to",
+                  "nl": "groter dan of gelijk aan"
+                }
+              },
+              {
+                "id": "lte",
+                "label": {
+                  "en": "less than or equal to",
+                  "nl": "kleiner dan of gelijk aan"
+                }
+              }
+            ]
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value (°C)",
+              "nl": "Waarde (°C)"
+            },
+            "placeholder": {
+              "en": "5"
+            },
+            "step": 0.5
+          }
+        ],
+        "id": "heating-dt-is"
+      },
+      {
+        "title": {
+          "en": "Outdoor Temperature is ...",
+          "nl": "Buitentemperatuur is ..."
+        },
+        "titleFormatted": {
+          "en": "Outdoor Temperature is [[operator]] [[value]] °C",
+          "nl": "Buitentemperatuur is [[operator]] [[value]] °C"
+        },
+        "hint": {
+          "en": "Checks whether the current outdoor temperature matches the selected condition.",
+          "nl": "Controleert of de huidige buitentemperatuur voldoet aan de geselecteerde voorwaarde."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=qube"
+          },
+          {
+            "type": "dropdown",
+            "name": "operator",
+            "title": {
+              "en": "Operator",
+              "nl": "Operator"
+            },
+            "values": [
+              {
+                "id": "gt",
+                "label": {
+                  "en": "greater than",
+                  "nl": "groter dan"
+                }
+              },
+              {
+                "id": "lt",
+                "label": {
+                  "en": "less than",
+                  "nl": "kleiner dan"
+                }
+              },
+              {
+                "id": "gte",
+                "label": {
+                  "en": "greater than or equal to",
+                  "nl": "groter dan of gelijk aan"
+                }
+              },
+              {
+                "id": "lte",
+                "label": {
+                  "en": "less than or equal to",
+                  "nl": "kleiner dan of gelijk aan"
+                }
+              }
+            ]
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "nl": "Waarde"
+            },
+            "placeholder": {
+              "en": "5"
+            }
+          }
+        ],
+        "id": "outdoor-temp-is"
+      },
+      {
+        "title": {
+          "en": "Power is ...",
+          "nl": "Vermogen is ..."
+        },
+        "titleFormatted": {
+          "en": "Power is [[operator]] [[value]] W",
+          "nl": "Vermogen is [[operator]] [[value]] W"
+        },
+        "hint": {
+          "en": "Checks whether the current thermal power output matches the selected condition.",
+          "nl": "Controleert of het huidige thermisch vermogen voldoet aan de geselecteerde voorwaarde."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=qube"
+          },
+          {
+            "type": "dropdown",
+            "name": "operator",
+            "title": {
+              "en": "Operator",
+              "nl": "Operator"
+            },
+            "values": [
+              {
+                "id": "gt",
+                "label": {
+                  "en": "greater than",
+                  "nl": "groter dan"
+                }
+              },
+              {
+                "id": "lt",
+                "label": {
+                  "en": "less than",
+                  "nl": "kleiner dan"
+                }
+              },
+              {
+                "id": "gte",
+                "label": {
+                  "en": "greater than or equal to",
+                  "nl": "groter dan of gelijk aan"
+                }
+              },
+              {
+                "id": "lte",
+                "label": {
+                  "en": "less than or equal to",
+                  "nl": "kleiner dan of gelijk aan"
+                }
+              }
+            ]
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value (W)",
+              "nl": "Waarde (W)"
+            },
+            "placeholder": {
+              "en": "4000"
+            }
+          }
+        ],
+        "id": "power-is"
+      },
+      {
+        "title": {
+          "en": "Return Temperature is ...",
+          "nl": "Retourtemperatuur is ..."
+        },
+        "titleFormatted": {
+          "en": "Return Temperature is [[operator]] [[value]] °C",
+          "nl": "Retourtemperatuur is [[operator]] [[value]] °C"
+        },
+        "hint": {
+          "en": "Checks whether the current return temperature matches the selected condition.",
+          "nl": "Controleert of de huidige retourtemperatuur voldoet aan de geselecteerde voorwaarde."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=qube"
+          },
+          {
+            "type": "dropdown",
+            "name": "operator",
+            "title": {
+              "en": "Operator",
+              "nl": "Operator"
+            },
+            "values": [
+              {
+                "id": "gt",
+                "label": {
+                  "en": "greater than",
+                  "nl": "groter dan"
+                }
+              },
+              {
+                "id": "lt",
+                "label": {
+                  "en": "less than",
+                  "nl": "kleiner dan"
+                }
+              },
+              {
+                "id": "gte",
+                "label": {
+                  "en": "greater than or equal to",
+                  "nl": "groter dan of gelijk aan"
+                }
+              },
+              {
+                "id": "lte",
+                "label": {
+                  "en": "less than or equal to",
+                  "nl": "kleiner dan of gelijk aan"
+                }
+              }
+            ]
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "nl": "Waarde"
+            },
+            "placeholder": {
+              "en": "30"
+            }
+          }
+        ],
+        "id": "return-temp-is"
+      },
+      {
+        "title": {
+          "en": "Room Temperature is ...",
+          "nl": "Kamertemperatuur is ..."
+        },
+        "titleFormatted": {
+          "en": "Room Temperature is [[operator]] [[value]] °C",
+          "nl": "Kamertemperatuur is [[operator]] [[value]] °C"
+        },
+        "hint": {
+          "en": "Checks whether the current room temperature matches the selected condition.",
+          "nl": "Controleert of de huidige kamertemperatuur voldoet aan de geselecteerde voorwaarde."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=qube"
+          },
+          {
+            "type": "dropdown",
+            "name": "operator",
+            "title": {
+              "en": "Operator",
+              "nl": "Operator"
+            },
+            "values": [
+              {
+                "id": "gt",
+                "label": {
+                  "en": "greater than",
+                  "nl": "groter dan"
+                }
+              },
+              {
+                "id": "lt",
+                "label": {
+                  "en": "less than",
+                  "nl": "kleiner dan"
+                }
+              },
+              {
+                "id": "gte",
+                "label": {
+                  "en": "greater than or equal to",
+                  "nl": "groter dan of gelijk aan"
+                }
+              },
+              {
+                "id": "lte",
+                "label": {
+                  "en": "less than or equal to",
+                  "nl": "kleiner dan of gelijk aan"
+                }
+              }
+            ]
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "nl": "Waarde"
+            },
+            "placeholder": {
+              "en": "21"
+            }
+          }
+        ],
+        "id": "room-temp-is"
+      },
+      {
+        "title": {
+          "en": "Source ΔT is ...",
+          "nl": "Bron ΔT is ..."
+        },
+        "titleFormatted": {
+          "en": "Source ΔT is [[operator]] [[value]] °C",
+          "nl": "Bron ΔT is [[operator]] [[value]] °C"
+        },
+        "hint": {
+          "en": "Checks whether the source-side temperature difference (source in - source out) matches the selected condition.",
+          "nl": "Controleert of het temperatuurverschil aan de bronzijde (bron in - bron uit) voldoet aan de geselecteerde voorwaarde."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=qube"
+          },
+          {
+            "type": "dropdown",
+            "name": "operator",
+            "title": {
+              "en": "Operator",
+              "nl": "Operator"
+            },
+            "values": [
+              {
+                "id": "gt",
+                "label": {
+                  "en": "greater than",
+                  "nl": "groter dan"
+                }
+              },
+              {
+                "id": "lt",
+                "label": {
+                  "en": "less than",
+                  "nl": "kleiner dan"
+                }
+              },
+              {
+                "id": "gte",
+                "label": {
+                  "en": "greater than or equal to",
+                  "nl": "groter dan of gelijk aan"
+                }
+              },
+              {
+                "id": "lte",
+                "label": {
+                  "en": "less than or equal to",
+                  "nl": "kleiner dan of gelijk aan"
+                }
+              }
+            ]
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value (°C)",
+              "nl": "Waarde (°C)"
+            },
+            "placeholder": {
+              "en": "3"
+            },
+            "step": 0.5
+          }
+        ],
+        "id": "source-dt-is"
+      },
+      {
+        "title": {
+          "en": "Source In Temperature is ...",
+          "nl": "Bron inlaattemperatuur is ..."
+        },
+        "titleFormatted": {
+          "en": "Source In Temperature is [[operator]] [[value]] °C",
+          "nl": "Bron inlaattemperatuur is [[operator]] [[value]] °C"
+        },
+        "hint": {
+          "en": "Checks whether the current source inlet temperature matches the selected condition.",
+          "nl": "Controleert of de huidige bron inlaattemperatuur voldoet aan de geselecteerde voorwaarde."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=qube"
+          },
+          {
+            "type": "dropdown",
+            "name": "operator",
+            "title": {
+              "en": "Operator",
+              "nl": "Operator"
+            },
+            "values": [
+              {
+                "id": "gt",
+                "label": {
+                  "en": "greater than",
+                  "nl": "groter dan"
+                }
+              },
+              {
+                "id": "lt",
+                "label": {
+                  "en": "less than",
+                  "nl": "kleiner dan"
+                }
+              },
+              {
+                "id": "gte",
+                "label": {
+                  "en": "greater than or equal to",
+                  "nl": "groter dan of gelijk aan"
+                }
+              },
+              {
+                "id": "lte",
+                "label": {
+                  "en": "less than or equal to",
+                  "nl": "kleiner dan of gelijk aan"
+                }
+              }
+            ]
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "nl": "Waarde"
+            },
+            "placeholder": {
+              "en": "10"
+            }
+          }
+        ],
+        "id": "source-in-temp-is"
+      },
+      {
+        "title": {
+          "en": "Source Out Temperature is ...",
+          "nl": "Bron uitlaattemperatuur is ..."
+        },
+        "titleFormatted": {
+          "en": "Source Out Temperature is [[operator]] [[value]] °C",
+          "nl": "Bron uitlaattemperatuur is [[operator]] [[value]] °C"
+        },
+        "hint": {
+          "en": "Checks whether the current source outlet temperature matches the selected condition.",
+          "nl": "Controleert of de huidige bron uitlaattemperatuur voldoet aan de geselecteerde voorwaarde."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=qube"
+          },
+          {
+            "type": "dropdown",
+            "name": "operator",
+            "title": {
+              "en": "Operator",
+              "nl": "Operator"
+            },
+            "values": [
+              {
+                "id": "gt",
+                "label": {
+                  "en": "greater than",
+                  "nl": "groter dan"
+                }
+              },
+              {
+                "id": "lt",
+                "label": {
+                  "en": "less than",
+                  "nl": "kleiner dan"
+                }
+              },
+              {
+                "id": "gte",
+                "label": {
+                  "en": "greater than or equal to",
+                  "nl": "groter dan of gelijk aan"
+                }
+              },
+              {
+                "id": "lte",
+                "label": {
+                  "en": "less than or equal to",
+                  "nl": "kleiner dan of gelijk aan"
+                }
+              }
+            ]
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "nl": "Waarde"
+            },
+            "placeholder": {
+              "en": "7"
+            }
+          }
+        ],
+        "id": "source-out-temp-is"
+      },
+      {
+        "title": {
+          "en": "Supply Temperature is ...",
+          "nl": "Aanvoertemperatuur is ..."
+        },
+        "titleFormatted": {
+          "en": "Supply Temperature is [[operator]] [[value]] °C",
+          "nl": "Aanvoertemperatuur is [[operator]] [[value]] °C"
+        },
+        "hint": {
+          "en": "Checks whether the current supply temperature matches the selected condition.",
+          "nl": "Controleert of de huidige aanvoertemperatuur voldoet aan de geselecteerde voorwaarde."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=qube"
+          },
+          {
+            "type": "dropdown",
+            "name": "operator",
+            "title": {
+              "en": "Operator",
+              "nl": "Operator"
+            },
+            "values": [
+              {
+                "id": "gt",
+                "label": {
+                  "en": "greater than",
+                  "nl": "groter dan"
+                }
+              },
+              {
+                "id": "lt",
+                "label": {
+                  "en": "less than",
+                  "nl": "kleiner dan"
+                }
+              },
+              {
+                "id": "gte",
+                "label": {
+                  "en": "greater than or equal to",
+                  "nl": "groter dan of gelijk aan"
+                }
+              },
+              {
+                "id": "lte",
+                "label": {
+                  "en": "less than or equal to",
+                  "nl": "kleiner dan of gelijk aan"
+                }
+              }
+            ]
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "nl": "Waarde"
+            },
+            "placeholder": {
+              "en": "35"
+            }
+          }
+        ],
+        "id": "supply-temp-is"
+      },
+      {
+        "title": {
+          "en": "Unit status is ...",
+          "nl": "Unitstatus is ..."
+        },
+        "titleFormatted": {
+          "en": "Unit status is [[status]]",
+          "nl": "Unitstatus is [[status]]"
+        },
+        "hint": {
+          "en": "Checks whether the current heat pump unit status matches the selected status.",
+          "nl": "Controleert of de huidige status van de warmtepomp overeenkomt met de geselecteerde status."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=qube"
+          },
+          {
+            "type": "dropdown",
+            "name": "status",
+            "title": {
+              "en": "Status",
+              "nl": "Status"
+            },
+            "values": [
+              {
+                "id": "standby",
+                "label": {
+                  "en": "Standby",
+                  "nl": "Stand-by"
+                }
+              },
+              {
+                "id": "heating",
+                "label": {
+                  "en": "Heating",
+                  "nl": "Verwarmen"
+                }
+              },
+              {
+                "id": "cooling",
+                "label": {
+                  "en": "Cooling",
+                  "nl": "Koelen"
+                }
+              },
+              {
+                "id": "heating_dhw",
+                "label": {
+                  "en": "DHW Heating",
+                  "nl": "Warmwater verwarmen"
+                }
+              },
+              {
+                "id": "alarm",
+                "label": {
+                  "en": "Alarm",
+                  "nl": "Alarm"
+                }
+              },
+              {
+                "id": "compressor_startup",
+                "label": {
+                  "en": "Compressor Starting",
+                  "nl": "Compressor start"
+                }
+              },
+              {
+                "id": "compressor_shutdown",
+                "label": {
+                  "en": "Compressor Shutting Down",
+                  "nl": "Compressor stopt"
+                }
+              },
+              {
+                "id": "start_fail",
+                "label": {
+                  "en": "Compressor Start Failed",
+                  "nl": "Compressor start mislukt"
+                }
+              },
+              {
+                "id": "keyboard_off",
+                "label": {
+                  "en": "Keyboard Off",
+                  "nl": "Toetsenbord uit"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "unit-status-is"
+      }
+    ],
+    "actions": [
+      {
+        "title": {
+          "en": "Force anti-legionella cycle",
+          "nl": "Anti-legionellacyclus forceren"
+        },
+        "titleFormatted": {
+          "en": "Force anti-legionella cycle",
+          "nl": "Forceer anti-legionellacyclus"
+        },
+        "hint": {
+          "en": "The heat pump will heat the DHW tank to high temperature (often ~60°C). This is limited to once per day.",
+          "nl": "De warmtepomp zal het warmwatervat verwarmen tot hoge temperatuur (vaak ~60°C). Dit is beperkt tot eenmaal per dag."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=qube"
+          }
+        ],
+        "id": "force-antilegionella"
+      },
+      {
+        "title": {
+          "en": "Force DHW program",
+          "nl": "Warmwaterprogramma forceren"
+        },
+        "titleFormatted": {
+          "en": "Force DHW program",
+          "nl": "Forceer warmwaterprogramma"
+        },
+        "hint": {
+          "en": "Forces the DHW time program to run once, this overrides normal schedule.",
+          "nl": "Forceert het warmwater tijdprogramma om eenmalig te draaien, dit overschrijft het normale schema."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=qube"
+          }
+        ],
+        "id": "force-dhw-program"
+      },
+      {
+        "title": {
+          "en": "Set BMS demand control",
+          "nl": "BMS-vraagsturing instellen"
+        },
+        "titleFormatted": {
+          "en": "Set BMS demand control to [[status]]",
+          "nl": "Stel BMS-vraagsturing in op [[status]]"
+        },
+        "hint": {
+          "en": "ON means that heat pump is allowed to run and OFF means that heat pump demand is removed. This is used by building management systems. Do not toggle frequently and do not combine with LinQ control.",
+          "nl": "AAN betekent dat de warmtepomp mag draaien en UIT betekent dat de warmtepompvraag wordt verwijderd. Dit wordt gebruikt door gebouwbeheersystemen. Schakel niet frequent en combineer niet met LinQ-besturing."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=qube"
+          },
+          {
+            "type": "dropdown",
+            "name": "status",
+            "title": {
+              "en": "Status",
+              "nl": "Status"
+            },
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "ON",
+                  "nl": "AAN"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "OFF",
+                  "nl": "UIT"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "set-bms-demand"
+      },
+      {
+        "title": {
+          "en": "Set cooling setpoint",
+          "nl": "Koelingssetpoint instellen"
+        },
+        "titleFormatted": {
+          "en": "Set cooling [[period]] setpoint to [[temperature]] °C",
+          "nl": "Stel koeling [[period]] setpoint in op [[temperature]] °C"
+        },
+        "hint": {
+          "en": "Sets the room cooling setpoint for the selected period (day or night). These setpoints are used only when the internal thermostat control of the heat pump is active. If the system is controlled by an external thermostat, BMS/Modbus demand or heating curve compensation, these setpoints may not affect the heat pump operation.",
+          "nl": "Stelt het kamerkoeling setpoint in voor de geselecteerde periode (dag of nacht). Deze setpoints worden alleen gebruikt wanneer de interne thermostaatregeling van de warmtepomp actief is. Als het systeem wordt bestuurd door een externe thermostaat, BMS/Modbus-vraag of stooklijncompensatie, hebben deze setpoints mogelijk geen effect."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=qube"
+          },
+          {
+            "type": "dropdown",
+            "name": "period",
+            "title": {
+              "en": "Period",
+              "nl": "Periode"
+            },
+            "values": [
+              {
+                "id": "day",
+                "label": {
+                  "en": "Day",
+                  "nl": "Dag"
+                }
+              },
+              {
+                "id": "night",
+                "label": {
+                  "en": "Night",
+                  "nl": "Nacht"
+                }
+              }
+            ]
           },
           {
             "type": "number",
             "name": "temperature",
             "title": {
-              "en": "Temperature"
+              "en": "Temperature",
+              "nl": "Temperatuur"
             },
             "min": 5,
             "max": 25,
@@ -541,75 +1775,79 @@
             }
           }
         ],
-        "titleFormatted": {
-          "en": "Set cooling setpoint to [[temperature]] °C",
-          "nl": "Stel koelingssetpoint in op [[temperature]] °C"
-        }
+        "id": "set-cooling-setpoint"
       },
       {
-        "id": "set-demand",
         "title": {
-          "en": "Set demand (ON/OFF)",
-          "nl": "Vraag instellen (AAN/UIT)"
+          "en": "Set DHW program",
+          "nl": "Warmwaterprogramma instellen"
+        },
+        "titleFormatted": {
+          "en": "Set DHW program to [[status]]",
+          "nl": "Stel warmwaterprogramma in op [[status]]"
         },
         "hint": {
-          "en": "Enable or disable heat pump demand via Modbus.",
-          "nl": "Warmtepompvraag in- of uitschakelen via Modbus."
+          "en": "Enables or disables the DHW time program via BMS (TapW_TimeProgram.BMS_ForceTimeProgram).",
+          "nl": "Schakelt het warmwater tijdprogramma in of uit via BMS (TapW_TimeProgram.BMS_ForceTimeProgram)."
         },
         "args": [
           {
-            "filter": "driver_id=qube",
+            "type": "device",
             "name": "device",
-            "type": "device"
+            "filter": "driver_id=qube"
           },
           {
             "type": "dropdown",
-            "name": "value",
+            "name": "status",
             "title": {
-              "en": "Demand"
+              "en": "Status",
+              "nl": "Status"
             },
             "values": [
               {
-                "id": "1",
+                "id": "on",
                 "label": {
-                  "en": "ON"
+                  "en": "ON",
+                  "nl": "AAN"
                 }
               },
               {
-                "id": "0",
+                "id": "off",
                 "label": {
-                  "en": "OFF"
+                  "en": "OFF",
+                  "nl": "UIT"
                 }
               }
             ]
           }
         ],
-        "titleFormatted": {
-          "en": "Set demand to [[value]]",
-          "nl": "Stel vraag in op [[value]]"
-        }
+        "id": "set-dhw-program"
       },
       {
-        "id": "set-dhw-setpoint",
         "title": {
-          "en": "Set DHW setpoint (Ã‚Â°C)",
-          "nl": "Warmwatersetpoint instellen (°C)"
+          "en": "Set DHW setpoint",
+          "nl": "Warmwatersetpoint instellen"
+        },
+        "titleFormatted": {
+          "en": "Set DHW setpoint to [[temperature]] °C",
+          "nl": "Stel warmwatersetpoint in op [[temperature]] °C"
         },
         "hint": {
-          "en": "Write the domestic hot water temperature setpoint.",
-          "nl": "Stel de warmwatertemperatuur in."
+          "en": "Sets the domestic hot water temperature setpoint (TapW_TimeProgram.DHWS). This is the minimum DHW tank temperature that the heat pump will maintain.",
+          "nl": "Stelt het warmwater temperatuursetpoint in (TapW_TimeProgram.DHWS). Dit is de minimale warmwatervat-temperatuur die de warmtepomp zal handhaven."
         },
         "args": [
           {
-            "filter": "driver_id=qube",
+            "type": "device",
             "name": "device",
-            "type": "device"
+            "filter": "driver_id=qube"
           },
           {
             "type": "number",
             "name": "temperature",
             "title": {
-              "en": "Temperature"
+              "en": "Temperature",
+              "nl": "Temperatuur"
             },
             "min": 30,
             "max": 65,
@@ -619,80 +1857,105 @@
             }
           }
         ],
-        "titleFormatted": {
-          "en": "Set DHW setpoint to [[temperature]] °C",
-          "nl": "Stel warmwatersetpoint in op [[temperature]] °C"
-        }
+        "id": "set-dhw-setpoint"
       },
       {
-        "id": "set-heating-curve",
         "title": {
           "en": "Set heating curve",
           "nl": "Stooklijn instellen"
         },
         "titleFormatted": {
-          "en": "Set heating curve to [[value]]",
-          "nl": "Stel stooklijn in op [[value]]"
+          "en": "Set heating curve to [[status]]",
+          "nl": "Stel stooklijn in op [[status]]"
         },
         "hint": {
-          "en": "Enable or disable the heating curve (weather-dependent setpoint).",
-          "nl": "Schakel de stooklijn (weersafhankelijk setpoint) in of uit."
+          "en": "Enable or disable the weather-dependent heating curve. When enabled, the supply temperature setpoint is automatically adjusted based on outdoor temperature.",
+          "nl": "Schakel de weersafhankelijke stooklijn in of uit. Wanneer ingeschakeld wordt het aanvoertemperatuur setpoint automatisch aangepast op basis van de buitentemperatuur."
         },
         "args": [
           {
-            "name": "value",
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=qube"
+          },
+          {
             "type": "dropdown",
+            "name": "status",
             "title": {
               "en": "State",
               "nl": "Status"
             },
             "values": [
               {
-                "id": "1",
-                "title": {
+                "id": "on",
+                "label": {
                   "en": "Enabled",
                   "nl": "Ingeschakeld"
                 }
               },
               {
-                "id": "0",
-                "title": {
+                "id": "off",
+                "label": {
                   "en": "Disabled",
                   "nl": "Uitgeschakeld"
                 }
               }
             ]
-          },
-          {
-            "filter": "driver_id=qube",
-            "name": "device",
-            "type": "device"
           }
-        ]
+        ],
+        "id": "set-heating-curve"
       },
       {
-        "id": "set-heating-setpoint",
         "title": {
-          "en": "Set heating setpoint (Ã‚Â°C)",
-          "nl": "Verwarmingssetpoint instellen (°C)"
+          "en": "Set heating setpoint",
+          "nl": "Verwarmingssetpoint instellen"
+        },
+        "titleFormatted": {
+          "en": "Set heating [[period]] setpoint to [[temperature]] °C",
+          "nl": "Stel verwarming [[period]] setpoint in op [[temperature]] °C"
         },
         "hint": {
-          "en": "Write the heating supply temperature setpoint.",
-          "nl": "Stel de aanvoertemperatuur voor verwarming in."
+          "en": "Sets the room heating setpoint for the selected period (day or night). These setpoints are used only when the internal thermostat control of the heat pump is active. If the system is controlled by an external thermostat, BMS/Modbus demand or heating curve compensation, these setpoints may be ignored.",
+          "nl": "Stelt het kamerverwarming setpoint in voor de geselecteerde periode (dag of nacht). Deze setpoints worden alleen gebruikt wanneer de interne thermostaatregeling van de warmtepomp actief is. Als het systeem wordt bestuurd door een externe thermostaat, BMS/Modbus-vraag of stooklijncompensatie, kunnen deze setpoints worden genegeerd."
         },
         "args": [
           {
-            "filter": "driver_id=qube",
+            "type": "device",
             "name": "device",
-            "type": "device"
+            "filter": "driver_id=qube"
+          },
+          {
+            "type": "dropdown",
+            "name": "period",
+            "title": {
+              "en": "Period",
+              "nl": "Periode"
+            },
+            "values": [
+              {
+                "id": "day",
+                "label": {
+                  "en": "Day",
+                  "nl": "Dag"
+                }
+              },
+              {
+                "id": "night",
+                "label": {
+                  "en": "Night",
+                  "nl": "Nacht"
+                }
+              }
+            ]
           },
           {
             "type": "number",
             "name": "temperature",
             "title": {
-              "en": "Temperature"
+              "en": "Temperature",
+              "nl": "Temperatuur"
             },
-            "min": 15,
+            "min": 10,
             "max": 65,
             "step": 0.5,
             "placeholder": {
@@ -700,152 +1963,139 @@
             }
           }
         ],
-        "titleFormatted": {
-          "en": "Set heating setpoint to [[temperature]] °C",
-          "nl": "Stel verwarmingssetpoint in op [[temperature]] °C"
-        }
+        "id": "set-heating-setpoint"
       },
       {
-        "id": "set-season-mode",
         "title": {
           "en": "Set season mode",
           "nl": "Seizoensmodus instellen"
         },
+        "titleFormatted": {
+          "en": "Set season mode to [[value]]",
+          "nl": "Stel seizoensmodus in op [[value]]"
+        },
         "hint": {
-          "en": "Switch between heating (winter) and cooling (summer) season.",
-          "nl": "Schakelen tussen verwarmen (winter) en koelen (zomer)."
+          "en": "Switch between heating (winter) and cooling (summer) season. It is also used by LinQ and do not overwrite frequently.",
+          "nl": "Schakelen tussen verwarmen (winter) en koelen (zomer). Wordt ook gebruikt door LinQ, schakel niet frequent."
         },
         "args": [
           {
-            "filter": "driver_id=qube",
+            "type": "device",
             "name": "device",
-            "type": "device"
+            "filter": "driver_id=qube"
           },
           {
             "type": "dropdown",
             "name": "value",
             "title": {
-              "en": "Season"
+              "en": "Season",
+              "nl": "Seizoen"
             },
             "values": [
               {
                 "id": "0",
                 "label": {
-                  "en": "Winter (Heating)"
+                  "en": "Winter (Heating)",
+                  "nl": "Winter (Verwarmen)"
                 }
               },
               {
                 "id": "1",
                 "label": {
-                  "en": "Summer (Cooling)"
+                  "en": "Summer (Cooling)",
+                  "nl": "Zomer (Koelen)"
                 }
               }
             ]
           }
         ],
-        "titleFormatted": {
-          "en": "Set season mode to [[value]]",
-          "nl": "Stel seizoensmodus in op [[value]]"
-        }
+        "id": "set-season-mode"
       },
       {
-        "id": "set-sg-ready-mode",
         "title": {
           "en": "Set SG Ready mode",
           "nl": "SG Ready modus instellen"
         },
+        "titleFormatted": {
+          "en": "Set SG Ready mode to [[value]]",
+          "nl": "Stel SG Ready modus in op [[value]]"
+        },
         "hint": {
-          "en": "Set the SG Ready mode. Controls two internal boolean switches (sgready_a / sgready_b).",
-          "nl": "Stel de SG Ready modus in."
+          "en": "SG Ready is a smart-grid interface used by many heat pumps. It allows the electricity grid or a controller to influence operation. Off: Normal operation. Block: Do not run compressor. Plus: Preheat slightly. Max: Run aggressively to store energy.",
+          "nl": "SG Ready is een smart-grid interface die door veel warmtepompen wordt gebruikt. Het stelt het elektriciteitsnet of een controller in staat om de werking te beïnvloeden. Uit: Normaal bedrijf. Blokkeren: Compressor niet starten. Plus: Licht voorverwarmen. Max: Agressief draaien om energie op te slaan."
         },
         "args": [
           {
-            "filter": "driver_id=qube",
+            "type": "device",
             "name": "device",
-            "type": "device"
+            "filter": "driver_id=qube"
           },
           {
             "type": "dropdown",
             "name": "value",
             "title": {
-              "en": "SG Ready mode"
+              "en": "SG Ready mode",
+              "nl": "SG Ready modus"
             },
             "values": [
               {
                 "id": "off",
                 "label": {
-                  "en": "Off"
+                  "en": "Off (Normal operation)",
+                  "nl": "Uit (Normaal bedrijf)"
                 }
               },
               {
                 "id": "block",
                 "label": {
-                  "en": "Block"
+                  "en": "Block (Do not run compressor)",
+                  "nl": "Blokkeren (Compressor niet starten)"
                 }
               },
               {
                 "id": "plus",
                 "label": {
-                  "en": "Plus"
+                  "en": "Plus (Preheat slightly)",
+                  "nl": "Plus (Licht voorverwarmen)"
                 }
               },
               {
                 "id": "max",
                 "label": {
-                  "en": "Max"
+                  "en": "Max (Run aggressively to store energy)",
+                  "nl": "Max (Agressief draaien om energie op te slaan)"
                 }
               }
             ]
           }
         ],
-        "titleFormatted": {
-          "en": "Set SG Ready mode to [[value]]",
-          "nl": "Stel SG Ready modus in op [[value]]"
-        }
+        "id": "set-sg-ready-mode"
       },
       {
-        "id": "start-antilegionella",
-        "title": {
-          "en": "Start anti-legionella cycle",
-          "nl": "Start anti-legionellacyclus"
-        },
-        "hint": {
-          "en": "Manually triggers an anti-legionella disinfection cycle.",
-          "nl": "Start handmatig een anti-legionella desinfectiecyclus."
-        },
-        "args": [
-          {
-            "filter": "driver_id=qube",
-            "name": "device",
-            "type": "device"
-          }
-        ],
-        "titleFormatted": {
-          "en": "Start anti-legionella cycle",
-          "nl": "Start anti-legionellacyclus"
-        }
-      },
-      {
-        "id": "write-modbus-register",
         "title": {
           "en": "Write Modbus register (Advanced)",
           "nl": "Modbus register schrijven (Geavanceerd)"
         },
+        "titleFormatted": {
+          "en": "Write [[value]] to Modbus register [[address]] as [[datatype]]",
+          "nl": "Schrijf [[value]] naar Modbus register [[address]] als [[datatype]]"
+        },
         "hint": {
-          "en": "Write a raw value to a Modbus holding register. For advanced / debugging use.",
-          "nl": "Schrijf een waarde naar een Modbus holding register."
+          "en": "Write a raw value to a Modbus holding register. For advanced / debugging use only. Incorrect values may cause unexpected behavior.",
+          "nl": "Schrijf een waarde naar een Modbus holding register. Alleen voor geavanceerd / foutopsporingsgebruik. Onjuiste waarden kunnen onverwacht gedrag veroorzaken."
         },
         "args": [
           {
-            "filter": "driver_id=qube",
+            "type": "device",
             "name": "device",
-            "type": "device"
+            "filter": "driver_id=qube"
           },
           {
             "type": "number",
             "name": "address",
             "title": {
-              "en": "Register address"
+              "en": "Register address",
+              "nl": "Registeradres"
             },
             "min": 0,
             "max": 65535,
@@ -858,7 +2108,8 @@
             "type": "number",
             "name": "value",
             "title": {
-              "en": "Value"
+              "en": "Value",
+              "nl": "Waarde"
             },
             "placeholder": {
               "en": "0"
@@ -868,7 +2119,8 @@
             "type": "dropdown",
             "name": "datatype",
             "title": {
-              "en": "Data type"
+              "en": "Data type",
+              "nl": "Datatype"
             },
             "values": [
               {
@@ -892,10 +2144,7 @@
             ]
           }
         ],
-        "titleFormatted": {
-          "en": "Write [[value]] to Modbus register [[address]] as [[datatype]]",
-          "nl": "Schrijf [[value]] naar Modbus register [[address]] als [[datatype]]"
-        }
+        "id": "write-modbus-register"
       }
     ]
   },
@@ -958,11 +2207,15 @@
         "qube_hours_dhw",
         "qube_hours_heating",
         "qube_hours_cooling",
+        "qube_heating_dt",
+        "qube_source_dt",
+        "qube_runtime_efficiency",
         "qube_season_mode",
-        "qube_heating_setpoint",
-        "qube_cooling_setpoint",
-        "qube_dhw_setpoint",
-        "qube_heating_curve"
+        "qube_heating_setpoint_day",
+        "qube_heating_setpoint_night",
+        "qube_cooling_setpoint_day",
+        "qube_cooling_setpoint_night",
+        "qube_dhw_setpoint"
       ],
       "capabilitiesOptions": {
         "alarm_generic": {
@@ -1199,18 +2452,45 @@
       "setable": false,
       "insights": true
     },
-    "qube_cooling_setpoint": {
+    "qube_cooling_setpoint_day": {
       "type": "number",
       "title": {
-        "en": "Cooling Setpoint",
-        "nl": "Koelingssetpoint"
+        "en": "Cooling Setpoint (Day)",
+        "nl": "Koelingssetpoint (Dag)"
+      },
+      "desc": {
+        "en": "Room cooling setpoint for the day period.",
+        "nl": "Kamerkoeling setpoint voor de dagperiode."
       },
       "units": {
         "en": "°C"
       },
       "decimals": 1,
-      "min": 10,
-      "max": 65,
+      "min": 5,
+      "max": 25,
+      "step": 0.5,
+      "icon": "/assets/icons/target-temp.svg",
+      "getable": true,
+      "setable": true,
+      "uiComponent": "slider",
+      "insights": true
+    },
+    "qube_cooling_setpoint_night": {
+      "type": "number",
+      "title": {
+        "en": "Cooling Setpoint (Night)",
+        "nl": "Koelingssetpoint (Nacht)"
+      },
+      "desc": {
+        "en": "Room cooling setpoint for the night period.",
+        "nl": "Kamerkoeling setpoint voor de nachtperiode."
+      },
+      "units": {
+        "en": "°C"
+      },
+      "decimals": 1,
+      "min": 5,
+      "max": 25,
       "step": 0.5,
       "icon": "/assets/icons/target-temp.svg",
       "getable": true,
@@ -1328,23 +2608,58 @@
       "setable": false,
       "insights": true
     },
-    "qube_heating_curve": {
-      "type": "boolean",
-      "title": {
-        "en": "Heating Curve",
-        "nl": "Stooklijn"
-      },
-      "icon": "/assets/icons/curve.svg",
-      "getable": true,
-      "setable": true,
-      "uiComponent": "toggle",
-      "insights": true
-    },
-    "qube_heating_setpoint": {
+    "qube_heating_dt": {
       "type": "number",
       "title": {
-        "en": "Heating Setpoint",
-        "nl": "Verwarmingssetpoint"
+        "en": "Heating ΔT",
+        "nl": "Verwarming ΔT"
+      },
+      "desc": {
+        "en": "Temperature difference between supply and return (SupplyTemp - ReturnTemp). Helps spot hydraulic issues.",
+        "nl": "Temperatuurverschil tussen aanvoer en retour (Aanvoer - Retour). Helpt hydraulische problemen te signaleren."
+      },
+      "units": {
+        "en": "°C"
+      },
+      "decimals": 2,
+      "icon": "/assets/icons/thermometer.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "qube_heating_setpoint_day": {
+      "type": "number",
+      "title": {
+        "en": "Heating Setpoint (Day)",
+        "nl": "Verwarmingssetpoint (Dag)"
+      },
+      "desc": {
+        "en": "Room heating setpoint for the day period.",
+        "nl": "Kamerverwarming setpoint voor de dagperiode."
+      },
+      "units": {
+        "en": "°C"
+      },
+      "decimals": 1,
+      "min": 10,
+      "max": 65,
+      "step": 0.5,
+      "icon": "/assets/icons/target-temp.svg",
+      "getable": true,
+      "setable": true,
+      "uiComponent": "slider",
+      "insights": true
+    },
+    "qube_heating_setpoint_night": {
+      "type": "number",
+      "title": {
+        "en": "Heating Setpoint (Night)",
+        "nl": "Verwarmingssetpoint (Nacht)"
+      },
+      "desc": {
+        "en": "Room heating setpoint for the night period.",
+        "nl": "Kamerverwarming setpoint voor de nachtperiode."
       },
       "units": {
         "en": "°C"
@@ -1450,6 +2765,26 @@
       "setable": false,
       "insights": true
     },
+    "qube_runtime_efficiency": {
+      "type": "number",
+      "title": {
+        "en": "Runtime Efficiency",
+        "nl": "Runtime-efficiëntie"
+      },
+      "desc": {
+        "en": "Thermal energy produced per heating hour (thermal kWh / heating hours). Helps assess long-term system behavior.",
+        "nl": "Thermische energie per verwarmingsuur (thermische kWh / verwarmingsuren). Helpt het langetermijngedrag van het systeem te beoordelen."
+      },
+      "units": {
+        "en": "kWh/h"
+      },
+      "decimals": 2,
+      "icon": "/assets/icons/lightning.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
     "qube_season_mode": {
       "type": "enum",
       "title": {
@@ -1477,6 +2812,26 @@
       "setable": true,
       "uiComponent": "picker",
       "insights": true
+    },
+    "qube_source_dt": {
+      "type": "number",
+      "title": {
+        "en": "Source ΔT",
+        "nl": "Bron ΔT"
+      },
+      "desc": {
+        "en": "Temperature difference between source in and source out (SrcInTemp - SrcOutTemp). Shows how much heat is extracted from the source side.",
+        "nl": "Temperatuurverschil tussen bron in en bron uit (BronIn - BronUit). Toont hoeveel warmte aan de bronzijde wordt onttrokken."
+      },
+      "units": {
+        "en": "°C"
+      },
+      "decimals": 2,
+      "icon": "/assets/icons/thermometer.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
     },
     "qube_source_pump": {
       "type": "boolean",
