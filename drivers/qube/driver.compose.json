@@ -10,10 +10,7 @@
   },
   "pair": [
     {
-      "id": "configure_ip",
-      "navigation": {
-        "next": "list_devices"
-      }
+      "id": "configure_ip"
     },
     {
       "id": "list_devices",

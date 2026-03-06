@@ -126,15 +126,16 @@
         pollIntervalMs: parseInt(document.getElementById('pollIntervalMs').value, 10) || 5000
       };
 
-      Homey.emit('configure_ip', data, function (err) {
-        if (err) {
-          ipError.textContent = err.message || 'Error';
+      Homey.emit('configure_ip', data)
+        .then(function () {
+          Homey.showView('list_devices');
+        })
+        .catch(function (err) {
+          var msg = (err && err.message) ? err.message : String(err || 'Error');
+          ipError.textContent = msg;
           ipError.style.display = 'block';
           btnNext.disabled = false;
-          return;
-        }
-        Homey.nextView();
-      });
+        });
     });
 
     ipInput.addEventListener('input', function () {
