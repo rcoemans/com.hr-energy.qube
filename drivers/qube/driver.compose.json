@@ -72,7 +72,17 @@
     "qube_heating_curve_status",
     "qube_dhw_program_status",
     "qube_sg_ready_status",
-    "measure_power"
+    "qube_antilegionella_enabled",
+    "qube_daynight_mode",
+    "qube_compressor_demand",
+    "qube_dhw_controller_enabled",
+    "qube_calc_hp_setpoint",
+    "qube_calc_cooling_setpoint",
+    "qube_calc_dhw_setpoint",
+    "qube_pv_surplus",
+    "qube_buffer_pump",
+    "qube_heater3",
+    "qube_thermostat_demand"
   ],
   "capabilitiesOptions": {
     "measure_power": {

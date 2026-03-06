@@ -1,10 +1,10 @@
 {
   "title": {
-    "en": "Heating \u0394T is ...",
+    "en": "Heating \u0394T Is ...",
     "nl": "Verwarming \u0394T is ..."
   },
   "titleFormatted": {
-    "en": "Heating \u0394T is [[operator]] [[value]] \u00b0C",
+    "en": "Heating \u0394T Is [[operator]] [[value]] \u00b0C",
     "nl": "Verwarming \u0394T is [[operator]] [[value]] \u00b0C"
   },
   "hint": {

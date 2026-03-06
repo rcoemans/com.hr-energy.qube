@@ -1,10 +1,10 @@
 {
   "title": {
-    "en": "Set heating setpoint",
+    "en": "Set Heating Setpoint",
     "nl": "Verwarmingssetpoint instellen"
   },
   "titleFormatted": {
-    "en": "Set heating [[period]] setpoint to [[temperature]] \u00b0C",
+    "en": "Set Heating [[period]] Setpoint to [[temperature]] \u00b0C",
     "nl": "Stel verwarming [[period]] setpoint in op [[temperature]] \u00b0C"
   },
   "hint": {

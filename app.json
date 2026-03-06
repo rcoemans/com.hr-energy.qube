@@ -60,8 +60,8 @@
     "triggers": [
       {
         "title": {
-          "en": "Alarm state changed",
-          "nl": "Alarmstatus gewijzigd"
+          "en": "Alarm State Changed",
+          "nl": "Alarmstatus Gewijzigd"
         },
         "hint": {
           "en": "Triggers when any alarm turns ON or OFF. The alarm name and state are provided as tags.",
@@ -110,7 +110,7 @@
       },
       {
         "title": {
-          "en": "COP changed",
+          "en": "COP Changed",
           "nl": "COP gewijzigd"
         },
         "hint": {
@@ -141,7 +141,7 @@
       },
       {
         "title": {
-          "en": "DHW Temperature changed",
+          "en": "DHW Temperature Changed",
           "nl": "Warmwatertemperatuur gewijzigd"
         },
         "hint": {
@@ -172,38 +172,7 @@
       },
       {
         "title": {
-          "en": "Electric Power changed",
-          "nl": "Elektrisch vermogen gewijzigd"
-        },
-        "hint": {
-          "en": "Triggers when the electric power consumption changes.",
-          "nl": "Wordt geactiveerd wanneer het elektrisch vermogen wijzigt."
-        },
-        "tokens": [
-          {
-            "name": "value",
-            "type": "number",
-            "title": {
-              "en": "Power (W)",
-              "nl": "Vermogen (W)"
-            },
-            "example": {
-              "en": "1200"
-            }
-          }
-        ],
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=qube"
-          }
-        ],
-        "id": "electric-power-changed"
-      },
-      {
-        "title": {
-          "en": "Heating ΔT changed",
+          "en": "Heating ΔT Changed",
           "nl": "Verwarming ΔT gewijzigd"
         },
         "hint": {
@@ -234,7 +203,7 @@
       },
       {
         "title": {
-          "en": "Outdoor Temperature changed",
+          "en": "Outdoor Temperature Changed",
           "nl": "Buitentemperatuur gewijzigd"
         },
         "hint": {
@@ -265,23 +234,23 @@
       },
       {
         "title": {
-          "en": "Power changed",
-          "nl": "Vermogen gewijzigd"
+          "en": "Electric Power Changed",
+          "nl": "Elektrisch Vermogen Gewijzigd"
         },
         "hint": {
-          "en": "Triggers when the thermal power output changes.",
-          "nl": "Wordt geactiveerd wanneer het thermisch vermogen wijzigt."
+          "en": "Triggers when the electric power consumption changes.",
+          "nl": "Wordt geactiveerd wanneer het elektrisch vermogen wijzigt."
         },
         "tokens": [
           {
             "name": "value",
             "type": "number",
             "title": {
-              "en": "Power (W)",
-              "nl": "Vermogen (W)"
+              "en": "Electric Power (W)",
+              "nl": "Elektrisch Vermogen (W)"
             },
             "example": {
-              "en": "4500"
+              "en": "1200"
             }
           }
         ],
@@ -296,7 +265,7 @@
       },
       {
         "title": {
-          "en": "Return Temperature changed",
+          "en": "Return Temperature Changed",
           "nl": "Retourtemperatuur gewijzigd"
         },
         "hint": {
@@ -327,7 +296,7 @@
       },
       {
         "title": {
-          "en": "Room Temperature changed",
+          "en": "Room Temperature Changed",
           "nl": "Kamertemperatuur gewijzigd"
         },
         "hint": {
@@ -358,7 +327,7 @@
       },
       {
         "title": {
-          "en": "Source ΔT changed",
+          "en": "Source ΔT Changed",
           "nl": "Bron ΔT gewijzigd"
         },
         "hint": {
@@ -389,7 +358,7 @@
       },
       {
         "title": {
-          "en": "Source In Temperature changed",
+          "en": "Source In Temperature Changed",
           "nl": "Bron inlaattemperatuur gewijzigd"
         },
         "hint": {
@@ -420,7 +389,7 @@
       },
       {
         "title": {
-          "en": "Source Out Temperature changed",
+          "en": "Source Out Temperature Changed",
           "nl": "Bron uitlaattemperatuur gewijzigd"
         },
         "hint": {
@@ -451,7 +420,7 @@
       },
       {
         "title": {
-          "en": "Supply Temperature changed",
+          "en": "Supply Temperature Changed",
           "nl": "Aanvoertemperatuur gewijzigd"
         },
         "hint": {
@@ -482,8 +451,39 @@
       },
       {
         "title": {
-          "en": "Unit status changed",
-          "nl": "Unitstatus gewijzigd"
+          "en": "Thermal Power Changed",
+          "nl": "Thermisch Vermogen Gewijzigd"
+        },
+        "hint": {
+          "en": "Triggers when the thermal power output changes.",
+          "nl": "Wordt geactiveerd wanneer het thermisch vermogen wijzigt."
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Thermal Power (W)",
+              "nl": "Thermisch Vermogen (W)"
+            },
+            "example": {
+              "en": "4500"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=qube"
+          }
+        ],
+        "id": "thermal-power-changed"
+      },
+      {
+        "title": {
+          "en": "Unit Status Changed",
+          "nl": "Unitstatus Gewijzigd"
         },
         "hint": {
           "en": "Triggers when the heat pump unit status changes (e.g. standby → heating). Only fires when the decoded status text changes.",
@@ -570,11 +570,11 @@
     "conditions": [
       {
         "title": {
-          "en": "Alarm is ...",
+          "en": "Alarm Is ...",
           "nl": "Alarm is ..."
         },
         "titleFormatted": {
-          "en": "Alarm [[alarm]] is [[status]]",
+          "en": "Alarm [[alarm]] Is [[status]]",
           "nl": "Alarm [[alarm]] is [[status]]"
         },
         "hint": {
@@ -696,11 +696,11 @@
       },
       {
         "title": {
-          "en": "COP is ...",
+          "en": "COP Is ...",
           "nl": "COP is ..."
         },
         "titleFormatted": {
-          "en": "COP is [[operator]] [[value]]",
+          "en": "COP Is [[operator]] [[value]]",
           "nl": "COP is [[operator]] [[value]]"
         },
         "hint": {
@@ -768,11 +768,11 @@
       },
       {
         "title": {
-          "en": "DHW Temperature is ...",
+          "en": "DHW Temperature Is ...",
           "nl": "Warmwatertemperatuur is ..."
         },
         "titleFormatted": {
-          "en": "DHW Temperature is [[operator]] [[value]] °C",
+          "en": "DHW Temperature Is [[operator]] [[value]] °C",
           "nl": "Warmwatertemperatuur is [[operator]] [[value]] °C"
         },
         "hint": {
@@ -839,82 +839,11 @@
       },
       {
         "title": {
-          "en": "Electric Power is ...",
-          "nl": "Elektrisch vermogen is ..."
-        },
-        "titleFormatted": {
-          "en": "Electric Power is [[operator]] [[value]] W",
-          "nl": "Elektrisch vermogen is [[operator]] [[value]] W"
-        },
-        "hint": {
-          "en": "Checks whether the current electric power consumption matches the selected condition.",
-          "nl": "Controleert of het huidige elektrisch vermogen voldoet aan de geselecteerde voorwaarde."
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=qube"
-          },
-          {
-            "type": "dropdown",
-            "name": "operator",
-            "title": {
-              "en": "Operator",
-              "nl": "Operator"
-            },
-            "values": [
-              {
-                "id": "gt",
-                "label": {
-                  "en": "greater than",
-                  "nl": "groter dan"
-                }
-              },
-              {
-                "id": "lt",
-                "label": {
-                  "en": "less than",
-                  "nl": "kleiner dan"
-                }
-              },
-              {
-                "id": "gte",
-                "label": {
-                  "en": "greater than or equal to",
-                  "nl": "groter dan of gelijk aan"
-                }
-              },
-              {
-                "id": "lte",
-                "label": {
-                  "en": "less than or equal to",
-                  "nl": "kleiner dan of gelijk aan"
-                }
-              }
-            ]
-          },
-          {
-            "type": "number",
-            "name": "value",
-            "title": {
-              "en": "Value (W)",
-              "nl": "Waarde (W)"
-            },
-            "placeholder": {
-              "en": "1000"
-            }
-          }
-        ],
-        "id": "electric-power-is"
-      },
-      {
-        "title": {
-          "en": "Heating ΔT is ...",
+          "en": "Heating ΔT Is ...",
           "nl": "Verwarming ΔT is ..."
         },
         "titleFormatted": {
-          "en": "Heating ΔT is [[operator]] [[value]] °C",
+          "en": "Heating ΔT Is [[operator]] [[value]] °C",
           "nl": "Verwarming ΔT is [[operator]] [[value]] °C"
         },
         "hint": {
@@ -982,11 +911,11 @@
       },
       {
         "title": {
-          "en": "Outdoor Temperature is ...",
+          "en": "Outdoor Temperature Is ...",
           "nl": "Buitentemperatuur is ..."
         },
         "titleFormatted": {
-          "en": "Outdoor Temperature is [[operator]] [[value]] °C",
+          "en": "Outdoor Temperature Is [[operator]] [[value]] °C",
           "nl": "Buitentemperatuur is [[operator]] [[value]] °C"
         },
         "hint": {
@@ -1053,16 +982,16 @@
       },
       {
         "title": {
-          "en": "Power is ...",
-          "nl": "Vermogen is ..."
+          "en": "Electric Power is ...",
+          "nl": "Elektrisch Vermogen is ..."
         },
         "titleFormatted": {
-          "en": "Power is [[operator]] [[value]] W",
-          "nl": "Vermogen is [[operator]] [[value]] W"
+          "en": "Electric Power is [[operator]] [[value]] W",
+          "nl": "Elektrisch Vermogen is [[operator]] [[value]] W"
         },
         "hint": {
-          "en": "Checks whether the current thermal power output matches the selected condition.",
-          "nl": "Controleert of het huidige thermisch vermogen voldoet aan de geselecteerde voorwaarde."
+          "en": "Checks whether the current electric power consumption matches the selected condition.",
+          "nl": "Controleert of het huidige elektrisch vermogen voldoet aan de geselecteerde voorwaarde."
         },
         "args": [
           {
@@ -1124,11 +1053,11 @@
       },
       {
         "title": {
-          "en": "Return Temperature is ...",
+          "en": "Return Temperature Is ...",
           "nl": "Retourtemperatuur is ..."
         },
         "titleFormatted": {
-          "en": "Return Temperature is [[operator]] [[value]] °C",
+          "en": "Return Temperature Is [[operator]] [[value]] °C",
           "nl": "Retourtemperatuur is [[operator]] [[value]] °C"
         },
         "hint": {
@@ -1195,11 +1124,11 @@
       },
       {
         "title": {
-          "en": "Room Temperature is ...",
+          "en": "Room Temperature Is ...",
           "nl": "Kamertemperatuur is ..."
         },
         "titleFormatted": {
-          "en": "Room Temperature is [[operator]] [[value]] °C",
+          "en": "Room Temperature Is [[operator]] [[value]] °C",
           "nl": "Kamertemperatuur is [[operator]] [[value]] °C"
         },
         "hint": {
@@ -1266,11 +1195,11 @@
       },
       {
         "title": {
-          "en": "Source ΔT is ...",
+          "en": "Source ΔT Is ...",
           "nl": "Bron ΔT is ..."
         },
         "titleFormatted": {
-          "en": "Source ΔT is [[operator]] [[value]] °C",
+          "en": "Source ΔT Is [[operator]] [[value]] °C",
           "nl": "Bron ΔT is [[operator]] [[value]] °C"
         },
         "hint": {
@@ -1338,11 +1267,11 @@
       },
       {
         "title": {
-          "en": "Source In Temperature is ...",
+          "en": "Source In Temperature Is ...",
           "nl": "Bron inlaattemperatuur is ..."
         },
         "titleFormatted": {
-          "en": "Source In Temperature is [[operator]] [[value]] °C",
+          "en": "Source In Temperature Is [[operator]] [[value]] °C",
           "nl": "Bron inlaattemperatuur is [[operator]] [[value]] °C"
         },
         "hint": {
@@ -1409,11 +1338,11 @@
       },
       {
         "title": {
-          "en": "Source Out Temperature is ...",
+          "en": "Source Out Temperature Is ...",
           "nl": "Bron uitlaattemperatuur is ..."
         },
         "titleFormatted": {
-          "en": "Source Out Temperature is [[operator]] [[value]] °C",
+          "en": "Source Out Temperature Is [[operator]] [[value]] °C",
           "nl": "Bron uitlaattemperatuur is [[operator]] [[value]] °C"
         },
         "hint": {
@@ -1480,11 +1409,11 @@
       },
       {
         "title": {
-          "en": "Supply Temperature is ...",
+          "en": "Supply Temperature Is ...",
           "nl": "Aanvoertemperatuur is ..."
         },
         "titleFormatted": {
-          "en": "Supply Temperature is [[operator]] [[value]] °C",
+          "en": "Supply Temperature Is [[operator]] [[value]] °C",
           "nl": "Aanvoertemperatuur is [[operator]] [[value]] °C"
         },
         "hint": {
@@ -1551,11 +1480,82 @@
       },
       {
         "title": {
-          "en": "Unit status is ...",
+          "en": "Thermal Power is ...",
+          "nl": "Thermisch Vermogen is ..."
+        },
+        "titleFormatted": {
+          "en": "Thermal Power is [[operator]] [[value]] W",
+          "nl": "Thermisch Vermogen is [[operator]] [[value]] W"
+        },
+        "hint": {
+          "en": "Checks whether the current thermal power output matches the selected condition.",
+          "nl": "Controleert of het huidige thermisch vermogen voldoet aan de geselecteerde voorwaarde."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=qube"
+          },
+          {
+            "type": "dropdown",
+            "name": "operator",
+            "title": {
+              "en": "Operator",
+              "nl": "Operator"
+            },
+            "values": [
+              {
+                "id": "gt",
+                "label": {
+                  "en": "greater than",
+                  "nl": "groter dan"
+                }
+              },
+              {
+                "id": "lt",
+                "label": {
+                  "en": "less than",
+                  "nl": "kleiner dan"
+                }
+              },
+              {
+                "id": "gte",
+                "label": {
+                  "en": "greater than or equal to",
+                  "nl": "groter dan of gelijk aan"
+                }
+              },
+              {
+                "id": "lte",
+                "label": {
+                  "en": "less than or equal to",
+                  "nl": "kleiner dan of gelijk aan"
+                }
+              }
+            ]
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value (W)",
+              "nl": "Waarde (W)"
+            },
+            "placeholder": {
+              "en": "4000"
+            }
+          }
+        ],
+        "id": "thermal-power-is"
+      },
+      {
+        "title": {
+          "en": "Unit Status Is ...",
           "nl": "Unitstatus is ..."
         },
         "titleFormatted": {
-          "en": "Unit status is [[status]]",
+          "en": "Unit Status Is [[status]]",
           "nl": "Unitstatus is [[status]]"
         },
         "hint": {
@@ -1648,11 +1648,11 @@
     "actions": [
       {
         "title": {
-          "en": "Force anti-legionella cycle",
+          "en": "Force Anti-Legionella Cycle",
           "nl": "Anti-legionellacyclus forceren"
         },
         "titleFormatted": {
-          "en": "Force anti-legionella cycle",
+          "en": "Force Anti-Legionella Cycle",
           "nl": "Forceer anti-legionellacyclus"
         },
         "hint": {
@@ -1670,11 +1670,11 @@
       },
       {
         "title": {
-          "en": "Force DHW program",
+          "en": "Force DHW Program",
           "nl": "Warmwaterprogramma forceren"
         },
         "titleFormatted": {
-          "en": "Force DHW program",
+          "en": "Force DHW Program",
           "nl": "Forceer warmwaterprogramma"
         },
         "hint": {
@@ -1692,11 +1692,11 @@
       },
       {
         "title": {
-          "en": "Set BMS demand control",
+          "en": "Set BMS Demand Control",
           "nl": "BMS-vraagsturing instellen"
         },
         "titleFormatted": {
-          "en": "Set BMS demand control to [[status]]",
+          "en": "Set BMS Demand Control to [[status]]",
           "nl": "Stel BMS-vraagsturing in op [[status]]"
         },
         "hint": {
@@ -1738,11 +1738,11 @@
       },
       {
         "title": {
-          "en": "Set cooling setpoint",
+          "en": "Set Cooling Setpoint",
           "nl": "Koelingssetpoint instellen"
         },
         "titleFormatted": {
-          "en": "Set cooling [[period]] setpoint to [[temperature]] °C",
+          "en": "Set Cooling [[period]] Setpoint to [[temperature]] °C",
           "nl": "Stel koeling [[period]] setpoint in op [[temperature]] °C"
         },
         "hint": {
@@ -1798,11 +1798,11 @@
       },
       {
         "title": {
-          "en": "Set DHW program",
+          "en": "Set DHW Program",
           "nl": "Warmwaterprogramma instellen"
         },
         "titleFormatted": {
-          "en": "Set DHW program to [[status]]",
+          "en": "Set DHW Program to [[status]]",
           "nl": "Stel warmwaterprogramma in op [[status]]"
         },
         "hint": {
@@ -1844,11 +1844,11 @@
       },
       {
         "title": {
-          "en": "Set DHW setpoint",
+          "en": "Set DHW Setpoint",
           "nl": "Warmwatersetpoint instellen"
         },
         "titleFormatted": {
-          "en": "Set DHW setpoint to [[temperature]] °C",
+          "en": "Set DHW Setpoint to [[temperature]] °C",
           "nl": "Stel warmwatersetpoint in op [[temperature]] °C"
         },
         "hint": {
@@ -1880,11 +1880,11 @@
       },
       {
         "title": {
-          "en": "Set heating curve",
+          "en": "Set Heating Curve",
           "nl": "Stooklijn instellen"
         },
         "titleFormatted": {
-          "en": "Set heating curve to [[status]]",
+          "en": "Set Heating Curve to [[status]]",
           "nl": "Stel stooklijn in op [[status]]"
         },
         "hint": {
@@ -1926,11 +1926,11 @@
       },
       {
         "title": {
-          "en": "Set heating setpoint",
+          "en": "Set Heating Setpoint",
           "nl": "Verwarmingssetpoint instellen"
         },
         "titleFormatted": {
-          "en": "Set heating [[period]] setpoint to [[temperature]] °C",
+          "en": "Set Heating [[period]] Setpoint to [[temperature]] °C",
           "nl": "Stel verwarming [[period]] setpoint in op [[temperature]] °C"
         },
         "hint": {
@@ -1986,11 +1986,11 @@
       },
       {
         "title": {
-          "en": "Set season mode",
+          "en": "Set Season Mode",
           "nl": "Seizoensmodus instellen"
         },
         "titleFormatted": {
-          "en": "Set season mode to [[value]]",
+          "en": "Set Season Mode to [[value]]",
           "nl": "Stel seizoensmodus in op [[value]]"
         },
         "hint": {
@@ -2032,11 +2032,11 @@
       },
       {
         "title": {
-          "en": "Set SG Ready mode",
+          "en": "Set SG Ready Mode",
           "nl": "SG Ready modus instellen"
         },
         "titleFormatted": {
-          "en": "Set SG Ready mode to [[value]]",
+          "en": "Set SG Ready Mode to [[value]]",
           "nl": "Stel SG Ready modus in op [[value]]"
         },
         "hint": {
@@ -2242,7 +2242,17 @@
         "qube_heating_curve_status",
         "qube_dhw_program_status",
         "qube_sg_ready_status",
-        "measure_power"
+        "qube_antilegionella_enabled",
+        "qube_daynight_mode",
+        "qube_compressor_demand",
+        "qube_dhw_controller_enabled",
+        "qube_calc_hp_setpoint",
+        "qube_calc_cooling_setpoint",
+        "qube_calc_dhw_setpoint",
+        "qube_pv_surplus",
+        "qube_buffer_pump",
+        "qube_heater3",
+        "qube_thermostat_demand"
       ],
       "capabilitiesOptions": {
         "measure_power": {
@@ -2404,6 +2414,17 @@
       "insights": true,
       "uiComponent": "sensor"
     },
+    "qube_antilegionella_enabled": {
+      "type": "boolean",
+      "title": {
+        "en": "Anti-Legionella Enabled",
+        "nl": "Anti-legionella Ingeschakeld"
+      },
+      "icon": "/assets/icons/info.svg",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
     "qube_bms_demand": {
       "type": "boolean",
       "title": {
@@ -2414,6 +2435,81 @@
       "getable": true,
       "setable": false,
       "insights": true,
+      "uiComponent": "sensor"
+    },
+    "qube_buffer_pump": {
+      "type": "boolean",
+      "title": {
+        "en": "Buffer Pump",
+        "nl": "Buffervat Pomp"
+      },
+      "icon": "/assets/icons/info.svg",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "qube_calc_cooling_setpoint": {
+      "type": "number",
+      "title": {
+        "en": "Calculated Cooling Setpoint",
+        "nl": "Berekend Koeling Setpoint"
+      },
+      "units": {
+        "en": "°C",
+        "nl": "°C"
+      },
+      "decimals": 1,
+      "icon": "/assets/icons/info.svg",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "qube_calc_dhw_setpoint": {
+      "type": "number",
+      "title": {
+        "en": "Calculated DHW Setpoint",
+        "nl": "Berekend Warmwater Setpoint"
+      },
+      "units": {
+        "en": "°C",
+        "nl": "°C"
+      },
+      "decimals": 1,
+      "icon": "/assets/icons/info.svg",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "qube_calc_hp_setpoint": {
+      "type": "number",
+      "title": {
+        "en": "Calculated HP Setpoint",
+        "nl": "Berekend WP Setpoint"
+      },
+      "units": {
+        "en": "°C",
+        "nl": "°C"
+      },
+      "decimals": 1,
+      "icon": "/assets/icons/info.svg",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "qube_compressor_demand": {
+      "type": "number",
+      "title": {
+        "en": "Compressor Demand",
+        "nl": "Compressorvraag"
+      },
+      "units": {
+        "en": "%",
+        "nl": "%"
+      },
+      "decimals": 1,
+      "icon": "/assets/icons/info.svg",
+      "getable": true,
+      "setable": false,
       "uiComponent": "sensor"
     },
     "qube_compressor_speed": {
@@ -2489,6 +2585,28 @@
       "getable": true,
       "setable": false,
       "insights": true,
+      "uiComponent": "sensor"
+    },
+    "qube_daynight_mode": {
+      "type": "boolean",
+      "title": {
+        "en": "Day/Night Mode",
+        "nl": "Dag/Nacht Modus"
+      },
+      "icon": "/assets/icons/info.svg",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "qube_dhw_controller_enabled": {
+      "type": "boolean",
+      "title": {
+        "en": "DHW Controller Enabled",
+        "nl": "Warmwaterregeling Ingeschakeld"
+      },
+      "icon": "/assets/icons/info.svg",
+      "getable": true,
+      "setable": false,
       "uiComponent": "sensor"
     },
     "qube_dhw_program_status": {
@@ -2588,6 +2706,17 @@
       "getable": true,
       "setable": false,
       "insights": true,
+      "uiComponent": "sensor"
+    },
+    "qube_heater3": {
+      "type": "boolean",
+      "title": {
+        "en": "Heater 3",
+        "nl": "Verwarmer 3"
+      },
+      "icon": "/assets/icons/info.svg",
+      "getable": true,
+      "setable": false,
       "uiComponent": "sensor"
     },
     "qube_heating_curve_status": {
@@ -2764,6 +2893,17 @@
       "insights": true,
       "uiComponent": "sensor"
     },
+    "qube_pv_surplus": {
+      "type": "boolean",
+      "title": {
+        "en": "PV Surplus Active",
+        "nl": "PV Overschot Actief"
+      },
+      "icon": "/assets/icons/info.svg",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
     "qube_runtime_efficiency": {
       "type": "number",
       "title": {
@@ -2859,7 +2999,7 @@
     "qube_status": {
       "type": "string",
       "title": {
-        "en": "Unit status",
+        "en": "Unit Status",
         "nl": "Unitstatus"
       },
       "icon": "/assets/icons/info.svg",
@@ -2979,6 +3119,17 @@
       "insights": true,
       "uiComponent": "sensor"
     },
+    "qube_thermostat_demand": {
+      "type": "boolean",
+      "title": {
+        "en": "Internal Thermostat Demand",
+        "nl": "Interne Thermostaatvraag"
+      },
+      "icon": "/assets/icons/info.svg",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
     "qube_threeway_valve": {
       "type": "boolean",
       "title": {
@@ -2994,7 +3145,7 @@
     "qube_unitstatus_raw": {
       "type": "number",
       "title": {
-        "en": "Unit status (raw)",
+        "en": "Unit Status (Raw)",
         "nl": "Ruwe unitstatus"
       },
       "decimals": 0,

@@ -1,0 +1,12 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "DHW Controller Enabled",
+    "nl": "Warmwaterregeling Ingeschakeld"
+  },
+  "icon": "/assets/icons/info.svg",
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "$flow": false
+}

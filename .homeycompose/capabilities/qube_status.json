@@ -1,7 +1,7 @@
 {
     "type":  "string",
     "title":  {
-                  "en":  "Unit status",
+                  "en":  "Unit Status",
                   "nl":  "Unitstatus"
               },
     "icon":  "/assets/icons/info.svg",

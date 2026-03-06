@@ -1,10 +1,10 @@
 {
   "title": {
-    "en": "Unit status is ...",
+    "en": "Unit Status Is ...",
     "nl": "Unitstatus is ..."
   },
   "titleFormatted": {
-    "en": "Unit status is [[status]]",
+    "en": "Unit Status Is [[status]]",
     "nl": "Unitstatus is [[status]]"
   },
   "hint": {

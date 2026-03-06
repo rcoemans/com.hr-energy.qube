@@ -1,10 +1,10 @@
 {
   "title": {
-    "en": "Set heating curve",
+    "en": "Set Heating Curve",
     "nl": "Stooklijn instellen"
   },
   "titleFormatted": {
-    "en": "Set heating curve to [[status]]",
+    "en": "Set Heating Curve to [[status]]",
     "nl": "Stel stooklijn in op [[status]]"
   },
   "hint": {

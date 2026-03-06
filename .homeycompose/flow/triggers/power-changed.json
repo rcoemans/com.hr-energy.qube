@@ -1,18 +1,18 @@
 {
   "title": {
-    "en": "Power changed",
-    "nl": "Vermogen gewijzigd"
+    "en": "Electric Power Changed",
+    "nl": "Elektrisch Vermogen Gewijzigd"
   },
   "hint": {
-    "en": "Triggers when the thermal power output changes.",
-    "nl": "Wordt geactiveerd wanneer het thermisch vermogen wijzigt."
+    "en": "Triggers when the electric power consumption changes.",
+    "nl": "Wordt geactiveerd wanneer het elektrisch vermogen wijzigt."
   },
   "tokens": [
     {
       "name": "value",
       "type": "number",
-      "title": { "en": "Power (W)", "nl": "Vermogen (W)" },
-      "example": { "en": "4500" }
+      "title": { "en": "Electric Power (W)", "nl": "Elektrisch Vermogen (W)" },
+      "example": { "en": "1200" }
     }
   ],
   "args": [

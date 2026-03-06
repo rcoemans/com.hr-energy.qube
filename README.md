@@ -235,16 +235,18 @@ Boolean indicators read from the Qube's discrete inputs. The **Alarm state chang
 
 Some flow cards provide variables (tokens) that can be used in subsequent flow cards:
 
-| Flow Card           | Token            | Type   | Description                        | Example   |
-|---------------------|------------------|--------|------------------------------------|-----------|
-| Unit status changed | `old_status`     | string | Previous status key                | standby   |
-| Unit status changed | `new_status`     | string | New status key                     | heating   |
-| Unit status changed | `raw_unitstatus` | number | Raw numeric status code            | 16        |
-| Unit status changed | `status_text`    | string | Human-readable status text         | Heating   |
-| Alarm state changed | `alarm`          | string | Alarm identifier                   | flow      |
-| Alarm state changed | `state`          | string | Alarm state (on/off)               | on        |
-| Alarm state changed | `alarm_text`     | string | Localized alarm description        | Flow      |
-| *-changed triggers  | `value`          | number | New metric value                   | 35.5      |
+| Flow Card            | Token                | Type    | Description                        | Example   |
+|----------------------|----------------------|---------|------------------------------------|-----------|
+| Unit Status Changed  | `old_status`         | string  | Previous status key                | standby   |
+| Unit Status Changed  | `new_status`         | string  | New status key                     | heating   |
+| Unit Status Changed  | `old_status_text`    | string  | Previous human-readable status     | Standby   |
+| Unit Status Changed  | `new_status_text`    | string  | New human-readable status          | Heating   |
+| Unit Status Changed  | `old_raw_unitstatus` | number  | Previous raw numeric status code   | 1         |
+| Unit Status Changed  | `new_raw_unitstatus` | number  | New raw numeric status code        | 16        |
+| Alarm State Changed  | `alarm`              | string  | Alarm identifier                   | flow      |
+| Alarm State Changed  | `state`              | boolean | Alarm active (true/false)          | true      |
+| Alarm State Changed  | `alarm_text`         | string  | Localized alarm description        | Flow      |
+| *-Changed triggers   | `value`              | number  | New metric value                   | 35.5      |
 
 All sensor capabilities are also available as global tags in flows (e.g. Supply Temperature, COP, Electric Power, etc.).
 

@@ -1,10 +1,10 @@
 {
   "title": {
-    "en": "Return Temperature is ...",
+    "en": "Return Temperature Is ...",
     "nl": "Retourtemperatuur is ..."
   },
   "titleFormatted": {
-    "en": "Return Temperature is [[operator]] [[value]] °C",
+    "en": "Return Temperature Is [[operator]] [[value]] °C",
     "nl": "Retourtemperatuur is [[operator]] [[value]] °C"
   },
   "hint": {

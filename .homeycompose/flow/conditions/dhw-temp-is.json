@@ -1,10 +1,10 @@
 {
   "title": {
-    "en": "DHW Temperature is ...",
+    "en": "DHW Temperature Is ...",
     "nl": "Warmwatertemperatuur is ..."
   },
   "titleFormatted": {
-    "en": "DHW Temperature is [[operator]] [[value]] °C",
+    "en": "DHW Temperature Is [[operator]] [[value]] °C",
     "nl": "Warmwatertemperatuur is [[operator]] [[value]] °C"
   },
   "hint": {

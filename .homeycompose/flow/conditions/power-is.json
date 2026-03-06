@@ -1,15 +1,15 @@
 {
   "title": {
-    "en": "Power is ...",
-    "nl": "Vermogen is ..."
+    "en": "Electric Power is ...",
+    "nl": "Elektrisch Vermogen is ..."
   },
   "titleFormatted": {
-    "en": "Power is [[operator]] [[value]] W",
-    "nl": "Vermogen is [[operator]] [[value]] W"
+    "en": "Electric Power is [[operator]] [[value]] W",
+    "nl": "Elektrisch Vermogen is [[operator]] [[value]] W"
   },
   "hint": {
-    "en": "Checks whether the current thermal power output matches the selected condition.",
-    "nl": "Controleert of het huidige thermisch vermogen voldoet aan de geselecteerde voorwaarde."
+    "en": "Checks whether the current electric power consumption matches the selected condition.",
+    "nl": "Controleert of het huidige elektrisch vermogen voldoet aan de geselecteerde voorwaarde."
   },
   "args": [
     { "type": "device", "name": "device", "filter": "driver_id=qube" },

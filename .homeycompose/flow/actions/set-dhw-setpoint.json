@@ -1,10 +1,10 @@
 {
   "title": {
-    "en": "Set DHW setpoint",
+    "en": "Set DHW Setpoint",
     "nl": "Warmwatersetpoint instellen"
   },
   "titleFormatted": {
-    "en": "Set DHW setpoint to [[temperature]] °C",
+    "en": "Set DHW Setpoint to [[temperature]] °C",
     "nl": "Stel warmwatersetpoint in op [[temperature]] °C"
   },
   "hint": {

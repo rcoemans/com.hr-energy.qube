@@ -1,0 +1,21 @@
+{
+  "title": {
+    "en": "Thermal Power Changed",
+    "nl": "Thermisch Vermogen Gewijzigd"
+  },
+  "hint": {
+    "en": "Triggers when the thermal power output changes.",
+    "nl": "Wordt geactiveerd wanneer het thermisch vermogen wijzigt."
+  },
+  "tokens": [
+    {
+      "name": "value",
+      "type": "number",
+      "title": { "en": "Thermal Power (W)", "nl": "Thermisch Vermogen (W)" },
+      "example": { "en": "4500" }
+    }
+  ],
+  "args": [
+    { "type": "device", "name": "device", "filter": "driver_id=qube" }
+  ]
+}

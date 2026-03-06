@@ -1,10 +1,10 @@
 {
   "title": {
-    "en": "Source In Temperature is ...",
+    "en": "Source In Temperature Is ...",
     "nl": "Bron inlaattemperatuur is ..."
   },
   "titleFormatted": {
-    "en": "Source In Temperature is [[operator]] [[value]] °C",
+    "en": "Source In Temperature Is [[operator]] [[value]] °C",
     "nl": "Bron inlaattemperatuur is [[operator]] [[value]] °C"
   },
   "hint": {

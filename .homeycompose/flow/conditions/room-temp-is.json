@@ -1,10 +1,10 @@
 {
   "title": {
-    "en": "Room Temperature is ...",
+    "en": "Room Temperature Is ...",
     "nl": "Kamertemperatuur is ..."
   },
   "titleFormatted": {
-    "en": "Room Temperature is [[operator]] [[value]] °C",
+    "en": "Room Temperature Is [[operator]] [[value]] °C",
     "nl": "Kamertemperatuur is [[operator]] [[value]] °C"
   },
   "hint": {

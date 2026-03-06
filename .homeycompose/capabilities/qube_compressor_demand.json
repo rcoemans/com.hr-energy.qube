@@ -1,0 +1,14 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Compressor Demand",
+    "nl": "Compressorvraag"
+  },
+  "units": { "en": "%", "nl": "%" },
+  "decimals": 1,
+  "icon": "/assets/icons/info.svg",
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "$flow": false
+}

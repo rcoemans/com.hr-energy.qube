@@ -1,10 +1,10 @@
 {
   "title": {
-    "en": "Outdoor Temperature is ...",
+    "en": "Outdoor Temperature Is ...",
     "nl": "Buitentemperatuur is ..."
   },
   "titleFormatted": {
-    "en": "Outdoor Temperature is [[operator]] [[value]] °C",
+    "en": "Outdoor Temperature Is [[operator]] [[value]] °C",
     "nl": "Buitentemperatuur is [[operator]] [[value]] °C"
   },
   "hint": {

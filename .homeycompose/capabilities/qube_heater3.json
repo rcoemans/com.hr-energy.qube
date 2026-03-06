@@ -1,0 +1,12 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Heater 3",
+    "nl": "Verwarmer 3"
+  },
+  "icon": "/assets/icons/info.svg",
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "$flow": false
+}

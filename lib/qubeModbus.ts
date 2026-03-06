@@ -56,6 +56,18 @@ export type QubePollResult = {
   heatingCurveEnabled: boolean;
   dhwProgramActive: boolean;
   sgReadyMode: string;
+
+  antilegionellaEnabled: boolean;
+  dayNightMode: boolean;
+  compressorDemand: number;
+  dhwControllerEnabled: boolean;
+  calcHpSetpoint: number;
+  calcCoolingSetpoint: number;
+  calcDhwSetpoint: number;
+  pvSurplus: boolean;
+  bufferPump: boolean;
+  heater3: boolean;
+  thermostatDemand: boolean;
 };
 
 type QubeModbusClientOptions = {
@@ -72,7 +84,7 @@ function toFloat32BEFromRegs(regs: number[]): number {
 }
 
 function clampNumber(v: number): number {
-  if (!Number.isFinite(v)) return 0;
+  if (!Number.isFinite(v)) return 0;  // NaN / Infinity → 0
   return v;
 }
 
@@ -164,6 +176,8 @@ export class QubeModbusClient {
     else if (sgReadyA) sgReadyMode = 'Block';
 
     // Discrete Inputs – confirmed addresses from Qube Modbus PDF (202506)
+    const bufferPump = await this.readDiscreteInputBit(5);              // Buffer pump output
+    const heater3 = await this.readDiscreteInputBit(8);                 // Heater step 3
     const alarmLegionellaTimeout = await this.readDiscreteInputBit(10); // Al_MaxTime_ANTILEG.Active
     const alarmDhwTimeout = await this.readDiscreteInputBit(11);        // Al_MaxTime_DHW.Active
     const alarmFlow = await this.readDiscreteInputBit(15);              // Alrm_Flw
@@ -173,6 +187,19 @@ export class QubeModbusClient {
     const alarmWorkingHours = await this.readDiscreteInputBit(19);      // AlarmMng.Al_WorkingHour
     const alarmSource = await this.readDiscreteInputBit(20);            // SrsAlrm
     const globalAlarm = await this.readDiscreteInputBit(21);            // GlbAl
+    const dhwControllerEnabled = await this.readDiscreteInputBit(26);   // DHW controller enabled
+    const dayNightMode = await this.readDiscreteInputBit(37);           // Day/Night mode (true=day)
+    const thermostatDemand = await this.readDiscreteInputBit(38);       // Internal thermostat demand
+    const antilegionellaEnabled = await this.readDiscreteInputBit(39);  // Anti-legionella enabled
+
+    // Additional input registers – calculated setpoints
+    const compressorDemand = await this.readInputFloat32(16);           // Compressor demand %
+    const calcHpSetpoint = await this.readInputFloat32(39);             // Calculated HP setpoint
+    const calcCoolingSetpoint = await this.readInputFloat32(41);        // Cooling setpoint (active)
+    const calcDhwSetpoint = await this.readInputFloat32(47);            // DHW calculated setpoint
+
+    // PV surplus – coil 64
+    const pvSurplus = await this.readCoilBit(64);
 
     return {
       flow: clampNumber(flow),
@@ -225,6 +252,18 @@ export class QubeModbusClient {
       heatingCurveEnabled,
       dhwProgramActive,
       sgReadyMode,
+
+      antilegionellaEnabled,
+      dayNightMode,
+      compressorDemand: clampNumber(compressorDemand),
+      dhwControllerEnabled,
+      calcHpSetpoint: clampNumber(calcHpSetpoint),
+      calcCoolingSetpoint: clampNumber(calcCoolingSetpoint),
+      calcDhwSetpoint: clampNumber(calcDhwSetpoint),
+      pvSurplus,
+      bufferPump,
+      heater3,
+      thermostatDemand,
     };
   }
 
@@ -256,6 +295,9 @@ export class QubeModbusClient {
   // ── Write helpers ──────────────────────────────────────────────────
 
   async writeCoil(address: number, value: boolean) {
+    if (!this.client?.isOpen) {
+      throw new Error(`writeCoil(${address}, ${value}) failed: Modbus connection is not open`);
+    }
     try {
       await this.client.writeCoil(address, value);
     } catch (err: any) {
@@ -278,9 +320,9 @@ export class QubeModbusClient {
 
   // ── Named write actions (addresses confirmed from Qube Modbus PDF 202506) ──
 
-  /** Coil 19 – BMS_Demand: heat/cool demand via Modbus */
+  /** Coil 67 – modbus_demand: activate/deactivate central heating demand via Modbus */
   async writeDemand(on: boolean) {
-    await this.writeCoil(19, on);
+    await this.writeCoil(67, on);
   }
 
   /** Coil 22 – BMS_SummerWinter: false = Winter (Heating), true = Summer (Cooling) */

@@ -1,10 +1,10 @@
 {
   "title": {
-    "en": "COP is ...",
+    "en": "COP Is ...",
     "nl": "COP is ..."
   },
   "titleFormatted": {
-    "en": "COP is [[operator]] [[value]]",
+    "en": "COP Is [[operator]] [[value]]",
     "nl": "COP is [[operator]] [[value]]"
   },
   "hint": {

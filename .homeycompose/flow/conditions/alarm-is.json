@@ -1,10 +1,10 @@
 {
   "title": {
-    "en": "Alarm is ...",
+    "en": "Alarm Is ...",
     "nl": "Alarm is ..."
   },
   "titleFormatted": {
-    "en": "Alarm [[alarm]] is [[status]]",
+    "en": "Alarm [[alarm]] Is [[status]]",
     "nl": "Alarm [[alarm]] is [[status]]"
   },
   "hint": {

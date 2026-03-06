@@ -1,7 +1,7 @@
 {
   "title": {
-    "en": "Unit status changed",
-    "nl": "Unitstatus gewijzigd"
+    "en": "Unit Status Changed",
+    "nl": "Unitstatus Gewijzigd"
   },
   "hint": {
     "en": "Triggers when the heat pump unit status changes (e.g. standby → heating). Only fires when the decoded status text changes.",

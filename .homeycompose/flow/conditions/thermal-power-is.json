@@ -1,15 +1,15 @@
 {
   "title": {
-    "en": "Electric Power is ...",
-    "nl": "Elektrisch vermogen is ..."
+    "en": "Thermal Power is ...",
+    "nl": "Thermisch Vermogen is ..."
   },
   "titleFormatted": {
-    "en": "Electric Power is [[operator]] [[value]] W",
-    "nl": "Elektrisch vermogen is [[operator]] [[value]] W"
+    "en": "Thermal Power is [[operator]] [[value]] W",
+    "nl": "Thermisch Vermogen is [[operator]] [[value]] W"
   },
   "hint": {
-    "en": "Checks whether the current electric power consumption matches the selected condition.",
-    "nl": "Controleert of het huidige elektrisch vermogen voldoet aan de geselecteerde voorwaarde."
+    "en": "Checks whether the current thermal power output matches the selected condition.",
+    "nl": "Controleert of het huidige thermisch vermogen voldoet aan de geselecteerde voorwaarde."
   },
   "args": [
     { "type": "device", "name": "device", "filter": "driver_id=qube" },
@@ -23,6 +23,6 @@
         { "id": "lte", "label": { "en": "less than or equal to", "nl": "kleiner dan of gelijk aan" } }
       ]
     },
-    { "type": "number", "name": "value", "title": { "en": "Value (W)", "nl": "Waarde (W)" }, "placeholder": { "en": "1000" } }
+    { "type": "number", "name": "value", "title": { "en": "Value (W)", "nl": "Waarde (W)" }, "placeholder": { "en": "4000" } }
   ]
 }

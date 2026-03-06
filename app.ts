@@ -27,8 +27,8 @@ module.exports = class QubeApp extends Homey.App {
   private dhwTempChangedTrigger!: Homey.FlowCardTriggerDevice;
   private outdoorTempChangedTrigger!: Homey.FlowCardTriggerDevice;
   private copChangedTrigger!: Homey.FlowCardTriggerDevice;
-  private electricPowerChangedTrigger!: Homey.FlowCardTriggerDevice;
   private powerChangedTrigger!: Homey.FlowCardTriggerDevice;
+  private thermalPowerChangedTrigger!: Homey.FlowCardTriggerDevice;
   private heatingDtChangedTrigger!: Homey.FlowCardTriggerDevice;
   private sourceDtChangedTrigger!: Homey.FlowCardTriggerDevice;
 
@@ -47,8 +47,8 @@ module.exports = class QubeApp extends Homey.App {
     this.dhwTempChangedTrigger = this.homey.flow.getDeviceTriggerCard('dhw-temp-changed');
     this.outdoorTempChangedTrigger = this.homey.flow.getDeviceTriggerCard('outdoor-temp-changed');
     this.copChangedTrigger = this.homey.flow.getDeviceTriggerCard('cop-changed');
-    this.electricPowerChangedTrigger = this.homey.flow.getDeviceTriggerCard('electric-power-changed');
     this.powerChangedTrigger = this.homey.flow.getDeviceTriggerCard('power-changed');
+    this.thermalPowerChangedTrigger = this.homey.flow.getDeviceTriggerCard('thermal-power-changed');
     this.heatingDtChangedTrigger = this.homey.flow.getDeviceTriggerCard('heating-dt-changed');
     this.sourceDtChangedTrigger = this.homey.flow.getDeviceTriggerCard('source-dt-changed');
 
@@ -77,8 +77,8 @@ module.exports = class QubeApp extends Homey.App {
       { cardId: 'dhw-temp-is',           getter: 'getDhwTemp' },
       { cardId: 'outdoor-temp-is',       getter: 'getOutdoorTemp' },
       { cardId: 'cop-is',               getter: 'getCop' },
-      { cardId: 'electric-power-is',     getter: 'getElectricPower' },
-      { cardId: 'power-is',             getter: 'getPower' },
+      { cardId: 'power-is',             getter: 'getElectricPower' },
+      { cardId: 'thermal-power-is',      getter: 'getThermalPower' },
       { cardId: 'heating-dt-is',         getter: 'getHeatingDt' },
       { cardId: 'source-dt-is',          getter: 'getSourceDt' },
     ];
@@ -195,8 +195,8 @@ module.exports = class QubeApp extends Homey.App {
       'dhw-temp-changed': this.dhwTempChangedTrigger,
       'outdoor-temp-changed': this.outdoorTempChangedTrigger,
       'cop-changed': this.copChangedTrigger,
-      'electric-power-changed': this.electricPowerChangedTrigger,
       'power-changed': this.powerChangedTrigger,
+      'thermal-power-changed': this.thermalPowerChangedTrigger,
       'heating-dt-changed': this.heatingDtChangedTrigger,
       'source-dt-changed': this.sourceDtChangedTrigger,
     };

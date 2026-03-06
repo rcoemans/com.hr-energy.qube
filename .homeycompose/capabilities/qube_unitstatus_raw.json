@@ -1,7 +1,7 @@
 {
     "type":  "number",
     "title":  {
-                  "en":  "Unit status (raw)",
+                  "en":  "Unit Status (Raw)",
                   "nl":  "Ruwe unitstatus"
               },
     "decimals":  0,
