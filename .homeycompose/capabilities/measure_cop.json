@@ -4,6 +4,9 @@
                   "en":  "COP",
                   "nl":  "COP"
               },
+        "units":  {
+                  "en":  "COP"
+              },
     "decimals":  2,
     "icon":  "/assets/icons/performance.svg",
     "getable":  true,
