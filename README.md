@@ -10,7 +10,7 @@ Homey app for the **HR-energy Qube** heatpump. Communicates with the unit over *
 > **This is an unofficial, community-developed integration.**
 >
 > - Not affiliated with, endorsed by, or supported by **HR-energy**.
-> - HT-energy may change or discontinue these interfaces at any time without notice — app functionality may break as a result.
+> - HR-energy may change or discontinue these interfaces at any time without notice — app functionality may break as a result.
 > - Use at your own risk. The developers accept no liability for data loss, incorrect readings, or unintended battery mode changes.
 
 ## Supported Devices
