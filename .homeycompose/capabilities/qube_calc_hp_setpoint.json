@@ -1,12 +1,12 @@
 {
   "type": "number",
   "title": {
-    "en": "Calculated HP Setpoint",
-    "nl": "Berekend WP Setpoint"
+    "en": "Calculated HP setpoint",
+    "nl": "Berekend WP setpoint"
   },
   "units": { "en": "°C", "nl": "°C" },
   "decimals": 1,
-  "icon": "/assets/icons/info.svg",
+  "icon": "/assets/icons/on-off-button.svg",
   "getable": true,
   "setable": false,
   "uiComponent": "sensor",

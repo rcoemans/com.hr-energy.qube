@@ -1,11 +1,11 @@
 {
   "title": {
-    "en": "Alarm Is ...",
-    "nl": "Alarm is ..."
+    "en": "Alarm !{{is|is not}} ...",
+    "nl": "Alarm !{{is|is niet}} ..."
   },
   "titleFormatted": {
-    "en": "Alarm [[alarm]] Is [[status]]",
-    "nl": "Alarm [[alarm]] is [[status]]"
+    "en": "Alarm [[alarm]] !{{is|is not}} [[status]]",
+    "nl": "Alarm [[alarm]] !{{is|is niet}} [[status]]"
   },
   "hint": {
     "en": "Checks whether the selected alarm is currently ON or OFF.",

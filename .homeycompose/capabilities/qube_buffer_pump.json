@@ -1,10 +1,10 @@
 {
   "type": "boolean",
   "title": {
-    "en": "Buffer Pump",
-    "nl": "Buffervat Pomp"
+    "en": "Buffer pump",
+    "nl": "Buffervat pomp"
   },
-  "icon": "/assets/icons/info.svg",
+  "icon": "/assets/icons/pump.svg",
   "getable": true,
   "setable": false,
   "uiComponent": "sensor",

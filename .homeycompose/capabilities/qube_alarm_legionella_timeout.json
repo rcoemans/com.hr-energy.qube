@@ -1,7 +1,7 @@
 {
     "type":  "boolean",
     "title":  {
-                  "en":  "Legionella Timeout Alarm",
+                  "en":  "Legionella timeout alarm",
                   "nl":  "Legionella time-out alarm"
               },
     "icon":  "/assets/icons/alarm.svg",

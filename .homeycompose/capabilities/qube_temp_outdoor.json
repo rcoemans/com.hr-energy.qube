@@ -1,7 +1,7 @@
 {
     "type":  "number",
     "title":  {
-                  "en":  "Outdoor Temperature",
+                  "en":  "Outdoor temperature",
                   "nl":  "Buitentemperatuur"
               },
     "units":  {

@@ -59,177 +59,256 @@ homey app install
 
 All capabilities exposed by the Qube device, with their variable name (as used in flows/tags) and data type.
 
-| Variable                         | Type          |
-|----------------------------------|---------------|
-| `qube_alarm_global`              | boolean       |
-| `qube_unitstatus_raw`            | number        |
-| `qube_status`                    | string        |
-| `qube_temp_supply`               | number        |
-| `qube_temp_return`               | number        |
-| `qube_temp_source_in`            | number        |
-| `qube_temp_source_out`           | number        |
-| `qube_temp_room`                 | number        |
-| `qube_temp_dhw`                  | number        |
-| `qube_temp_outdoor`              | number        |
-| `qube_flow`                      | number        |
-| `qube_cop`                       | number        |
-| `qube_power`                     | number        |
-| `qube_meter_electric`            | number        |
-| `qube_energy_thermal`            | number        |
-| `qube_power_thermal`             | number        |
-| `qube_compressor_speed`          | number        |
-| `qube_hours_dhw`                 | number        |
-| `qube_hours_heating`             | number        |
-| `qube_hours_cooling`             | number        |
-| `qube_heating_dt`                | number        |
-| `qube_source_dt`                 | number        |
-| `qube_runtime_efficiency`        | number        |
-| `qube_season_mode`               | enum (string) |
-| `qube_heating_setpoint_day`      | number        |
-| `qube_heating_setpoint_night`    | number        |
-| `qube_cooling_setpoint_day`      | number        |
-| `qube_cooling_setpoint_night`    | number        |
-| `qube_dhw_setpoint`              | number        |
-| `qube_source_pump`               | boolean       |
-| `qube_user_pump`                 | boolean       |
-| `qube_fourway_valve`             | boolean       |
-| `qube_threeway_valve`            | boolean       |
-| `qube_heater1`                   | boolean       |
-| `qube_heater2`                   | boolean       |
-| `qube_alarm_flow`                | boolean       |
-| `qube_alarm_heating`             | boolean       |
-| `qube_alarm_cooling`             | boolean       |
-| `qube_alarm_source`              | boolean       |
-| `qube_alarm_user`                | boolean       |
-| `qube_alarm_legionella_timeout`  | boolean       |
-| `qube_alarm_dhw_timeout`         | boolean       |
-| `qube_alarm_working_hours`       | boolean       |
+Capabilities prefixed with `alarm_` or `measure_` are **device status indicators** — they appear on the device tile in the Homey app and can be selected by the user. All other capabilities are shown on the device detail page.
+
+| Variable                         | Type          | Description                              | Indicator |
+|----------------------------------|---------------|------------------------------------------|:---------:|
+| `alarm_generic`                  | boolean       | Aggregated alarm (any alarm active)      | ✓         |
+| `measure_compressor_speed`       | number        | Compressor speed (rpm)                   | ✓         |
+| `measure_cop`                    | number        | Coefficient of Performance               | ✓         |
+| `measure_flow`                   | number        | Water flow rate (l/min)                  | ✓         |
+| `measure_heating_dt`             | number        | Heating ΔT (°C)                          | ✓         |
+| `measure_power`                  | number        | Electric power (W)                       | ✓         |
+| `measure_power_thermal`          | number        | Thermal power (W)                        | ✓         |
+| `measure_runtime_efficiency`     | number        | Runtime efficiency (kWh/h)               | ✓         |
+| `measure_source_dt`              | number        | Source ΔT (°C)                           | ✓         |
+| `measure_temperature.dhw`        | number        | DHW temperature (°C)                     | ✓         |
+| `measure_temperature.outdoor`    | number        | Outdoor temperature (°C)                 | ✓         |
+| `measure_temperature.room`       | number        | Room temperature (°C)                    | ✓         |
+| `qube_alarm_cooling`             | boolean       | Cooling alarm                            |           |
+| `qube_alarm_dhw_timeout`         | boolean       | DHW timeout alarm                        |           |
+| `qube_alarm_flow`                | boolean       | Flow alarm                               |           |
+| `qube_alarm_global`              | boolean       | Global alarm                             |           |
+| `qube_alarm_heating`             | boolean       | Heating alarm                            |           |
+| `qube_alarm_legionella_timeout`  | boolean       | Legionella timeout alarm                 |           |
+| `qube_alarm_source`              | boolean       | Source alarm                             |           |
+| `qube_alarm_user`                | boolean       | User alarm                               |           |
+| `qube_alarm_working_hours`       | boolean       | Working hours alarm                      |           |
+| `qube_antilegionella_enabled`    | boolean       | Anti-legionella enabled                  |           |
+| `qube_bms_demand`                | boolean       | BMS demand control status                |           |
+| `qube_buffer_pump`               | boolean       | Buffer pump active                       |           |
+| `qube_calc_cooling_setpoint`     | number        | Calculated cooling setpoint (°C)         |           |
+| `qube_calc_dhw_setpoint`         | number        | Calculated DHW setpoint (°C)             |           |
+| `qube_calc_hp_setpoint`          | number        | Calculated heat pump setpoint (°C)       |           |
+| `qube_compressor_demand`         | number        | Compressor demand (%)                    |           |
+| `qube_cooling_setpoint_day`      | number        | Cooling setpoint day (°C)                |           |
+| `qube_cooling_setpoint_night`    | number        | Cooling setpoint night (°C)              |           |
+| `qube_daynight_mode`             | boolean       | Day/night mode                           |           |
+| `qube_dhw_controller_enabled`    | boolean       | DHW controller enabled                   |           |
+| `qube_dhw_program_status`        | boolean       | DHW program active                       |           |
+| `qube_dhw_setpoint`              | number        | DHW setpoint (°C)                        |           |
+| `qube_energy_thermal`            | number        | Cumulative thermal energy (kWh)          |           |
+| `qube_fourway_valve`             | boolean       | Four-way valve active                    |           |
+| `qube_heater1`                   | boolean       | Backup heater 1 active                   |           |
+| `qube_heater2`                   | boolean       | Backup heater 2 active                   |           |
+| `qube_heater3`                   | boolean       | Backup heater 3 active                   |           |
+| `qube_heating_curve_status`      | boolean       | Heating curve active                     |           |
+| `qube_heating_setpoint_day`      | number        | Heating setpoint day (°C)                |           |
+| `qube_heating_setpoint_night`    | number        | Heating setpoint night (°C)              |           |
+| `qube_hours_cooling`             | number        | Working hours cooling (h)                |           |
+| `qube_hours_dhw`                 | number        | Working hours DHW (h)                    |           |
+| `qube_hours_heating`             | number        | Working hours heating (h)                |           |
+| `qube_meter_electric`            | number        | Cumulative electric energy (kWh)         |           |
+| `qube_pv_surplus`                | boolean       | PV surplus active                        |           |
+| `qube_season_mode`               | enum (string) | Season mode (winter/summer)              |           |
+| `qube_sg_ready_status`           | string        | SG Ready mode status                     |           |
+| `qube_source_pump`               | boolean       | Source pump active                       |           |
+| `qube_status`                    | string        | Unit status (decoded)                    |           |
+| `qube_temp_return`               | number        | Return temperature (°C)                  |           |
+| `qube_temp_source_in`            | number        | Source in temperature (°C)               |           |
+| `qube_temp_source_out`           | number        | Source out temperature (°C)              |           |
+| `qube_temp_supply`               | number        | Supply temperature (°C)                  |           |
+| `qube_thermostat_demand`         | boolean       | Internal thermostat demand               |           |
+| `qube_threeway_valve`            | boolean       | Three-way valve (CV/DHW) active          |           |
+| `qube_unitstatus_raw`            | number        | Unit status (raw Modbus value)           |           |
+| `qube_user_pump`                 | boolean       | CV pump active                           |           |
 
 ## Sensor Data (read-only)
 
 All values are polled from the Qube's Modbus input registers and rounded to two decimals.
 
-| Capability             | Description                                         | Unit  |
-|------------------------|-----------------------------------------------------|-------|
-| Supply Temperature     | Water temperature leaving the heatpump              | °C    |
-| Return Temperature     | Water temperature returning to the heatpump         | °C    |
-| Source In Temperature  | Source loop inlet temperature (ground/water source) | °C    |
-| Source Out Temperature | Source loop outlet temperature                      | °C    |
-| Room Temperature       | Room temperature sensor reading                     | °C    |
-| DHW Temperature        | Domestic hot water tank temperature                 | °C    |
-| Outdoor Temperature    | Outside air temperature                             | °C    |
-| Flow                   | Water flow rate through the system                  | l/min |
-| COP                    | Coefficient of Performance — indicates real-time efficiency. A COP of 4.0 means 4 kWh of heat for every 1 kWh of electricity consumed. | — |
-| Electric Power         | Current electrical power consumption                | W     |
-| Electric Energy        | Cumulative electrical energy consumed               | kWh   |
-| Thermal Energy         | Cumulative thermal energy produced                  | kWh   |
-| Unit Status            | Decoded operating state (Standby, Heating, Cooling, DHW Heating, Compressor Starting, Compressor Shutting Down, Start Failed, Alarm, Keyboard Off) using raw Modbus values 1–22 | — |
-| Thermal Power          | Current thermal heat output                         | W    |
-| Compressor Speed       | Current compressor rotational speed                 | rpm  |
-| Working Hours DHW      | Cumulative compressor hours for domestic hot water  | h    |
-| Working Hours Heating  | Cumulative compressor hours for central heating     | h    |
-| Working Hours Cooling  | Cumulative compressor hours for cooling             | h    |
-| Heating ΔT             | Supply − Return temperature difference (helps spot hydraulic issues) | °C |
-| Source ΔT              | Source In − Source Out temperature difference (heat extracted from source) | °C |
-| Runtime Efficiency     | Thermal kWh / heating hours (long-term system performance indicator) | kWh/h |
+| Capability                  | Description                                         | Unit  |
+|-----------------------------|-----------------------------------------------------|-------|
+| Supply temperature          | Water temperature leaving the heatpump              | °C    |
+| Return temperature          | Water temperature returning to the heatpump         | °C    |
+| Source in temperature       | Source loop inlet temperature (ground/water source)  | °C    |
+| Source out temperature      | Source loop outlet temperature                       | °C    |
+| Room temperature            | Room temperature sensor reading                      | °C    |
+| DHW temperature             | Domestic hot water tank temperature                  | °C    |
+| Outdoor temperature         | Outside air temperature                              | °C    |
+| Flow                        | Water flow rate through the system                   | l/min |
+| COP                         | Coefficient of Performance — real-time efficiency    | —     |
+| Electric power              | Current electrical power consumption                 | W     |
+| Electric energy             | Cumulative electrical energy consumed                | kWh   |
+| Thermal energy              | Cumulative thermal energy produced                   | kWh   |
+| Thermal power               | Current thermal heat output                          | W     |
+| Unit status                 | Decoded operating state (Standby, Heating, Cooling, DHW Heating, etc.) | — |
+| Compressor speed            | Current compressor rotational speed                  | rpm   |
+| Compressor demand           | Current compressor demand percentage                 | %     |
+| Calculated HP setpoint      | Heat pump calculated supply setpoint                 | °C    |
+| Calculated cooling setpoint | Active cooling setpoint calculated by controller     | °C    |
+| Calculated DHW setpoint     | Active DHW setpoint calculated by controller         | °C    |
+| Working hours DHW           | Cumulative compressor hours for domestic hot water   | h     |
+| Working hours heating       | Cumulative compressor hours for central heating      | h     |
+| Working hours cooling       | Cumulative compressor hours for cooling              | h     |
+| Heating ΔT                  | Supply − Return temperature difference               | °C    |
+| Source ΔT                   | Source In − Source Out temperature difference         | °C    |
+| Runtime efficiency          | Thermal kWh / heating hours (long-term performance)  | kWh/h |
 
 ## Digital Outputs (read-only)
 
 Real-time status of pumps, valves, and backup heaters — read from the Qube's discrete inputs.
 
-| Capability               | Description                                                             |
-|--------------------------|-------------------------------------------------------------------------|
-| Source Pump              | Source loop circulation pump active                                     |
-| CV Pump                  | Central heating circulation pump active                                 |
-| Four-way Valve           | Four-way reversing valve position                                       |
-| Three-way Valve (CV/DHW) | Three-way valve directing flow to central heating or domestic hot water |
-| Heater 1                 | Backup electric heater step 1 active                                    |
-| Heater 2                 | Backup electric heater step 2 active                                    |
+| Capability                | Description                                                             |
+|---------------------------|-------------------------------------------------------------------------|
+| Source pump               | Source loop circulation pump active                                     |
+| CV pump                   | Central heating circulation pump active                                 |
+| Buffer pump               | Buffer tank circulation pump active                                     |
+| Four-way valve            | Four-way reversing valve position                                       |
+| Three-way valve (CV/DHW)  | Three-way valve directing flow to central heating or domestic hot water  |
+| Heater 1                  | Backup electric heater step 1 active                                    |
+| Heater 2                  | Backup electric heater step 2 active                                    |
+| Heater 3                  | Backup electric heater step 3 active                                    |
+
+## Control Status (read-only)
+
+Boolean and string status indicators for control states, read from the Qube's Modbus registers.
+
+| Capability                  | Description                                                          |
+|-----------------------------|----------------------------------------------------------------------|
+| Anti-legionella enabled     | Whether the anti-legionella function is active                       |
+| BMS demand                  | Whether the BMS demand control is active                             |
+| Day/night mode              | Current day or night operating mode                                  |
+| DHW controller enabled      | Whether the DHW controller is active                                 |
+| DHW program                 | Whether the DHW time program is active                               |
+| Heating curve               | Whether the weather-dependent heating curve is active                |
+| Internal thermostat demand  | Whether the internal thermostat is requesting heat                   |
+| PV surplus active           | Whether PV surplus mode is active                                    |
+| SG Ready mode               | Current SG Ready mode (Off, Block, Plus, Max)                        |
 
 ## Controls (read/write)
 
 These capabilities appear on the device tile and can be changed directly from the Homey UI or via flow cards. The current value is read back from the heatpump during each poll cycle, so the UI always reflects the actual state.
 
-| Capability               | Description | Type |
-|--------------------------|-------------|---|
-| Season Mode              | Switch between **Winter (Heating)** and **Summer (Cooling)** mode. In Winter mode the heatpump heats; in Summer mode it provides active cooling. | Picker |
-| Heating Setpoint (Day)   | Room heating setpoint for the day period. These setpoints are only used when the internal thermostat control is active. Range: 10–65 °C. | Slider |
-| Heating Setpoint (Night) | Room heating setpoint for the night period. Range: 10–65 °C. | Slider |
-| Cooling Setpoint (Day)   | Room cooling setpoint for the day period. Range: 5–25 °C. | Slider |
-| Cooling Setpoint (Night) | Room cooling setpoint for the night period. Range: 5–25 °C. | Slider |
-| DHW Setpoint             | Target domestic hot water temperature. Typical range 45–55 °C. Higher values use more energy but reduce legionella risk. Range: 30–65 °C. | Slider |
+| Capability                | Description | Type |
+|---------------------------|-------------|---|
+| Season mode               | Switch between **Winter (Heating)** and **Summer (Cooling)** mode. | Picker |
+| Heating setpoint (day)    | Room heating setpoint for the day period. Range: 10–65 °C. | Slider |
+| Heating setpoint (night)  | Room heating setpoint for the night period. Range: 10–65 °C. | Slider |
+| Cooling setpoint (day)    | Room cooling setpoint for the day period. Range: 5–25 °C. | Slider |
+| Cooling setpoint (night)  | Room cooling setpoint for the night period. Range: 5–25 °C. | Slider |
+| DHW setpoint              | Target domestic hot water temperature. Range: 30–65 °C. | Slider |
 
 ## Alarms
 
-Boolean indicators read from the Qube's discrete inputs. The **Alarm state changed** trigger fires whenever any alarm turns ON or OFF, providing the alarm name and state as tags.
+Boolean indicators read from the Qube's discrete inputs. An **aggregated alarm** (`alarm_generic`) is provided that turns ON when any individual alarm is active. The **Alarm state changed** trigger fires whenever any alarm turns ON or OFF, providing the alarm name and state as tags.
 
-| Alarm              | Description                                               |
-|--------------------|-----------------------------------------------------------|
-| Global Alarm       | Master alarm — ON when any fault is active on the unit    |
-| Flow Alarm         | Water flow rate fault (check circulation pump and piping) |
-| Heating Alarm      | Fault in the heating circuit                              |
-| Cooling Alarm      | Fault in the cooling circuit                              |
-| Source Alarm       | Source loop fault (ground loop or groundwater issue)      |
-| User Alarm         | User-defined alarm condition                              |
-| Legionella Timeout | Anti-legionella cycle exceeded maximum time               |
-| DHW Timeout        | DHW heating exceeded maximum time                         |
-| Working Hours      | Compressor working hours alarm (maintenance reminder)     |
+| Alarm                | Description                                               |
+|----------------------|-----------------------------------------------------------|
+| Alarm active         | Aggregated alarm — ON when any alarm below is active      |
+| Global alarm         | Master alarm — ON when any fault is active on the unit    |
+| Flow alarm           | Water flow rate fault (check circulation pump and piping) |
+| Heating alarm        | Fault in the heating circuit                              |
+| Cooling alarm        | Fault in the cooling circuit                              |
+| Source alarm         | Source loop fault (ground loop or groundwater issue)      |
+| User alarm           | User-defined alarm condition                              |
+| Legionella timeout   | Anti-legionella cycle exceeded maximum time               |
+| DHW timeout          | DHW heating exceeded maximum time                         |
+| Working hours        | Compressor working hours alarm (maintenance reminder)     |
 
 ## Flow Cards
 
 ### Triggers (WHEN…)
 
-| Trigger                     | Description                              |
-|-----------------------------|------------------------------------------|
-| Unit status changed         | Fires when the operating state changes (e.g. Standby → Heating). Provides old status key, new status key, raw status code, and status text as tokens. |
-| Alarm state changed         | Fires when any alarm turns ON or OFF. Provides alarm id, state (on/off), and alarm description as tokens. |
-| Supply Temperature changed  | Fires when the supply temperature changes |
-| Return Temperature changed  | Fires when the return temperature changes |
-| Source In Temperature changed | Fires when the source inlet temperature changes |
-| Source Out Temperature changed | Fires when the source outlet temperature changes |
-| Room Temperature changed    | Fires when the room temperature changes |
-| DHW Temperature changed     | Fires when the DHW temperature changes |
-| Outdoor Temperature changed | Fires when the outdoor temperature changes |
-| COP changed                 | Fires when the COP changes |
-| Electric Power changed      | Fires when the electric power consumption changes |
-| Power changed               | Fires when the thermal power output changes |
-| Heating ΔT changed          | Fires when the heating circuit ΔT changes |
-| Source ΔT changed           | Fires when the source-side ΔT changes |
+| Trigger                          | Description                              |
+|----------------------------------|------------------------------------------|
+| Unit status changed              | Fires when the operating state changes (e.g. Standby → Heating). Provides old/new status key, raw code, and text as tokens. |
+| Alarm state changed              | Fires when any alarm turns ON or OFF. Provides alarm id, state, and description as tokens. |
+| Supply temperature changed       | Fires when the supply temperature changes |
+| Return temperature changed       | Fires when the return temperature changes |
+| Source in temperature changed    | Fires when the source inlet temperature changes |
+| Source out temperature changed   | Fires when the source outlet temperature changes |
+| Room temperature changed         | Fires when the room temperature changes |
+| DHW temperature changed          | Fires when the DHW temperature changes |
+| Outdoor temperature changed      | Fires when the outdoor temperature changes |
+| COP changed                      | Fires when the COP changes |
+| Electric power changed           | Fires when the electric power consumption changes |
+| Thermal power changed            | Fires when the thermal power output changes |
+| Heating ΔT changed               | Fires when the heating circuit ΔT changes |
+| Source ΔT changed                | Fires when the source-side ΔT changes |
+
+### Auto-generated Triggers (Homey SDK)
+
+The following trigger cards are **automatically generated by the Homey platform** for capabilities that use the standard `alarm_` and `measure_` prefixes (required for device status indicators). These cannot be removed without losing the indicator functionality.
+
+| Trigger                                    | Source capability          |
+|--------------------------------------------|----------------------------|
+| The power changed                          | `measure_power`            |
+| The generic alarm turned on                | `alarm_generic`            |
+| The generic alarm turned off               | `alarm_generic`            |
+| COP becomes greater than                   | `measure_cop`              |
+| COP becomes less than                      | `measure_cop`              |
+| Flow becomes greater than                  | `measure_flow`             |
+| Flow becomes less than                     | `measure_flow`             |
+| Runtime efficiency becomes greater than    | `measure_runtime_efficiency` |
+| Runtime efficiency becomes less than       | `measure_runtime_efficiency` |
+| Heating ΔT becomes greater than            | `measure_heating_dt`       |
+| Heating ΔT becomes less than               | `measure_heating_dt`       |
+| Source ΔT becomes greater than             | `measure_source_dt`        |
+| Source ΔT becomes less than                | `measure_source_dt`        |
+| Room temperature becomes greater than      | `measure_temperature.room` |
+| Room temperature becomes less than         | `measure_temperature.room` |
+| DHW temperature becomes greater than       | `measure_temperature.dhw`  |
+| DHW temperature becomes less than          | `measure_temperature.dhw`  |
+| Outdoor temperature becomes greater than   | `measure_temperature.outdoor` |
+| Outdoor temperature becomes less than      | `measure_temperature.outdoor` |
+| Electric power becomes greater than        | `measure_power`            |
+| Electric power becomes less than           | `measure_power`            |
+| Thermal power becomes greater than         | `measure_power_thermal`    |
+| Thermal power becomes less than            | `measure_power_thermal`    |
+| Compressor speed becomes greater than      | `measure_compressor_speed` |
+| Compressor speed becomes less than         | `measure_compressor_speed` |
 
 ### Conditions (AND…)
 
-| Condition                    | Description                              |
-|------------------------------|------------------------------------------|
-| Unit status is …             | Checks if the current status matches a selected value (standby, heating, cooling, etc.) |
-| Alarm is …                   | Checks if a selected alarm is ON or OFF |
-| Supply Temperature is …      | Checks if the supply temperature is >, <, ≥, or ≤ a given value |
-| Return Temperature is …      | Checks if the return temperature matches the condition |
-| Source In Temperature is …   | Checks if the source inlet temperature matches |
-| Source Out Temperature is …  | Checks if the source outlet temperature matches |
-| Room Temperature is …        | Checks if the room temperature matches |
-| DHW Temperature is …         | Checks if the DHW temperature matches |
-| Outdoor Temperature is …     | Checks if the outdoor temperature matches |
-| COP is …                     | Checks if the COP matches the condition |
-| Electric Power is …          | Checks if the electric power matches |
-| Power is …                   | Checks if the thermal power matches |
-| Heating ΔT is …              | Checks if the heating circuit ΔT matches |
-| Source ΔT is …               | Checks if the source-side ΔT matches |
+| Condition                         | Description                              |
+|-----------------------------------|------------------------------------------|
+| Unit status is / is not …         | Checks if the current status matches a selected value |
+| Alarm is / is not …              | Checks if a selected alarm is ON or OFF |
+| Supply temperature is / is not … | Checks if the supply temperature is >, <, ≥, or ≤ a given value |
+| Return temperature is / is not … | Checks if the return temperature matches |
+| Source in temperature is / is not … | Checks if the source inlet temperature matches |
+| Source out temperature is / is not … | Checks if the source outlet temperature matches |
+| Room temperature is / is not …   | Checks if the room temperature matches |
+| DHW temperature is / is not …    | Checks if the DHW temperature matches |
+| Outdoor temperature is / is not … | Checks if the outdoor temperature matches |
+| COP is / is not …                | Checks if the COP matches the condition |
+| Electric power is / is not …     | Checks if the electric power matches |
+| Thermal power is / is not …      | Checks if the thermal power matches |
+| Heating ΔT is / is not …         | Checks if the heating circuit ΔT matches |
+| Source ΔT is / is not …          | Checks if the source-side ΔT matches |
+
+### Auto-generated Conditions (Homey SDK)
+
+| Condition                | Source capability |
+|--------------------------|-------------------|
+| The generic alarm is on  | `alarm_generic`   |
 
 ### Actions (THEN…)
 
-| Action                           | Description                                                                                     |
-|----------------------------------|-------------------------------------------------------------------------------------------------|
-| Set BMS demand control           | Enable or disable the heatpump demand via Modbus. ON = allowed to run, OFF = demand removed. Do not toggle frequently. |
-| Set season mode                  | Switch between Winter (Heating) and Summer (Cooling)                                            |
-| Set heating setpoint             | Set the heating setpoint for day or night period (°C). Only effective when internal thermostat is active. |
-| Set cooling setpoint             | Set the cooling setpoint for day or night period (°C). Only effective when internal thermostat is active. |
-| Set DHW setpoint                 | Set the domestic hot water temperature setpoint (°C)                                            |
-| Force DHW program                | Forces the DHW time program to run once, overriding the normal schedule                         |
-| Set DHW program                  | Enables or disables the DHW time program via BMS (ON/OFF)                                       |
-| Force anti-legionella cycle      | Heats DHW tank to ~60 °C for disinfection (limited to once per day)                             |
-| Set heating curve                | Enable or disable the weather-dependent heating curve                                           |
-| Set SG Ready mode                | Set SG Ready mode (Off, Block, Plus, Max) — requires firmware ≥ 4.0.08                          |
-| Write Modbus register (Advanced) | Write a raw value to any holding register (uint16, int16, or float32) — for advanced users only |
+| Action                            | Description                                                                                     |
+|-----------------------------------|-------------------------------------------------------------------------------------------------|
+| Set BMS demand control            | Enable or disable the heatpump demand via Modbus                                                |
+| Set season mode                   | Switch between Winter (Heating) and Summer (Cooling)                                            |
+| Set heating setpoint              | Set the heating setpoint for day or night period (°C)                                           |
+| Set cooling setpoint              | Set the cooling setpoint for day or night period (°C)                                           |
+| Set DHW setpoint                  | Set the domestic hot water temperature setpoint (°C)                                            |
+| Force DHW program                 | Forces the DHW time program to run once, overriding the normal schedule                         |
+| Set DHW program                   | Enables or disables the DHW time program via BMS (ON/OFF)                                       |
+| Force anti-legionella cycle       | Heats DHW tank to ~60 °C for disinfection (limited to once per day)                             |
+| Set heating curve                 | Enable or disable the weather-dependent heating curve                                           |
+| Set SG Ready mode                 | Set SG Ready mode (Off, Block, Plus, Max) — requires firmware ≥ 4.0.08                         |
+| Write Modbus register (advanced)  | Write a raw value to any holding register (uint16, int16, or float32) — for advanced users only |
 
 ### Flow Card Variables (Tokens)
 

@@ -1,14 +1,14 @@
 {
     "type":  "number",
     "title":  {
-                  "en":  "Compressor Speed",
+                  "en":  "Compressor speed",
                   "nl":  "Compressorsnelheid"
               },
     "units":  {
                   "en":  "rpm"
               },
     "decimals":  0,
-    "icon":  "/assets/icons/fan.svg",
+    "icon":  "/assets/icons/compressor.svg",
     "getable":  true,
     "setable":  false,
     "insights":  true,

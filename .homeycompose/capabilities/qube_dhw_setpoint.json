@@ -1,7 +1,7 @@
 {
     "type":  "number",
     "title":  {
-                  "en":  "DHW Setpoint",
+                  "en":  "DHW setpoint",
                   "nl":  "Warmwatersetpoint"
               },
     "units":  {
@@ -11,7 +11,7 @@
     "min":  30,
     "max":  65,
     "step":  0.5,
-    "icon":  "/assets/icons/target-temp.svg",
+    "icon":  "/assets/icons/on-off-button.svg",
     "getable":  true,
     "setable":  true,
     "uiComponent":  "slider",

@@ -1,10 +1,10 @@
 {
   "title": {
-    "en": "Set Season Mode",
+    "en": "Set season mode",
     "nl": "Seizoensmodus instellen"
   },
   "titleFormatted": {
-    "en": "Set Season Mode to [[value]]",
+    "en": "Set season mode to [[value]]",
     "nl": "Stel seizoensmodus in op [[value]]"
   },
   "hint": {

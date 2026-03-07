@@ -1,7 +1,7 @@
 {
     "type":  "number",
     "title":  {
-                  "en":  "Room Temperature",
+                  "en":  "Room temperature",
                   "nl":  "Kamertemperatuur"
               },
     "units":  {

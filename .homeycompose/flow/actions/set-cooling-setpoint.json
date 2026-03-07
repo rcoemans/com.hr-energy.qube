@@ -1,10 +1,10 @@
 {
   "title": {
-    "en": "Set Cooling Setpoint",
+    "en": "Set cooling setpoint",
     "nl": "Koelingssetpoint instellen"
   },
   "titleFormatted": {
-    "en": "Set Cooling [[period]] Setpoint to [[temperature]] \u00b0C",
+    "en": "Set cooling [[period]] setpoint to [[temperature]] \u00b0C",
     "nl": "Stel koeling [[period]] setpoint in op [[temperature]] \u00b0C"
   },
   "hint": {

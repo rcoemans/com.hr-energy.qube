@@ -1,11 +1,11 @@
 {
   "title": {
-    "en": "COP Is ...",
-    "nl": "COP is ..."
+    "en": "COP !{{is|is not}} ...",
+    "nl": "COP !{{is|is niet}} ..."
   },
   "titleFormatted": {
-    "en": "COP Is [[operator]] [[value]]",
-    "nl": "COP is [[operator]] [[value]]"
+    "en": "COP !{{is|is not}} [[operator]] [[value]]",
+    "nl": "COP !{{is|is niet}} [[operator]] [[value]]"
   },
   "hint": {
     "en": "Checks whether the current Coefficient of Performance (COP) matches the selected condition.",

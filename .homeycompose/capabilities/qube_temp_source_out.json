@@ -1,7 +1,7 @@
 {
     "type":  "number",
     "title":  {
-                  "en":  "Source Out Temperature",
+                  "en":  "Source out temperature",
                   "nl":  "Bron uitlaattemperatuur"
               },
     "units":  {

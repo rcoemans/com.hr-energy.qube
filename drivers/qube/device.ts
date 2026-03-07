@@ -67,43 +67,62 @@ module.exports = class QubeDevice extends Homey.Device {
     await this.start();
   }
 
-  private static readonly MIGRATION_VERSION = 4;
+  private static readonly MIGRATION_VERSION = 7;
 
   private static readonly EXPECTED_CAPABILITIES = [
-    'qube_temp_supply', 'qube_temp_return', 'qube_temp_source_in',
-    'qube_temp_source_out', 'qube_temp_room', 'qube_temp_dhw',
-    'qube_temp_outdoor', 'qube_flow', 'qube_cop', 'qube_power',
-    'qube_meter_electric', 'qube_energy_thermal', 'qube_power_thermal',
-    'qube_compressor_speed', 'qube_unitstatus_raw', 'qube_status',
+    // Device status indicators (measure_*/alarm_generic prefix for Homey indicator system)
+    'alarm_generic',
+    'measure_cop', 'measure_flow', 'measure_runtime_efficiency',
+    'measure_heating_dt', 'measure_source_dt',
+    'measure_temperature.room', 'measure_temperature.dhw', 'measure_temperature.outdoor',
+    'measure_power', 'measure_power_thermal', 'measure_compressor_speed',
+    // Status & raw
+    'qube_status', 'qube_unitstatus_raw',
+    // Individual alarms
     'qube_alarm_global', 'qube_alarm_flow', 'qube_alarm_heating',
     'qube_alarm_cooling', 'qube_alarm_source', 'qube_alarm_user',
     'qube_alarm_legionella_timeout', 'qube_alarm_dhw_timeout',
-    'qube_alarm_working_hours', 'qube_source_pump', 'qube_user_pump',
-    'qube_fourway_valve', 'qube_threeway_valve', 'qube_heater1',
-    'qube_heater2', 'qube_hours_dhw', 'qube_hours_heating',
-    'qube_hours_cooling', 'qube_heating_dt', 'qube_source_dt',
-    'qube_runtime_efficiency', 'qube_season_mode',
+    'qube_alarm_working_hours',
+    // Digital outputs
+    'qube_source_pump', 'qube_user_pump',
+    'qube_fourway_valve', 'qube_threeway_valve',
+    'qube_heater1', 'qube_heater2', 'qube_heater3',
+    'qube_buffer_pump',
+    // Non-indicator temperatures
+    'qube_temp_supply', 'qube_temp_return',
+    'qube_temp_source_in', 'qube_temp_source_out',
+    // Energy
+    'qube_meter_electric', 'qube_energy_thermal',
+    // Performance
+    'qube_compressor_demand',
+    // Working hours
+    'qube_hours_dhw', 'qube_hours_heating', 'qube_hours_cooling',
+    // Controls
+    'qube_season_mode',
     'qube_heating_setpoint_day', 'qube_heating_setpoint_night',
     'qube_cooling_setpoint_day', 'qube_cooling_setpoint_night',
     'qube_dhw_setpoint',
+    // Control status
     'qube_bms_demand', 'qube_heating_curve_status',
     'qube_dhw_program_status', 'qube_sg_ready_status',
     'qube_antilegionella_enabled', 'qube_daynight_mode',
-    'qube_compressor_demand', 'qube_dhw_controller_enabled',
+    'qube_dhw_controller_enabled', 'qube_pv_surplus',
+    'qube_thermostat_demand',
+    // Calculated setpoints
     'qube_calc_hp_setpoint', 'qube_calc_cooling_setpoint',
-    'qube_calc_dhw_setpoint', 'qube_pv_surplus',
-    'qube_buffer_pump', 'qube_heater3', 'qube_thermostat_demand',
-    'measure_power',
+    'qube_calc_dhw_setpoint',
   ];
 
   private async migrateCapabilities() {
     const deprecated = [
-      'alarm_generic',
+      // Old qube_* capabilities replaced by measure_*/alarm_generic indicators
+      'qube_alarm_active', 'qube_cop', 'qube_flow', 'qube_power',
+      'qube_power_thermal', 'qube_compressor_speed',
+      'qube_heating_dt', 'qube_source_dt', 'qube_runtime_efficiency',
+      'qube_temp_room', 'qube_temp_dhw', 'qube_temp_outdoor',
+      // Legacy capabilities from older versions
       'measure_temperature.supply', 'measure_temperature.return',
       'measure_temperature.source_in', 'measure_temperature.source_out',
-      'measure_temperature.room', 'measure_temperature.dhw',
-      'measure_temperature.outdoor',
-      'measure_cop',
       'qube_heating_setpoint', 'qube_cooling_setpoint', 'qube_heating_curve',
       'qube_demand',
     ];
@@ -357,17 +376,16 @@ module.exports = class QubeDevice extends Homey.Device {
     await this.setCapabilityValue('qube_temp_source_in', this._sourceInTemp).catch(() => undefined);
     await this.setCapabilityValue('qube_temp_source_out', this._sourceOutTemp).catch(() => undefined);
     if (res.roomTemp > -900) {
-      await this.setCapabilityValue('qube_temp_room', this._roomTemp).catch(() => undefined);
+      await this.setCapabilityValue('measure_temperature.room', this._roomTemp).catch(() => undefined);
     }
-    await this.setCapabilityValue('qube_temp_dhw', this._dhwTemp).catch(() => undefined);
-    await this.setCapabilityValue('qube_temp_outdoor', this._outdoorTemp).catch(() => undefined);
+    await this.setCapabilityValue('measure_temperature.dhw', this._dhwTemp).catch(() => undefined);
+    await this.setCapabilityValue('measure_temperature.outdoor', this._outdoorTemp).catch(() => undefined);
 
     // ── Flow / COP / Energy ───────────────────────────────────────
-    await this.setCapabilityValue('qube_flow', round2(res.flow)).catch(() => undefined);
+    await this.setCapabilityValue('measure_flow', round2(res.flow)).catch(() => undefined);
     this._cop = round2(res.cop);
     this._electricPower = round2(res.electricPower);
-    await this.setCapabilityValue('qube_cop', this._cop).catch(() => undefined);
-    await this.setCapabilityValue('qube_power', this._electricPower).catch(() => undefined);
+    await this.setCapabilityValue('measure_cop', this._cop).catch(() => undefined);
     await this.setCapabilityValue('measure_power', this._electricPower).catch(() => undefined);
     // Monotonic energy counters — clamp so they never go backwards (float jitter)
     let energyElectric = round2(res.energyElectric);
@@ -387,8 +405,8 @@ module.exports = class QubeDevice extends Homey.Device {
 
     // ── Additional sensors ────────────────────────────────────────
     this._thermalPower = round2(res.thermalPower);
-    await this.setCapabilityValue('qube_power_thermal', this._thermalPower).catch(() => undefined);
-    await this.setCapabilityValue('qube_compressor_speed', Math.round(res.compressorSpeed)).catch(() => undefined);
+    await this.setCapabilityValue('measure_power_thermal', this._thermalPower).catch(() => undefined);
+    await this.setCapabilityValue('measure_compressor_speed', Math.round(res.compressorSpeed)).catch(() => undefined);
     await this.setCapabilityValue('qube_hours_dhw', res.hoursDhw).catch(() => undefined);
     await this.setCapabilityValue('qube_hours_heating', res.hoursHeating).catch(() => undefined);
     await this.setCapabilityValue('qube_hours_cooling', res.hoursCooling).catch(() => undefined);
@@ -396,13 +414,13 @@ module.exports = class QubeDevice extends Homey.Device {
     // ── Derived metrics ──────────────────────────────────────────
     this._heatingDt = round2(this._supplyTemp - this._returnTemp);
     this._sourceDt = round2(this._sourceInTemp - this._sourceOutTemp);
-    await this.setCapabilityValue('qube_heating_dt', this._heatingDt).catch(() => undefined);
-    await this.setCapabilityValue('qube_source_dt', this._sourceDt).catch(() => undefined);
+    await this.setCapabilityValue('measure_heating_dt', this._heatingDt).catch(() => undefined);
+    await this.setCapabilityValue('measure_source_dt', this._sourceDt).catch(() => undefined);
 
     // Runtime efficiency: thermal kWh / heating hours
     const runtimeEff = res.hoursHeating > 0 ? round2(res.energyThermal / res.hoursHeating) : 0;
     this._runtimeEfficiency = runtimeEff;
-    await this.setCapabilityValue('qube_runtime_efficiency', runtimeEff).catch(() => undefined);
+    await this.setCapabilityValue('measure_runtime_efficiency', runtimeEff).catch(() => undefined);
 
     // ── Digital outputs (pumps / valves / heaters) ──────────────
     await this.setCapabilityValue('qube_source_pump', res.sourcePump).catch(() => undefined);
@@ -438,10 +456,13 @@ module.exports = class QubeDevice extends Homey.Device {
     await this.setCapabilityValue('qube_thermostat_demand', res.thermostatDemand).catch(() => undefined);
 
     // ── Alarms ────────────────────────────────────────────────────
+    let anyAlarm = false;
     for (const alarm of QubeDevice.ALARM_MAP) {
       const current = Boolean(res[alarm.key]);
+      if (current) anyAlarm = true;
       await this.setCapabilityValue(alarm.capabilityId, current).catch(() => undefined);
     }
+    await this.setCapabilityValue('alarm_generic', anyAlarm).catch(() => undefined);
 
     // ── Transition triggers ───────────────────────────────────────
     await this.checkTransitions({ statusKey, res });

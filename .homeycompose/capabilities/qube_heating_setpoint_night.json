@@ -1,8 +1,8 @@
 {
     "type":  "number",
     "title":  {
-                  "en":  "Heating Setpoint (Night)",
-                  "nl":  "Verwarmingssetpoint (Nacht)"
+                  "en":  "Heating setpoint (night)",
+                  "nl":  "Verwarmingssetpoint (nacht)"
               },
     "desc":  {
                  "en":  "Room heating setpoint for the night period.",
@@ -15,7 +15,7 @@
     "min":  10,
     "max":  65,
     "step":  0.5,
-    "icon":  "/assets/icons/target-temp.svg",
+    "icon":  "/assets/icons/on-off-button.svg",
     "getable":  true,
     "setable":  true,
     "uiComponent":  "slider",

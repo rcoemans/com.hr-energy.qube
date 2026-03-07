@@ -1,11 +1,11 @@
 {
   "title": {
-    "en": "Return Temperature Is ...",
-    "nl": "Retourtemperatuur is ..."
+    "en": "Return temperature !{{is|is not}} ...",
+    "nl": "Retourtemperatuur !{{is|is niet}} ..."
   },
   "titleFormatted": {
-    "en": "Return Temperature Is [[operator]] [[value]] °C",
-    "nl": "Retourtemperatuur is [[operator]] [[value]] °C"
+    "en": "Return temperature !{{is|is not}} [[operator]] [[value]] °C",
+    "nl": "Retourtemperatuur !{{is|is niet}} [[operator]] [[value]] °C"
   },
   "hint": {
     "en": "Checks whether the current return temperature matches the selected condition.",

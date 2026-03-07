@@ -1,10 +1,10 @@
 {
   "title": {
-    "en": "Set BMS Demand Control",
+    "en": "Set BMS demand control",
     "nl": "BMS-vraagsturing instellen"
   },
   "titleFormatted": {
-    "en": "Set BMS Demand Control to [[status]]",
+    "en": "Set BMS demand control to [[status]]",
     "nl": "Stel BMS-vraagsturing in op [[status]]"
   },
   "hint": {

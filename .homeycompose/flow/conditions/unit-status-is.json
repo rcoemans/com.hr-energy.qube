@@ -1,11 +1,11 @@
 {
   "title": {
-    "en": "Unit Status Is ...",
-    "nl": "Unitstatus is ..."
+    "en": "Unit status !{{is|is not}} ...",
+    "nl": "Unitstatus !{{is|is niet}} ..."
   },
   "titleFormatted": {
-    "en": "Unit Status Is [[status]]",
-    "nl": "Unitstatus is [[status]]"
+    "en": "Unit status !{{is|is not}} [[status]]",
+    "nl": "Unitstatus !{{is|is niet}} [[status]]"
   },
   "hint": {
     "en": "Checks whether the current heat pump unit status matches the selected status.",

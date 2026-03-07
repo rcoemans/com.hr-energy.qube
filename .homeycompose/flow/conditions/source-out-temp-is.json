@@ -1,11 +1,11 @@
 {
   "title": {
-    "en": "Source Out Temperature Is ...",
-    "nl": "Bron uitlaattemperatuur is ..."
+    "en": "Source out temperature !{{is|is not}} ...",
+    "nl": "Bron uitlaattemperatuur !{{is|is niet}} ..."
   },
   "titleFormatted": {
-    "en": "Source Out Temperature Is [[operator]] [[value]] °C",
-    "nl": "Bron uitlaattemperatuur is [[operator]] [[value]] °C"
+    "en": "Source out temperature !{{is|is not}} [[operator]] [[value]] °C",
+    "nl": "Bron uitlaattemperatuur !{{is|is niet}} [[operator]] [[value]] °C"
   },
   "hint": {
     "en": "Checks whether the current source outlet temperature matches the selected condition.",

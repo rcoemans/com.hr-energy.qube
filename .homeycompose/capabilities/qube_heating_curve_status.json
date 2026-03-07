@@ -1,10 +1,10 @@
 {
     "type": "boolean",
     "title": {
-        "en": "Heating Curve",
+        "en": "Heating curve",
         "nl": "Verwarmingscurve"
     },
-    "icon": "/assets/icons/season.svg",
+    "icon": "/assets/icons/sun.svg",
     "getable": true,
     "setable": false,
     "insights": true,

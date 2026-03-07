@@ -1,11 +1,11 @@
 {
   "title": {
-    "en": "Supply Temperature Is ...",
-    "nl": "Aanvoertemperatuur is ..."
+    "en": "Supply temperature !{{is|is not}} ...",
+    "nl": "Aanvoertemperatuur !{{is|is niet}} ..."
   },
   "titleFormatted": {
-    "en": "Supply Temperature Is [[operator]] [[value]] °C",
-    "nl": "Aanvoertemperatuur is [[operator]] [[value]] °C"
+    "en": "Supply temperature !{{is|is not}} [[operator]] [[value]] °C",
+    "nl": "Aanvoertemperatuur !{{is|is niet}} [[operator]] [[value]] °C"
   },
   "hint": {
     "en": "Checks whether the current supply temperature matches the selected condition.",

@@ -8,7 +8,7 @@
                   "en":  "l/min"
               },
     "decimals":  2,
-    "icon":  "/assets/icons/water-flow.svg",
+    "icon":  "/assets/icons/flow.svg",
     "getable":  true,
     "setable":  false,
     "insights":  true,

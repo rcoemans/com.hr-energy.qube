@@ -1,7 +1,7 @@
 {
     "type":  "boolean",
     "title":  {
-                  "en":  "Working Hours Alarm",
+                  "en":  "Working hours alarm",
                   "nl":  "Bedrijfsuren alarm"
               },
     "icon":  "/assets/icons/alarm.svg",

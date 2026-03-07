@@ -1,10 +1,10 @@
 {
   "title": {
-    "en": "Set DHW Program",
+    "en": "Set DHW program",
     "nl": "Warmwaterprogramma instellen"
   },
   "titleFormatted": {
-    "en": "Set DHW Program to [[status]]",
+    "en": "Set DHW program to [[status]]",
     "nl": "Stel warmwaterprogramma in op [[status]]"
   },
   "hint": {

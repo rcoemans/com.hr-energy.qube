@@ -1,7 +1,7 @@
 {
     "type":  "boolean",
     "title":  {
-                  "en":  "Four-way Valve",
+                  "en":  "Four-way valve",
                   "nl":  "Vierweg klep"
               },
     "icon":  "/assets/icons/valve.svg",

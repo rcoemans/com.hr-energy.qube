@@ -1,7 +1,7 @@
 {
     "type":  "boolean",
     "title":  {
-                  "en":  "CV Pump",
+                  "en":  "CV pump",
                   "nl":  "CV-pomp"
               },
     "icon":  "/assets/icons/pump.svg",

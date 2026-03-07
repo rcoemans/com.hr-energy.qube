@@ -1,0 +1,12 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Alarm",
+    "nl": "Alarm"
+  },
+  "icon": "/assets/icons/alarm.svg",
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "$flow": false
+}

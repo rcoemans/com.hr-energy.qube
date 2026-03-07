@@ -1,11 +1,11 @@
 {
   "title": {
-    "en": "Room Temperature Is ...",
-    "nl": "Kamertemperatuur is ..."
+    "en": "Room temperature !{{is|is not}} ...",
+    "nl": "Kamertemperatuur !{{is|is niet}} ..."
   },
   "titleFormatted": {
-    "en": "Room Temperature Is [[operator]] [[value]] °C",
-    "nl": "Kamertemperatuur is [[operator]] [[value]] °C"
+    "en": "Room temperature !{{is|is not}} [[operator]] [[value]] °C",
+    "nl": "Kamertemperatuur !{{is|is niet}} [[operator]] [[value]] °C"
   },
   "hint": {
     "en": "Checks whether the current room temperature matches the selected condition.",

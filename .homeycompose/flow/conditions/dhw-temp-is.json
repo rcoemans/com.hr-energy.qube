@@ -1,11 +1,11 @@
 {
   "title": {
-    "en": "DHW Temperature Is ...",
-    "nl": "Warmwatertemperatuur is ..."
+    "en": "DHW temperature !{{is|is not}} ...",
+    "nl": "Warmwatertemperatuur !{{is|is niet}} ..."
   },
   "titleFormatted": {
-    "en": "DHW Temperature Is [[operator]] [[value]] °C",
-    "nl": "Warmwatertemperatuur is [[operator]] [[value]] °C"
+    "en": "DHW temperature !{{is|is not}} [[operator]] [[value]] °C",
+    "nl": "Warmwatertemperatuur !{{is|is niet}} [[operator]] [[value]] °C"
   },
   "hint": {
     "en": "Checks whether the current domestic hot water temperature matches the selected condition.",

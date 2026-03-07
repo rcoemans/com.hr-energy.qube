@@ -1,7 +1,7 @@
 {
     "type":  "boolean",
     "title":  {
-                  "en":  "Source Alarm",
+                  "en":  "Source alarm",
                   "nl":  "Bronalarm"
               },
     "icon":  "/assets/icons/alarm.svg",

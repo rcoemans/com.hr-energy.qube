@@ -1,14 +1,14 @@
 {
     "type":  "number",
     "title":  {
-                  "en":  "Thermal Power",
+                  "en":  "Thermal power",
                   "nl":  "Thermisch vermogen"
               },
     "units":  {
                   "en":  "W"
               },
     "decimals":  0,
-    "icon":  "/assets/icons/lightning.svg",
+    "icon":  "/assets/icons/alarm.svg",
     "getable":  true,
     "setable":  false,
     "insights":  true,

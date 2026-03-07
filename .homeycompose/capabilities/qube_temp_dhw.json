@@ -1,7 +1,7 @@
 {
     "type":  "number",
     "title":  {
-                  "en":  "DHW Temperature",
+                  "en":  "DHW temperature",
                   "nl":  "Warmwatertemperatuur"
               },
     "units":  {

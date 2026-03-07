@@ -1,11 +1,11 @@
 {
   "title": {
-    "en": "Electric Power is ...",
-    "nl": "Elektrisch Vermogen is ..."
+    "en": "Electric power !{{is|is not}} ...",
+    "nl": "Elektrisch vermogen !{{is|is niet}} ..."
   },
   "titleFormatted": {
-    "en": "Electric Power is [[operator]] [[value]] W",
-    "nl": "Elektrisch Vermogen is [[operator]] [[value]] W"
+    "en": "Electric power !{{is|is not}} [[operator]] [[value]] W",
+    "nl": "Elektrisch vermogen !{{is|is niet}} [[operator]] [[value]] W"
   },
   "hint": {
     "en": "Checks whether the current electric power consumption matches the selected condition.",

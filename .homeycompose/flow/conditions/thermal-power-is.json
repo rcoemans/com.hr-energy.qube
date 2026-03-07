@@ -1,11 +1,11 @@
 {
   "title": {
-    "en": "Thermal Power is ...",
-    "nl": "Thermisch Vermogen is ..."
+    "en": "Thermal power !{{is|is not}} ...",
+    "nl": "Thermisch vermogen !{{is|is niet}} ..."
   },
   "titleFormatted": {
-    "en": "Thermal Power is [[operator]] [[value]] W",
-    "nl": "Thermisch Vermogen is [[operator]] [[value]] W"
+    "en": "Thermal power !{{is|is not}} [[operator]] [[value]] W",
+    "nl": "Thermisch vermogen !{{is|is niet}} [[operator]] [[value]] W"
   },
   "hint": {
     "en": "Checks whether the current thermal power output matches the selected condition.",

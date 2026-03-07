@@ -1,7 +1,7 @@
 {
     "type":  "boolean",
     "title":  {
-                  "en":  "User Alarm",
+                  "en":  "User alarm",
                   "nl":  "Gebruikersalarm"
               },
     "icon":  "/assets/icons/alarm.svg",

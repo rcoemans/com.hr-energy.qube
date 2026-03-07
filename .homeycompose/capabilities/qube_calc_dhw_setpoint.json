@@ -1,12 +1,12 @@
 {
   "type": "number",
   "title": {
-    "en": "Calculated DHW Setpoint",
-    "nl": "Berekend Warmwater Setpoint"
+    "en": "Calculated DHW setpoint",
+    "nl": "Berekend warmwater setpoint"
   },
   "units": { "en": "°C", "nl": "°C" },
   "decimals": 1,
-  "icon": "/assets/icons/info.svg",
+  "icon": "/assets/icons/on-off-button.svg",
   "getable": true,
   "setable": false,
   "uiComponent": "sensor",

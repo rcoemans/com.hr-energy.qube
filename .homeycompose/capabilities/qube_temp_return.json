@@ -1,7 +1,7 @@
 {
     "type":  "number",
     "title":  {
-                  "en":  "Return Temperature",
+                  "en":  "Return temperature",
                   "nl":  "Retourtemperatuur"
               },
     "units":  {

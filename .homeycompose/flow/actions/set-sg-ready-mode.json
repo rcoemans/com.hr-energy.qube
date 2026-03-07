@@ -1,10 +1,10 @@
 {
   "title": {
-    "en": "Set SG Ready Mode",
+    "en": "Set SG Ready mode",
     "nl": "SG Ready modus instellen"
   },
   "titleFormatted": {
-    "en": "Set SG Ready Mode to [[value]]",
+    "en": "Set SG Ready mode to [[value]]",
     "nl": "Stel SG Ready modus in op [[value]]"
   },
   "hint": {

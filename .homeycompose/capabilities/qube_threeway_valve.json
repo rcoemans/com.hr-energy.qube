@@ -1,7 +1,7 @@
 {
     "type":  "boolean",
     "title":  {
-                  "en":  "Three-way Valve (CV/DHW)",
+                  "en":  "Three-way valve (CV/DHW)",
                   "nl":  "Drieweg klep (CV/warmwater)"
               },
     "icon":  "/assets/icons/valve.svg",

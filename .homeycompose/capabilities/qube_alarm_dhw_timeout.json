@@ -1,7 +1,7 @@
 {
     "type":  "boolean",
     "title":  {
-                  "en":  "DHW Timeout Alarm",
+                  "en":  "DHW timeout alarm",
                   "nl":  "Warmwater time-out alarm"
               },
     "icon":  "/assets/icons/alarm.svg",

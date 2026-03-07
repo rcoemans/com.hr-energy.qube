@@ -1,14 +1,14 @@
 {
     "type":  "number",
     "title":  {
-                  "en":  "Electric Power",
+                  "en":  "Electric power",
                   "nl":  "Elektrisch vermogen"
               },
     "units":  {
                   "en":  "W"
               },
     "decimals":  2,
-    "icon":  "/assets/icons/lightning.svg",
+    "icon":  "/assets/icons/alarm.svg",
     "getable":  true,
     "setable":  false,
     "insights":  true,

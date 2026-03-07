@@ -1,11 +1,11 @@
 {
   "title": {
-    "en": "Heating \u0394T Is ...",
-    "nl": "Verwarming \u0394T is ..."
+    "en": "Heating \u0394T !{{is|is not}} ...",
+    "nl": "Verwarming \u0394T !{{is|is niet}} ..."
   },
   "titleFormatted": {
-    "en": "Heating \u0394T Is [[operator]] [[value]] \u00b0C",
-    "nl": "Verwarming \u0394T is [[operator]] [[value]] \u00b0C"
+    "en": "Heating \u0394T !{{is|is not}} [[operator]] [[value]] \u00b0C",
+    "nl": "Verwarming \u0394T !{{is|is niet}} [[operator]] [[value]] \u00b0C"
   },
   "hint": {
     "en": "Checks whether the heating circuit temperature difference (supply - return) matches the selected condition.",

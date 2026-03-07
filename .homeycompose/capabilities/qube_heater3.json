@@ -4,7 +4,7 @@
     "en": "Heater 3",
     "nl": "Verwarmer 3"
   },
-  "icon": "/assets/icons/info.svg",
+  "icon": "/assets/icons/heater.svg",
   "getable": true,
   "setable": false,
   "uiComponent": "sensor",

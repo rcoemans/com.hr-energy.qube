@@ -1,7 +1,7 @@
 {
   "title": {
-    "en": "Alarm State Changed",
-    "nl": "Alarmstatus Gewijzigd"
+    "en": "Alarm state changed",
+    "nl": "Alarmstatus gewijzigd"
   },
   "hint": {
     "en": "Triggers when any alarm turns ON or OFF. The alarm name and state are provided as tags.",

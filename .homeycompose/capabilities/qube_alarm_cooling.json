@@ -1,7 +1,7 @@
 {
     "type":  "boolean",
     "title":  {
-                  "en":  "Cooling Alarm",
+                  "en":  "Cooling alarm",
                   "nl":  "Koelingsalarm"
               },
     "icon":  "/assets/icons/alarm.svg",

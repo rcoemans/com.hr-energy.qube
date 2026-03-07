@@ -1,10 +1,10 @@
 {
   "type": "boolean",
   "title": {
-    "en": "Anti-Legionella Enabled",
-    "nl": "Anti-legionella Ingeschakeld"
+    "en": "Anti-legionella enabled",
+    "nl": "Anti-legionella ingeschakeld"
   },
-  "icon": "/assets/icons/info.svg",
+  "icon": "/assets/icons/on-off-button.svg",
   "getable": true,
   "setable": false,
   "uiComponent": "sensor",

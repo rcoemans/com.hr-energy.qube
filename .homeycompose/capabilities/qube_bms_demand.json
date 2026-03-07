@@ -1,10 +1,10 @@
 {
     "type": "boolean",
     "title": {
-        "en": "BMS Demand",
+        "en": "BMS demand",
         "nl": "BMS-vraag"
     },
-    "icon": "/assets/icons/power-toggle.svg",
+    "icon": "/assets/icons/on-off-button.svg",
     "getable": true,
     "setable": false,
     "insights": true,

@@ -60,8 +60,8 @@
     "triggers": [
       {
         "title": {
-          "en": "Alarm State Changed",
-          "nl": "Alarmstatus Gewijzigd"
+          "en": "Alarm state changed",
+          "nl": "Alarmstatus gewijzigd"
         },
         "hint": {
           "en": "Triggers when any alarm turns ON or OFF. The alarm name and state are provided as tags.",
@@ -110,7 +110,7 @@
       },
       {
         "title": {
-          "en": "COP Changed",
+          "en": "COP changed",
           "nl": "COP gewijzigd"
         },
         "hint": {
@@ -141,7 +141,7 @@
       },
       {
         "title": {
-          "en": "DHW Temperature Changed",
+          "en": "DHW temperature changed",
           "nl": "Warmwatertemperatuur gewijzigd"
         },
         "hint": {
@@ -172,7 +172,7 @@
       },
       {
         "title": {
-          "en": "Heating ΔT Changed",
+          "en": "Heating ΔT changed",
           "nl": "Verwarming ΔT gewijzigd"
         },
         "hint": {
@@ -203,7 +203,7 @@
       },
       {
         "title": {
-          "en": "Outdoor Temperature Changed",
+          "en": "Outdoor temperature changed",
           "nl": "Buitentemperatuur gewijzigd"
         },
         "hint": {
@@ -234,8 +234,8 @@
       },
       {
         "title": {
-          "en": "Electric Power Changed",
-          "nl": "Elektrisch Vermogen Gewijzigd"
+          "en": "Electric power changed",
+          "nl": "Elektrisch vermogen gewijzigd"
         },
         "hint": {
           "en": "Triggers when the electric power consumption changes.",
@@ -246,8 +246,8 @@
             "name": "value",
             "type": "number",
             "title": {
-              "en": "Electric Power (W)",
-              "nl": "Elektrisch Vermogen (W)"
+              "en": "Electric power (W)",
+              "nl": "Elektrisch vermogen (W)"
             },
             "example": {
               "en": "1200"
@@ -265,7 +265,7 @@
       },
       {
         "title": {
-          "en": "Return Temperature Changed",
+          "en": "Return temperature changed",
           "nl": "Retourtemperatuur gewijzigd"
         },
         "hint": {
@@ -296,7 +296,7 @@
       },
       {
         "title": {
-          "en": "Room Temperature Changed",
+          "en": "Room temperature changed",
           "nl": "Kamertemperatuur gewijzigd"
         },
         "hint": {
@@ -327,7 +327,7 @@
       },
       {
         "title": {
-          "en": "Source ΔT Changed",
+          "en": "Source ΔT changed",
           "nl": "Bron ΔT gewijzigd"
         },
         "hint": {
@@ -358,7 +358,7 @@
       },
       {
         "title": {
-          "en": "Source In Temperature Changed",
+          "en": "Source in temperature changed",
           "nl": "Bron inlaattemperatuur gewijzigd"
         },
         "hint": {
@@ -389,7 +389,7 @@
       },
       {
         "title": {
-          "en": "Source Out Temperature Changed",
+          "en": "Source out temperature changed",
           "nl": "Bron uitlaattemperatuur gewijzigd"
         },
         "hint": {
@@ -420,7 +420,7 @@
       },
       {
         "title": {
-          "en": "Supply Temperature Changed",
+          "en": "Supply temperature changed",
           "nl": "Aanvoertemperatuur gewijzigd"
         },
         "hint": {
@@ -451,8 +451,8 @@
       },
       {
         "title": {
-          "en": "Thermal Power Changed",
-          "nl": "Thermisch Vermogen Gewijzigd"
+          "en": "Thermal power changed",
+          "nl": "Thermisch vermogen gewijzigd"
         },
         "hint": {
           "en": "Triggers when the thermal power output changes.",
@@ -463,8 +463,8 @@
             "name": "value",
             "type": "number",
             "title": {
-              "en": "Thermal Power (W)",
-              "nl": "Thermisch Vermogen (W)"
+              "en": "Thermal power (W)",
+              "nl": "Thermisch vermogen (W)"
             },
             "example": {
               "en": "4500"
@@ -482,8 +482,8 @@
       },
       {
         "title": {
-          "en": "Unit Status Changed",
-          "nl": "Unitstatus Gewijzigd"
+          "en": "Unit status changed",
+          "nl": "Unitstatus gewijzigd"
         },
         "hint": {
           "en": "Triggers when the heat pump unit status changes (e.g. standby → heating). Only fires when the decoded status text changes.",
@@ -570,12 +570,12 @@
     "conditions": [
       {
         "title": {
-          "en": "Alarm Is ...",
-          "nl": "Alarm is ..."
+          "en": "Alarm !{{is|is not}} ...",
+          "nl": "Alarm !{{is|is niet}} ..."
         },
         "titleFormatted": {
-          "en": "Alarm [[alarm]] Is [[status]]",
-          "nl": "Alarm [[alarm]] is [[status]]"
+          "en": "Alarm [[alarm]] !{{is|is not}} [[status]]",
+          "nl": "Alarm [[alarm]] !{{is|is niet}} [[status]]"
         },
         "hint": {
           "en": "Checks whether the selected alarm is currently ON or OFF.",
@@ -696,12 +696,12 @@
       },
       {
         "title": {
-          "en": "COP Is ...",
-          "nl": "COP is ..."
+          "en": "COP !{{is|is not}} ...",
+          "nl": "COP !{{is|is niet}} ..."
         },
         "titleFormatted": {
-          "en": "COP Is [[operator]] [[value]]",
-          "nl": "COP is [[operator]] [[value]]"
+          "en": "COP !{{is|is not}} [[operator]] [[value]]",
+          "nl": "COP !{{is|is niet}} [[operator]] [[value]]"
         },
         "hint": {
           "en": "Checks whether the current Coefficient of Performance (COP) matches the selected condition.",
@@ -768,12 +768,12 @@
       },
       {
         "title": {
-          "en": "DHW Temperature Is ...",
-          "nl": "Warmwatertemperatuur is ..."
+          "en": "DHW temperature !{{is|is not}} ...",
+          "nl": "Warmwatertemperatuur !{{is|is niet}} ..."
         },
         "titleFormatted": {
-          "en": "DHW Temperature Is [[operator]] [[value]] °C",
-          "nl": "Warmwatertemperatuur is [[operator]] [[value]] °C"
+          "en": "DHW temperature !{{is|is not}} [[operator]] [[value]] °C",
+          "nl": "Warmwatertemperatuur !{{is|is niet}} [[operator]] [[value]] °C"
         },
         "hint": {
           "en": "Checks whether the current domestic hot water temperature matches the selected condition.",
@@ -839,12 +839,12 @@
       },
       {
         "title": {
-          "en": "Heating ΔT Is ...",
-          "nl": "Verwarming ΔT is ..."
+          "en": "Heating ΔT !{{is|is not}} ...",
+          "nl": "Verwarming ΔT !{{is|is niet}} ..."
         },
         "titleFormatted": {
-          "en": "Heating ΔT Is [[operator]] [[value]] °C",
-          "nl": "Verwarming ΔT is [[operator]] [[value]] °C"
+          "en": "Heating ΔT !{{is|is not}} [[operator]] [[value]] °C",
+          "nl": "Verwarming ΔT !{{is|is niet}} [[operator]] [[value]] °C"
         },
         "hint": {
           "en": "Checks whether the heating circuit temperature difference (supply - return) matches the selected condition.",
@@ -911,12 +911,12 @@
       },
       {
         "title": {
-          "en": "Outdoor Temperature Is ...",
-          "nl": "Buitentemperatuur is ..."
+          "en": "Outdoor temperature !{{is|is not}} ...",
+          "nl": "Buitentemperatuur !{{is|is niet}} ..."
         },
         "titleFormatted": {
-          "en": "Outdoor Temperature Is [[operator]] [[value]] °C",
-          "nl": "Buitentemperatuur is [[operator]] [[value]] °C"
+          "en": "Outdoor temperature !{{is|is not}} [[operator]] [[value]] °C",
+          "nl": "Buitentemperatuur !{{is|is niet}} [[operator]] [[value]] °C"
         },
         "hint": {
           "en": "Checks whether the current outdoor temperature matches the selected condition.",
@@ -982,12 +982,12 @@
       },
       {
         "title": {
-          "en": "Electric Power is ...",
-          "nl": "Elektrisch Vermogen is ..."
+          "en": "Electric power !{{is|is not}} ...",
+          "nl": "Elektrisch vermogen !{{is|is niet}} ..."
         },
         "titleFormatted": {
-          "en": "Electric Power is [[operator]] [[value]] W",
-          "nl": "Elektrisch Vermogen is [[operator]] [[value]] W"
+          "en": "Electric power !{{is|is not}} [[operator]] [[value]] W",
+          "nl": "Elektrisch vermogen !{{is|is niet}} [[operator]] [[value]] W"
         },
         "hint": {
           "en": "Checks whether the current electric power consumption matches the selected condition.",
@@ -1053,12 +1053,12 @@
       },
       {
         "title": {
-          "en": "Return Temperature Is ...",
-          "nl": "Retourtemperatuur is ..."
+          "en": "Return temperature !{{is|is not}} ...",
+          "nl": "Retourtemperatuur !{{is|is niet}} ..."
         },
         "titleFormatted": {
-          "en": "Return Temperature Is [[operator]] [[value]] °C",
-          "nl": "Retourtemperatuur is [[operator]] [[value]] °C"
+          "en": "Return temperature !{{is|is not}} [[operator]] [[value]] °C",
+          "nl": "Retourtemperatuur !{{is|is niet}} [[operator]] [[value]] °C"
         },
         "hint": {
           "en": "Checks whether the current return temperature matches the selected condition.",
@@ -1124,12 +1124,12 @@
       },
       {
         "title": {
-          "en": "Room Temperature Is ...",
-          "nl": "Kamertemperatuur is ..."
+          "en": "Room temperature !{{is|is not}} ...",
+          "nl": "Kamertemperatuur !{{is|is niet}} ..."
         },
         "titleFormatted": {
-          "en": "Room Temperature Is [[operator]] [[value]] °C",
-          "nl": "Kamertemperatuur is [[operator]] [[value]] °C"
+          "en": "Room temperature !{{is|is not}} [[operator]] [[value]] °C",
+          "nl": "Kamertemperatuur !{{is|is niet}} [[operator]] [[value]] °C"
         },
         "hint": {
           "en": "Checks whether the current room temperature matches the selected condition.",
@@ -1195,12 +1195,12 @@
       },
       {
         "title": {
-          "en": "Source ΔT Is ...",
-          "nl": "Bron ΔT is ..."
+          "en": "Source ΔT !{{is|is not}} ...",
+          "nl": "Bron ΔT !{{is|is niet}} ..."
         },
         "titleFormatted": {
-          "en": "Source ΔT Is [[operator]] [[value]] °C",
-          "nl": "Bron ΔT is [[operator]] [[value]] °C"
+          "en": "Source ΔT !{{is|is not}} [[operator]] [[value]] °C",
+          "nl": "Bron ΔT !{{is|is niet}} [[operator]] [[value]] °C"
         },
         "hint": {
           "en": "Checks whether the source-side temperature difference (source in - source out) matches the selected condition.",
@@ -1267,12 +1267,12 @@
       },
       {
         "title": {
-          "en": "Source In Temperature Is ...",
-          "nl": "Bron inlaattemperatuur is ..."
+          "en": "Source in temperature !{{is|is not}} ...",
+          "nl": "Bron inlaattemperatuur !{{is|is niet}} ..."
         },
         "titleFormatted": {
-          "en": "Source In Temperature Is [[operator]] [[value]] °C",
-          "nl": "Bron inlaattemperatuur is [[operator]] [[value]] °C"
+          "en": "Source in temperature !{{is|is not}} [[operator]] [[value]] °C",
+          "nl": "Bron inlaattemperatuur !{{is|is niet}} [[operator]] [[value]] °C"
         },
         "hint": {
           "en": "Checks whether the current source inlet temperature matches the selected condition.",
@@ -1338,12 +1338,12 @@
       },
       {
         "title": {
-          "en": "Source Out Temperature Is ...",
-          "nl": "Bron uitlaattemperatuur is ..."
+          "en": "Source out temperature !{{is|is not}} ...",
+          "nl": "Bron uitlaattemperatuur !{{is|is niet}} ..."
         },
         "titleFormatted": {
-          "en": "Source Out Temperature Is [[operator]] [[value]] °C",
-          "nl": "Bron uitlaattemperatuur is [[operator]] [[value]] °C"
+          "en": "Source out temperature !{{is|is not}} [[operator]] [[value]] °C",
+          "nl": "Bron uitlaattemperatuur !{{is|is niet}} [[operator]] [[value]] °C"
         },
         "hint": {
           "en": "Checks whether the current source outlet temperature matches the selected condition.",
@@ -1409,12 +1409,12 @@
       },
       {
         "title": {
-          "en": "Supply Temperature Is ...",
-          "nl": "Aanvoertemperatuur is ..."
+          "en": "Supply temperature !{{is|is not}} ...",
+          "nl": "Aanvoertemperatuur !{{is|is niet}} ..."
         },
         "titleFormatted": {
-          "en": "Supply Temperature Is [[operator]] [[value]] °C",
-          "nl": "Aanvoertemperatuur is [[operator]] [[value]] °C"
+          "en": "Supply temperature !{{is|is not}} [[operator]] [[value]] °C",
+          "nl": "Aanvoertemperatuur !{{is|is niet}} [[operator]] [[value]] °C"
         },
         "hint": {
           "en": "Checks whether the current supply temperature matches the selected condition.",
@@ -1480,12 +1480,12 @@
       },
       {
         "title": {
-          "en": "Thermal Power is ...",
-          "nl": "Thermisch Vermogen is ..."
+          "en": "Thermal power !{{is|is not}} ...",
+          "nl": "Thermisch vermogen !{{is|is niet}} ..."
         },
         "titleFormatted": {
-          "en": "Thermal Power is [[operator]] [[value]] W",
-          "nl": "Thermisch Vermogen is [[operator]] [[value]] W"
+          "en": "Thermal power !{{is|is not}} [[operator]] [[value]] W",
+          "nl": "Thermisch vermogen !{{is|is niet}} [[operator]] [[value]] W"
         },
         "hint": {
           "en": "Checks whether the current thermal power output matches the selected condition.",
@@ -1551,12 +1551,12 @@
       },
       {
         "title": {
-          "en": "Unit Status Is ...",
-          "nl": "Unitstatus is ..."
+          "en": "Unit status !{{is|is not}} ...",
+          "nl": "Unitstatus !{{is|is niet}} ..."
         },
         "titleFormatted": {
-          "en": "Unit Status Is [[status]]",
-          "nl": "Unitstatus is [[status]]"
+          "en": "Unit status !{{is|is not}} [[status]]",
+          "nl": "Unitstatus !{{is|is niet}} [[status]]"
         },
         "hint": {
           "en": "Checks whether the current heat pump unit status matches the selected status.",
@@ -1648,11 +1648,11 @@
     "actions": [
       {
         "title": {
-          "en": "Force Anti-Legionella Cycle",
+          "en": "Force anti-legionella cycle",
           "nl": "Anti-legionellacyclus forceren"
         },
         "titleFormatted": {
-          "en": "Force Anti-Legionella Cycle",
+          "en": "Force anti-legionella cycle",
           "nl": "Forceer anti-legionellacyclus"
         },
         "hint": {
@@ -1670,11 +1670,11 @@
       },
       {
         "title": {
-          "en": "Force DHW Program",
+          "en": "Force DHW program",
           "nl": "Warmwaterprogramma forceren"
         },
         "titleFormatted": {
-          "en": "Force DHW Program",
+          "en": "Force DHW program",
           "nl": "Forceer warmwaterprogramma"
         },
         "hint": {
@@ -1692,11 +1692,11 @@
       },
       {
         "title": {
-          "en": "Set BMS Demand Control",
+          "en": "Set BMS demand control",
           "nl": "BMS-vraagsturing instellen"
         },
         "titleFormatted": {
-          "en": "Set BMS Demand Control to [[status]]",
+          "en": "Set BMS demand control to [[status]]",
           "nl": "Stel BMS-vraagsturing in op [[status]]"
         },
         "hint": {
@@ -1738,11 +1738,11 @@
       },
       {
         "title": {
-          "en": "Set Cooling Setpoint",
+          "en": "Set cooling setpoint",
           "nl": "Koelingssetpoint instellen"
         },
         "titleFormatted": {
-          "en": "Set Cooling [[period]] Setpoint to [[temperature]] °C",
+          "en": "Set cooling [[period]] setpoint to [[temperature]] °C",
           "nl": "Stel koeling [[period]] setpoint in op [[temperature]] °C"
         },
         "hint": {
@@ -1798,11 +1798,11 @@
       },
       {
         "title": {
-          "en": "Set DHW Program",
+          "en": "Set DHW program",
           "nl": "Warmwaterprogramma instellen"
         },
         "titleFormatted": {
-          "en": "Set DHW Program to [[status]]",
+          "en": "Set DHW program to [[status]]",
           "nl": "Stel warmwaterprogramma in op [[status]]"
         },
         "hint": {
@@ -1844,11 +1844,11 @@
       },
       {
         "title": {
-          "en": "Set DHW Setpoint",
+          "en": "Set DHW setpoint",
           "nl": "Warmwatersetpoint instellen"
         },
         "titleFormatted": {
-          "en": "Set DHW Setpoint to [[temperature]] °C",
+          "en": "Set DHW setpoint to [[temperature]] °C",
           "nl": "Stel warmwatersetpoint in op [[temperature]] °C"
         },
         "hint": {
@@ -1880,11 +1880,11 @@
       },
       {
         "title": {
-          "en": "Set Heating Curve",
+          "en": "Set heating curve",
           "nl": "Stooklijn instellen"
         },
         "titleFormatted": {
-          "en": "Set Heating Curve to [[status]]",
+          "en": "Set heating curve to [[status]]",
           "nl": "Stel stooklijn in op [[status]]"
         },
         "hint": {
@@ -1926,11 +1926,11 @@
       },
       {
         "title": {
-          "en": "Set Heating Setpoint",
+          "en": "Set heating setpoint",
           "nl": "Verwarmingssetpoint instellen"
         },
         "titleFormatted": {
-          "en": "Set Heating [[period]] Setpoint to [[temperature]] °C",
+          "en": "Set heating [[period]] setpoint to [[temperature]] °C",
           "nl": "Stel verwarming [[period]] setpoint in op [[temperature]] °C"
         },
         "hint": {
@@ -1986,11 +1986,11 @@
       },
       {
         "title": {
-          "en": "Set Season Mode",
+          "en": "Set season mode",
           "nl": "Seizoensmodus instellen"
         },
         "titleFormatted": {
-          "en": "Set Season Mode to [[value]]",
+          "en": "Set season mode to [[value]]",
           "nl": "Stel seizoensmodus in op [[value]]"
         },
         "hint": {
@@ -2032,11 +2032,11 @@
       },
       {
         "title": {
-          "en": "Set SG Ready Mode",
+          "en": "Set SG Ready mode",
           "nl": "SG Ready modus instellen"
         },
         "titleFormatted": {
-          "en": "Set SG Ready Mode to [[value]]",
+          "en": "Set SG Ready mode to [[value]]",
           "nl": "Stel SG Ready modus in op [[value]]"
         },
         "hint": {
@@ -2195,71 +2195,109 @@
         }
       ],
       "capabilities": [
-        "qube_temp_supply",
-        "qube_temp_return",
-        "qube_temp_source_in",
-        "qube_temp_source_out",
-        "qube_temp_room",
-        "qube_temp_dhw",
-        "qube_temp_outdoor",
-        "qube_flow",
-        "qube_cop",
-        "qube_power",
-        "qube_meter_electric",
-        "qube_energy_thermal",
-        "qube_power_thermal",
-        "qube_compressor_speed",
-        "qube_unitstatus_raw",
+        "alarm_generic",
+        "measure_cop",
+        "measure_flow",
+        "measure_runtime_efficiency",
+        "measure_heating_dt",
+        "measure_source_dt",
+        "measure_temperature.room",
+        "measure_temperature.dhw",
+        "measure_temperature.outdoor",
+        "measure_power",
+        "measure_power_thermal",
         "qube_status",
-        "qube_alarm_global",
-        "qube_alarm_flow",
-        "qube_alarm_heating",
+        "measure_compressor_speed",
         "qube_alarm_cooling",
+        "qube_alarm_dhw_timeout",
+        "qube_alarm_flow",
+        "qube_alarm_global",
+        "qube_alarm_heating",
+        "qube_alarm_legionella_timeout",
         "qube_alarm_source",
         "qube_alarm_user",
-        "qube_alarm_legionella_timeout",
-        "qube_alarm_dhw_timeout",
         "qube_alarm_working_hours",
-        "qube_source_pump",
-        "qube_user_pump",
+        "qube_buffer_pump",
         "qube_fourway_valve",
-        "qube_threeway_valve",
         "qube_heater1",
         "qube_heater2",
-        "qube_hours_dhw",
-        "qube_hours_heating",
-        "qube_hours_cooling",
-        "qube_heating_dt",
-        "qube_source_dt",
-        "qube_runtime_efficiency",
+        "qube_heater3",
+        "qube_source_pump",
+        "qube_threeway_valve",
+        "qube_user_pump",
+        "qube_antilegionella_enabled",
+        "qube_bms_demand",
+        "qube_daynight_mode",
+        "qube_dhw_controller_enabled",
+        "qube_dhw_program_status",
+        "qube_heating_curve_status",
+        "qube_pv_surplus",
         "qube_season_mode",
-        "qube_heating_setpoint_day",
-        "qube_heating_setpoint_night",
+        "qube_sg_ready_status",
+        "qube_thermostat_demand",
+        "qube_energy_thermal",
+        "qube_meter_electric",
+        "qube_compressor_demand",
+        "qube_calc_cooling_setpoint",
+        "qube_calc_dhw_setpoint",
+        "qube_calc_hp_setpoint",
         "qube_cooling_setpoint_day",
         "qube_cooling_setpoint_night",
         "qube_dhw_setpoint",
-        "qube_bms_demand",
-        "qube_heating_curve_status",
-        "qube_dhw_program_status",
-        "qube_sg_ready_status",
-        "qube_antilegionella_enabled",
-        "qube_daynight_mode",
-        "qube_compressor_demand",
-        "qube_dhw_controller_enabled",
-        "qube_calc_hp_setpoint",
-        "qube_calc_cooling_setpoint",
-        "qube_calc_dhw_setpoint",
-        "qube_pv_surplus",
-        "qube_buffer_pump",
-        "qube_heater3",
-        "qube_thermostat_demand"
+        "qube_heating_setpoint_day",
+        "qube_heating_setpoint_night",
+        "qube_unitstatus_raw",
+        "qube_temp_return",
+        "qube_temp_source_in",
+        "qube_temp_source_out",
+        "qube_temp_supply",
+        "qube_hours_cooling",
+        "qube_hours_dhw",
+        "qube_hours_heating"
       ],
       "capabilitiesOptions": {
+        "alarm_generic": {
+          "title": {
+            "en": "Alarm",
+            "nl": "Alarm"
+          },
+          "icon": "/assets/icons/alarm.svg",
+          "insightsTitleTrue": {
+            "en": "Alarm active",
+            "nl": "Alarm actief"
+          },
+          "insightsTitleFalse": {
+            "en": "No alarm",
+            "nl": "Geen alarm"
+          }
+        },
         "measure_power": {
           "title": {
-            "en": "Electric Power",
+            "en": "Electric power",
             "nl": "Elektrisch vermogen"
-          }
+          },
+          "icon": "/assets/icons/alarm.svg"
+        },
+        "measure_temperature.room": {
+          "title": {
+            "en": "Room temperature",
+            "nl": "Kamertemperatuur"
+          },
+          "icon": "/assets/icons/thermometer.svg"
+        },
+        "measure_temperature.dhw": {
+          "title": {
+            "en": "DHW temperature",
+            "nl": "Warmwatertemperatuur"
+          },
+          "icon": "/assets/icons/thermometer.svg"
+        },
+        "measure_temperature.outdoor": {
+          "title": {
+            "en": "Outdoor temperature",
+            "nl": "Buitentemperatuur"
+          },
+          "icon": "/assets/icons/thermometer.svg"
         }
       },
       "id": "qube",
@@ -2306,10 +2344,142 @@
     }
   ],
   "capabilities": {
+    "measure_compressor_speed": {
+      "type": "number",
+      "title": {
+        "en": "Compressor speed",
+        "nl": "Compressorsnelheid"
+      },
+      "units": {
+        "en": "rpm"
+      },
+      "decimals": 0,
+      "icon": "/assets/icons/compressor.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_cop": {
+      "type": "number",
+      "title": {
+        "en": "COP",
+        "nl": "COP"
+      },
+      "decimals": 2,
+      "icon": "/assets/icons/performance.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_flow": {
+      "type": "number",
+      "title": {
+        "en": "Flow",
+        "nl": "Debiet"
+      },
+      "units": {
+        "en": "l/min"
+      },
+      "decimals": 2,
+      "icon": "/assets/icons/flow.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_heating_dt": {
+      "type": "number",
+      "title": {
+        "en": "Heating ΔT",
+        "nl": "Verwarming ΔT"
+      },
+      "desc": {
+        "en": "Temperature difference between supply and return (SupplyTemp - ReturnTemp). Helps spot hydraulic issues.",
+        "nl": "Temperatuurverschil tussen aanvoer en retour (Aanvoer - Retour). Helpt hydraulische problemen te signaleren."
+      },
+      "units": {
+        "en": "°C"
+      },
+      "decimals": 2,
+      "icon": "/assets/icons/thermometer.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_power_thermal": {
+      "type": "number",
+      "title": {
+        "en": "Thermal power",
+        "nl": "Thermisch vermogen"
+      },
+      "units": {
+        "en": "W"
+      },
+      "decimals": 0,
+      "icon": "/assets/icons/alarm.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_runtime_efficiency": {
+      "type": "number",
+      "title": {
+        "en": "Runtime efficiency",
+        "nl": "Runtime-efficiëntie"
+      },
+      "desc": {
+        "en": "Thermal energy produced per heating hour (thermal kWh / heating hours). Helps assess long-term system behavior.",
+        "nl": "Thermische energie per verwarmingsuur (thermische kWh / verwarmingsuren). Helpt het langetermijngedrag van het systeem te beoordelen."
+      },
+      "units": {
+        "en": "kWh/h"
+      },
+      "decimals": 2,
+      "icon": "/assets/icons/efficiency.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "measure_source_dt": {
+      "type": "number",
+      "title": {
+        "en": "Source ΔT",
+        "nl": "Bron ΔT"
+      },
+      "desc": {
+        "en": "Temperature difference between source in and source out (SrcInTemp - SrcOutTemp). Shows how much heat is extracted from the source side.",
+        "nl": "Temperatuurverschil tussen bron in en bron uit (BronIn - BronUit). Toont hoeveel warmte aan de bronzijde wordt onttrokken."
+      },
+      "units": {
+        "en": "°C"
+      },
+      "decimals": 2,
+      "icon": "/assets/icons/thermometer.svg",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor"
+    },
+    "qube_alarm_active": {
+      "type": "boolean",
+      "title": {
+        "en": "Alarm",
+        "nl": "Alarm"
+      },
+      "icon": "/assets/icons/alarm.svg",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
     "qube_alarm_cooling": {
       "type": "boolean",
       "title": {
-        "en": "Cooling Alarm",
+        "en": "Cooling alarm",
         "nl": "Koelingsalarm"
       },
       "icon": "/assets/icons/alarm.svg",
@@ -2321,7 +2491,7 @@
     "qube_alarm_dhw_timeout": {
       "type": "boolean",
       "title": {
-        "en": "DHW Timeout Alarm",
+        "en": "DHW timeout alarm",
         "nl": "Warmwater time-out alarm"
       },
       "icon": "/assets/icons/alarm.svg",
@@ -2333,7 +2503,7 @@
     "qube_alarm_flow": {
       "type": "boolean",
       "title": {
-        "en": "Flow Alarm",
+        "en": "Flow alarm",
         "nl": "Debietalarm"
       },
       "icon": "/assets/icons/alarm.svg",
@@ -2345,7 +2515,7 @@
     "qube_alarm_global": {
       "type": "boolean",
       "title": {
-        "en": "Global Alarm",
+        "en": "Global alarm",
         "nl": "Globaal alarm"
       },
       "icon": "/assets/icons/alarm.svg",
@@ -2357,7 +2527,7 @@
     "qube_alarm_heating": {
       "type": "boolean",
       "title": {
-        "en": "Heating Alarm",
+        "en": "Heating alarm",
         "nl": "Verwarmingsalarm"
       },
       "icon": "/assets/icons/alarm.svg",
@@ -2369,7 +2539,7 @@
     "qube_alarm_legionella_timeout": {
       "type": "boolean",
       "title": {
-        "en": "Legionella Timeout Alarm",
+        "en": "Legionella timeout alarm",
         "nl": "Legionella time-out alarm"
       },
       "icon": "/assets/icons/alarm.svg",
@@ -2381,7 +2551,7 @@
     "qube_alarm_source": {
       "type": "boolean",
       "title": {
-        "en": "Source Alarm",
+        "en": "Source alarm",
         "nl": "Bronalarm"
       },
       "icon": "/assets/icons/alarm.svg",
@@ -2393,7 +2563,7 @@
     "qube_alarm_user": {
       "type": "boolean",
       "title": {
-        "en": "User Alarm",
+        "en": "User alarm",
         "nl": "Gebruikersalarm"
       },
       "icon": "/assets/icons/alarm.svg",
@@ -2405,7 +2575,7 @@
     "qube_alarm_working_hours": {
       "type": "boolean",
       "title": {
-        "en": "Working Hours Alarm",
+        "en": "Working hours alarm",
         "nl": "Bedrijfsuren alarm"
       },
       "icon": "/assets/icons/alarm.svg",
@@ -2417,10 +2587,10 @@
     "qube_antilegionella_enabled": {
       "type": "boolean",
       "title": {
-        "en": "Anti-Legionella Enabled",
-        "nl": "Anti-legionella Ingeschakeld"
+        "en": "Anti-legionella enabled",
+        "nl": "Anti-legionella ingeschakeld"
       },
-      "icon": "/assets/icons/info.svg",
+      "icon": "/assets/icons/on-off-button.svg",
       "getable": true,
       "setable": false,
       "uiComponent": "sensor"
@@ -2428,10 +2598,10 @@
     "qube_bms_demand": {
       "type": "boolean",
       "title": {
-        "en": "BMS Demand",
+        "en": "BMS demand",
         "nl": "BMS-vraag"
       },
-      "icon": "/assets/icons/power-toggle.svg",
+      "icon": "/assets/icons/on-off-button.svg",
       "getable": true,
       "setable": false,
       "insights": true,
@@ -2440,10 +2610,10 @@
     "qube_buffer_pump": {
       "type": "boolean",
       "title": {
-        "en": "Buffer Pump",
-        "nl": "Buffervat Pomp"
+        "en": "Buffer pump",
+        "nl": "Buffervat pomp"
       },
-      "icon": "/assets/icons/info.svg",
+      "icon": "/assets/icons/pump.svg",
       "getable": true,
       "setable": false,
       "uiComponent": "sensor"
@@ -2451,15 +2621,15 @@
     "qube_calc_cooling_setpoint": {
       "type": "number",
       "title": {
-        "en": "Calculated Cooling Setpoint",
-        "nl": "Berekend Koeling Setpoint"
+        "en": "Calculated cooling setpoint",
+        "nl": "Berekend koeling setpoint"
       },
       "units": {
         "en": "°C",
         "nl": "°C"
       },
       "decimals": 1,
-      "icon": "/assets/icons/info.svg",
+      "icon": "/assets/icons/on-off-button.svg",
       "getable": true,
       "setable": false,
       "uiComponent": "sensor"
@@ -2467,15 +2637,15 @@
     "qube_calc_dhw_setpoint": {
       "type": "number",
       "title": {
-        "en": "Calculated DHW Setpoint",
-        "nl": "Berekend Warmwater Setpoint"
+        "en": "Calculated DHW setpoint",
+        "nl": "Berekend warmwater setpoint"
       },
       "units": {
         "en": "°C",
         "nl": "°C"
       },
       "decimals": 1,
-      "icon": "/assets/icons/info.svg",
+      "icon": "/assets/icons/on-off-button.svg",
       "getable": true,
       "setable": false,
       "uiComponent": "sensor"
@@ -2483,15 +2653,15 @@
     "qube_calc_hp_setpoint": {
       "type": "number",
       "title": {
-        "en": "Calculated HP Setpoint",
-        "nl": "Berekend WP Setpoint"
+        "en": "Calculated HP setpoint",
+        "nl": "Berekend WP setpoint"
       },
       "units": {
         "en": "°C",
         "nl": "°C"
       },
       "decimals": 1,
-      "icon": "/assets/icons/info.svg",
+      "icon": "/assets/icons/on-off-button.svg",
       "getable": true,
       "setable": false,
       "uiComponent": "sensor"
@@ -2499,7 +2669,7 @@
     "qube_compressor_demand": {
       "type": "number",
       "title": {
-        "en": "Compressor Demand",
+        "en": "Compressor demand",
         "nl": "Compressorvraag"
       },
       "units": {
@@ -2507,7 +2677,7 @@
         "nl": "%"
       },
       "decimals": 1,
-      "icon": "/assets/icons/info.svg",
+      "icon": "/assets/icons/percentage.svg",
       "getable": true,
       "setable": false,
       "uiComponent": "sensor"
@@ -2515,14 +2685,14 @@
     "qube_compressor_speed": {
       "type": "number",
       "title": {
-        "en": "Compressor Speed",
+        "en": "Compressor speed",
         "nl": "Compressorsnelheid"
       },
       "units": {
         "en": "rpm"
       },
       "decimals": 0,
-      "icon": "/assets/icons/fan.svg",
+      "icon": "/assets/icons/compressor.svg",
       "getable": true,
       "setable": false,
       "insights": true,
@@ -2531,8 +2701,8 @@
     "qube_cooling_setpoint_day": {
       "type": "number",
       "title": {
-        "en": "Cooling Setpoint (Day)",
-        "nl": "Koelingssetpoint (Dag)"
+        "en": "Cooling setpoint (day)",
+        "nl": "Koelingssetpoint (dag)"
       },
       "desc": {
         "en": "Room cooling setpoint for the day period.",
@@ -2545,7 +2715,7 @@
       "min": 5,
       "max": 25,
       "step": 0.5,
-      "icon": "/assets/icons/target-temp.svg",
+      "icon": "/assets/icons/on-off-button.svg",
       "getable": true,
       "setable": true,
       "uiComponent": "slider",
@@ -2554,8 +2724,8 @@
     "qube_cooling_setpoint_night": {
       "type": "number",
       "title": {
-        "en": "Cooling Setpoint (Night)",
-        "nl": "Koelingssetpoint (Nacht)"
+        "en": "Cooling setpoint (night)",
+        "nl": "Koelingssetpoint (nacht)"
       },
       "desc": {
         "en": "Room cooling setpoint for the night period.",
@@ -2568,7 +2738,7 @@
       "min": 5,
       "max": 25,
       "step": 0.5,
-      "icon": "/assets/icons/target-temp.svg",
+      "icon": "/assets/icons/on-off-button.svg",
       "getable": true,
       "setable": true,
       "uiComponent": "slider",
@@ -2581,7 +2751,7 @@
         "nl": "COP"
       },
       "decimals": 2,
-      "icon": "/assets/icons/cop.svg",
+      "icon": "/assets/icons/performance.svg",
       "getable": true,
       "setable": false,
       "insights": true,
@@ -2590,10 +2760,10 @@
     "qube_daynight_mode": {
       "type": "boolean",
       "title": {
-        "en": "Day/Night Mode",
-        "nl": "Dag/Nacht Modus"
+        "en": "Day/night mode",
+        "nl": "Dag/nacht modus"
       },
-      "icon": "/assets/icons/info.svg",
+      "icon": "/assets/icons/on-off-button.svg",
       "getable": true,
       "setable": false,
       "uiComponent": "sensor"
@@ -2601,10 +2771,10 @@
     "qube_dhw_controller_enabled": {
       "type": "boolean",
       "title": {
-        "en": "DHW Controller Enabled",
-        "nl": "Warmwaterregeling Ingeschakeld"
+        "en": "DHW controller enabled",
+        "nl": "Warmwaterregeling ingeschakeld"
       },
-      "icon": "/assets/icons/info.svg",
+      "icon": "/assets/icons/on-off-button.svg",
       "getable": true,
       "setable": false,
       "uiComponent": "sensor"
@@ -2612,10 +2782,10 @@
     "qube_dhw_program_status": {
       "type": "boolean",
       "title": {
-        "en": "DHW Program",
+        "en": "DHW program",
         "nl": "Warmwaterprogramma"
       },
-      "icon": "/assets/icons/thermometer.svg",
+      "icon": "/assets/icons/on-off-button.svg",
       "getable": true,
       "setable": false,
       "insights": true,
@@ -2624,7 +2794,7 @@
     "qube_dhw_setpoint": {
       "type": "number",
       "title": {
-        "en": "DHW Setpoint",
+        "en": "DHW setpoint",
         "nl": "Warmwatersetpoint"
       },
       "units": {
@@ -2634,7 +2804,7 @@
       "min": 30,
       "max": 65,
       "step": 0.5,
-      "icon": "/assets/icons/target-temp.svg",
+      "icon": "/assets/icons/on-off-button.svg",
       "getable": true,
       "setable": true,
       "uiComponent": "slider",
@@ -2643,14 +2813,14 @@
     "qube_energy_thermal": {
       "type": "number",
       "title": {
-        "en": "Thermal Energy",
+        "en": "Thermal energy",
         "nl": "Thermische energie"
       },
       "units": {
         "en": "kWh"
       },
       "decimals": 2,
-      "icon": "/assets/icons/energy.svg",
+      "icon": "/assets/icons/graph.svg",
       "getable": true,
       "setable": false,
       "insights": true,
@@ -2666,7 +2836,7 @@
         "en": "l/min"
       },
       "decimals": 2,
-      "icon": "/assets/icons/water-flow.svg",
+      "icon": "/assets/icons/flow.svg",
       "getable": true,
       "setable": false,
       "insights": true,
@@ -2675,7 +2845,7 @@
     "qube_fourway_valve": {
       "type": "boolean",
       "title": {
-        "en": "Four-way Valve",
+        "en": "Four-way valve",
         "nl": "Vierweg klep"
       },
       "icon": "/assets/icons/valve.svg",
@@ -2714,7 +2884,7 @@
         "en": "Heater 3",
         "nl": "Verwarmer 3"
       },
-      "icon": "/assets/icons/info.svg",
+      "icon": "/assets/icons/heater.svg",
       "getable": true,
       "setable": false,
       "uiComponent": "sensor"
@@ -2722,10 +2892,10 @@
     "qube_heating_curve_status": {
       "type": "boolean",
       "title": {
-        "en": "Heating Curve",
+        "en": "Heating curve",
         "nl": "Verwarmingscurve"
       },
-      "icon": "/assets/icons/season.svg",
+      "icon": "/assets/icons/sun.svg",
       "getable": true,
       "setable": false,
       "insights": true,
@@ -2754,8 +2924,8 @@
     "qube_heating_setpoint_day": {
       "type": "number",
       "title": {
-        "en": "Heating Setpoint (Day)",
-        "nl": "Verwarmingssetpoint (Dag)"
+        "en": "Heating setpoint (day)",
+        "nl": "Verwarmingssetpoint (dag)"
       },
       "desc": {
         "en": "Room heating setpoint for the day period.",
@@ -2768,7 +2938,7 @@
       "min": 10,
       "max": 65,
       "step": 0.5,
-      "icon": "/assets/icons/target-temp.svg",
+      "icon": "/assets/icons/on-off-button.svg",
       "getable": true,
       "setable": true,
       "uiComponent": "slider",
@@ -2777,8 +2947,8 @@
     "qube_heating_setpoint_night": {
       "type": "number",
       "title": {
-        "en": "Heating Setpoint (Night)",
-        "nl": "Verwarmingssetpoint (Nacht)"
+        "en": "Heating setpoint (night)",
+        "nl": "Verwarmingssetpoint (nacht)"
       },
       "desc": {
         "en": "Room heating setpoint for the night period.",
@@ -2791,7 +2961,7 @@
       "min": 10,
       "max": 65,
       "step": 0.5,
-      "icon": "/assets/icons/target-temp.svg",
+      "icon": "/assets/icons/on-off-button.svg",
       "getable": true,
       "setable": true,
       "uiComponent": "slider",
@@ -2800,14 +2970,14 @@
     "qube_hours_cooling": {
       "type": "number",
       "title": {
-        "en": "Working Hours Cooling",
+        "en": "Working hours cooling",
         "nl": "Bedrijfsuren koeling"
       },
       "units": {
         "en": "h"
       },
       "decimals": 0,
-      "icon": "/assets/icons/clock.svg",
+      "icon": "/assets/icons/graph.svg",
       "getable": true,
       "setable": false,
       "insights": true,
@@ -2816,14 +2986,14 @@
     "qube_hours_dhw": {
       "type": "number",
       "title": {
-        "en": "Working Hours DHW",
+        "en": "Working hours DHW",
         "nl": "Bedrijfsuren warmwater"
       },
       "units": {
         "en": "h"
       },
       "decimals": 0,
-      "icon": "/assets/icons/clock.svg",
+      "icon": "/assets/icons/graph.svg",
       "getable": true,
       "setable": false,
       "insights": true,
@@ -2832,14 +3002,14 @@
     "qube_hours_heating": {
       "type": "number",
       "title": {
-        "en": "Working Hours Heating",
+        "en": "Working hours heating",
         "nl": "Bedrijfsuren verwarming"
       },
       "units": {
         "en": "h"
       },
       "decimals": 0,
-      "icon": "/assets/icons/clock.svg",
+      "icon": "/assets/icons/graph.svg",
       "getable": true,
       "setable": false,
       "insights": true,
@@ -2848,14 +3018,14 @@
     "qube_meter_electric": {
       "type": "number",
       "title": {
-        "en": "Electric Energy",
+        "en": "Electric energy",
         "nl": "Elektrische energie"
       },
       "units": {
         "en": "kWh"
       },
       "decimals": 2,
-      "icon": "/assets/icons/energy.svg",
+      "icon": "/assets/icons/graph.svg",
       "getable": true,
       "setable": false,
       "insights": true,
@@ -2864,14 +3034,14 @@
     "qube_power": {
       "type": "number",
       "title": {
-        "en": "Electric Power",
+        "en": "Electric power",
         "nl": "Elektrisch vermogen"
       },
       "units": {
         "en": "W"
       },
       "decimals": 2,
-      "icon": "/assets/icons/lightning.svg",
+      "icon": "/assets/icons/alarm.svg",
       "getable": true,
       "setable": false,
       "insights": true,
@@ -2880,14 +3050,14 @@
     "qube_power_thermal": {
       "type": "number",
       "title": {
-        "en": "Thermal Power",
+        "en": "Thermal power",
         "nl": "Thermisch vermogen"
       },
       "units": {
         "en": "W"
       },
       "decimals": 0,
-      "icon": "/assets/icons/lightning.svg",
+      "icon": "/assets/icons/alarm.svg",
       "getable": true,
       "setable": false,
       "insights": true,
@@ -2896,10 +3066,10 @@
     "qube_pv_surplus": {
       "type": "boolean",
       "title": {
-        "en": "PV Surplus Active",
-        "nl": "PV Overschot Actief"
+        "en": "PV surplus active",
+        "nl": "PV overschot actief"
       },
-      "icon": "/assets/icons/info.svg",
+      "icon": "/assets/icons/on-off-button.svg",
       "getable": true,
       "setable": false,
       "uiComponent": "sensor"
@@ -2907,7 +3077,7 @@
     "qube_runtime_efficiency": {
       "type": "number",
       "title": {
-        "en": "Runtime Efficiency",
+        "en": "Runtime efficiency",
         "nl": "Runtime-efficiëntie"
       },
       "desc": {
@@ -2918,7 +3088,7 @@
         "en": "kWh/h"
       },
       "decimals": 2,
-      "icon": "/assets/icons/lightning.svg",
+      "icon": "/assets/icons/efficiency.svg",
       "getable": true,
       "setable": false,
       "insights": true,
@@ -2927,10 +3097,10 @@
     "qube_season_mode": {
       "type": "enum",
       "title": {
-        "en": "Season Mode",
+        "en": "Season mode",
         "nl": "Seizoensmodus"
       },
-      "icon": "/assets/icons/season.svg",
+      "icon": "/assets/icons/sun.svg",
       "values": [
         {
           "id": "Winter (Heating)",
@@ -2955,10 +3125,10 @@
     "qube_sg_ready_status": {
       "type": "string",
       "title": {
-        "en": "SG Ready Mode",
+        "en": "SG Ready mode",
         "nl": "SG Ready-modus"
       },
-      "icon": "/assets/icons/lightning.svg",
+      "icon": "/assets/icons/on-off-button.svg",
       "getable": true,
       "setable": false,
       "insights": true,
@@ -2987,7 +3157,7 @@
     "qube_source_pump": {
       "type": "boolean",
       "title": {
-        "en": "Source Pump",
+        "en": "Source pump",
         "nl": "Bronpomp"
       },
       "icon": "/assets/icons/pump.svg",
@@ -2999,10 +3169,10 @@
     "qube_status": {
       "type": "string",
       "title": {
-        "en": "Unit Status",
+        "en": "Unit status",
         "nl": "Unitstatus"
       },
-      "icon": "/assets/icons/info.svg",
+      "icon": "/assets/icons/alarm.svg",
       "getable": true,
       "setable": false,
       "uiComponent": "sensor"
@@ -3010,7 +3180,7 @@
     "qube_temp_dhw": {
       "type": "number",
       "title": {
-        "en": "DHW Temperature",
+        "en": "DHW temperature",
         "nl": "Warmwatertemperatuur"
       },
       "units": {
@@ -3026,7 +3196,7 @@
     "qube_temp_outdoor": {
       "type": "number",
       "title": {
-        "en": "Outdoor Temperature",
+        "en": "Outdoor temperature",
         "nl": "Buitentemperatuur"
       },
       "units": {
@@ -3042,7 +3212,7 @@
     "qube_temp_return": {
       "type": "number",
       "title": {
-        "en": "Return Temperature",
+        "en": "Return temperature",
         "nl": "Retourtemperatuur"
       },
       "units": {
@@ -3058,7 +3228,7 @@
     "qube_temp_room": {
       "type": "number",
       "title": {
-        "en": "Room Temperature",
+        "en": "Room temperature",
         "nl": "Kamertemperatuur"
       },
       "units": {
@@ -3074,7 +3244,7 @@
     "qube_temp_source_in": {
       "type": "number",
       "title": {
-        "en": "Source In Temperature",
+        "en": "Source in temperature",
         "nl": "Bron inlaattemperatuur"
       },
       "units": {
@@ -3090,7 +3260,7 @@
     "qube_temp_source_out": {
       "type": "number",
       "title": {
-        "en": "Source Out Temperature",
+        "en": "Source out temperature",
         "nl": "Bron uitlaattemperatuur"
       },
       "units": {
@@ -3106,7 +3276,7 @@
     "qube_temp_supply": {
       "type": "number",
       "title": {
-        "en": "Supply Temperature",
+        "en": "Supply temperature",
         "nl": "Aanvoertemperatuur"
       },
       "units": {
@@ -3122,10 +3292,10 @@
     "qube_thermostat_demand": {
       "type": "boolean",
       "title": {
-        "en": "Internal Thermostat Demand",
-        "nl": "Interne Thermostaatvraag"
+        "en": "Internal thermostat demand",
+        "nl": "Interne thermostaatvraag"
       },
-      "icon": "/assets/icons/info.svg",
+      "icon": "/assets/icons/on-off-button.svg",
       "getable": true,
       "setable": false,
       "uiComponent": "sensor"
@@ -3133,7 +3303,7 @@
     "qube_threeway_valve": {
       "type": "boolean",
       "title": {
-        "en": "Three-way Valve (CV/DHW)",
+        "en": "Three-way valve (CV/DHW)",
         "nl": "Drieweg klep (CV/warmwater)"
       },
       "icon": "/assets/icons/valve.svg",
@@ -3145,11 +3315,11 @@
     "qube_unitstatus_raw": {
       "type": "number",
       "title": {
-        "en": "Unit Status (Raw)",
+        "en": "Unit status (raw)",
         "nl": "Ruwe unitstatus"
       },
       "decimals": 0,
-      "icon": "/assets/icons/info.svg",
+      "icon": "/assets/icons/alarm.svg",
       "getable": true,
       "setable": false,
       "uiComponent": "sensor"
@@ -3157,7 +3327,7 @@
     "qube_user_pump": {
       "type": "boolean",
       "title": {
-        "en": "CV Pump",
+        "en": "CV pump",
         "nl": "CV-pomp"
       },
       "icon": "/assets/icons/pump.svg",

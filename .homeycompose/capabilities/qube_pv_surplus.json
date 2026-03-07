@@ -1,10 +1,10 @@
 {
   "type": "boolean",
   "title": {
-    "en": "PV Surplus Active",
-    "nl": "PV Overschot Actief"
+    "en": "PV surplus active",
+    "nl": "PV overschot actief"
   },
-  "icon": "/assets/icons/info.svg",
+  "icon": "/assets/icons/on-off-button.svg",
   "getable": true,
   "setable": false,
   "uiComponent": "sensor",

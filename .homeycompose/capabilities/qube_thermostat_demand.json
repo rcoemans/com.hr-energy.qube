@@ -1,10 +1,10 @@
 {
   "type": "boolean",
   "title": {
-    "en": "Internal Thermostat Demand",
-    "nl": "Interne Thermostaatvraag"
+    "en": "Internal thermostat demand",
+    "nl": "Interne thermostaatvraag"
   },
-  "icon": "/assets/icons/info.svg",
+  "icon": "/assets/icons/on-off-button.svg",
   "getable": true,
   "setable": false,
   "uiComponent": "sensor",

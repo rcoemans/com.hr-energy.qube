@@ -1,7 +1,7 @@
 {
   "title": {
-    "en": "Thermal Power Changed",
-    "nl": "Thermisch Vermogen Gewijzigd"
+    "en": "Thermal power changed",
+    "nl": "Thermisch vermogen gewijzigd"
   },
   "hint": {
     "en": "Triggers when the thermal power output changes.",
@@ -11,7 +11,7 @@
     {
       "name": "value",
       "type": "number",
-      "title": { "en": "Thermal Power (W)", "nl": "Thermisch Vermogen (W)" },
+      "title": { "en": "Thermal power (W)", "nl": "Thermisch vermogen (W)" },
       "example": { "en": "4500" }
     }
   ],

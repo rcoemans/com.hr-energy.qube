@@ -1,7 +1,7 @@
 {
     "type":  "boolean",
     "title":  {
-                  "en":  "Source Pump",
+                  "en":  "Source pump",
                   "nl":  "Bronpomp"
               },
     "icon":  "/assets/icons/pump.svg",
