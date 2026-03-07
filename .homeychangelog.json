@@ -7,5 +7,8 @@
   },
   "1.0.2": {
     "en": "Added developer support links."
+  },
+  "1.1.0": {
+    "en": "Revised strategy for Trigger, Condition and Action cards, improved pairing flow, updated icons, fixed the force anti-legionella program, and included several small tweaks and improvements."
   }
 }
