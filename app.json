@@ -2419,7 +2419,7 @@
         "en": "W"
       },
       "decimals": 0,
-      "icon": "/assets/icons/alarm.svg",
+      "icon": "/assets/icons/power.svg",
       "getable": true,
       "setable": false,
       "insights": true,
@@ -2629,7 +2629,7 @@
         "nl": "°C"
       },
       "decimals": 1,
-      "icon": "/assets/icons/on-off-button.svg",
+      "icon": "/assets/icons/thermometer.svg",
       "getable": true,
       "setable": false,
       "uiComponent": "sensor"
@@ -2645,7 +2645,7 @@
         "nl": "°C"
       },
       "decimals": 1,
-      "icon": "/assets/icons/on-off-button.svg",
+      "icon": "/assets/icons/thermometer.svg",
       "getable": true,
       "setable": false,
       "uiComponent": "sensor"
@@ -2661,7 +2661,7 @@
         "nl": "°C"
       },
       "decimals": 1,
-      "icon": "/assets/icons/on-off-button.svg",
+      "icon": "/assets/icons/thermometer.svg",
       "getable": true,
       "setable": false,
       "uiComponent": "sensor"
@@ -3041,7 +3041,7 @@
         "en": "W"
       },
       "decimals": 2,
-      "icon": "/assets/icons/alarm.svg",
+      "icon": "/assets/icons/power.svg",
       "getable": true,
       "setable": false,
       "insights": true,
@@ -3057,7 +3057,7 @@
         "en": "W"
       },
       "decimals": 0,
-      "icon": "/assets/icons/alarm.svg",
+      "icon": "/assets/icons/power.svg",
       "getable": true,
       "setable": false,
       "insights": true,

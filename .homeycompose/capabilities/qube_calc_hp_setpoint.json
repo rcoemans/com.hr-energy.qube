@@ -6,7 +6,7 @@
   },
   "units": { "en": "°C", "nl": "°C" },
   "decimals": 1,
-  "icon": "/assets/icons/on-off-button.svg",
+  "icon": "/assets/icons/thermometer.svg",
   "getable": true,
   "setable": false,
   "uiComponent": "sensor",
